@@ -1,0 +1,23 @@
+site_name: Mine Design Help Guide
+site_url: https://opencontourmining.com/
+nav:
+    - Quick Reference Guide: https://portal.opencontour.com/js/help/web/viewer.html?file=./quickreferenceguide.pdf
+    - Chapter 1 Introduction: index.md
+    - Chapter 2 User Registration: registration.md
+    - Chapter 3 Setting Up a Project: projectsetup.md
+    - Chapter 4 Mine Design Core Module: MineDesignCoreModule.md
+    - Chapter 5 Stacking Model: stackingModel.md
+    - Chapter 7 Heap Leach Model: heapLeachModel.md
+
+theme: 
+    name: material
+    palette:
+        primary: green
+extra:
+  alternate:
+    - name: English
+      link: /documentationoc/en 
+      lang: en
+    - name: Spanish
+      link: /documentationoc/es
+      lang: es
