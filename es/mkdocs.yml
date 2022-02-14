@@ -1,12 +1,12 @@
-site_name: Mine Design Help Guide
+site_name: Guía de Diseño Minero
 site_url: https://opencontourmining.com/
 nav:
-    - Quick Reference Guide: https://portal.opencontour.com/js/help/web/viewer.html?file=./quickreferenceguide.pdf
-    - Chapter 1 Introduction: index.md
-    - Chapter 2 User Registration: registration.md
-    - Chapter 3 Setting Up a Project: projectsetup.md
-    - Chapter 4 Mine Design Core Module: MineDesignCoreModule.md
-    - Chapter 5 Stacking Model: stackingModel.md
+    - Guía Rápida de Referencia : https://portal.opencontour.com/js/help/web/viewer.html?file=./quickreferenceguide.pdf
+    - Capítulo 1 Introducción: index.md
+    - Capítulo 2 Registro  de usuarios: registration.md
+    - Capítulo 3 Configuración de  un  proyecto: projectsetup.md
+    - Capítulo 4 Módulo central de diseño de minas: MineDesignCoreModule.md
+    - Chapter 5 Apilamiento de lixiviación en pilas de Opencontour: stackingModel.md
 theme: 
     name: material
     palette:
