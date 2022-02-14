@@ -1,5 +1,5 @@
 # Chapter 2 User Registration
-<video width="70%" height="300px" style="margin-left:1em;" controls>
+<video width="70%" height="300px" style="margin-left:3em;" controls>
     <source src="../images/videos/account_registration.mp4" type="video/mp4">
     <!-- <source src="assets/videos/favicon.png" type="video/ogg"> -->
     Your browser does not support the video tag.

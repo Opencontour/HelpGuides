@@ -1,7 +1,7 @@
 
 # Chapter 3 Setting Up a Project
 
-<video width="70%" height="300px" style="margin-left:1em;" controls>
+<video width="70%" height="300px" style="margin-left:3em;" controls>
     <source src="../images/videos/project_setup.mp4" type="video/mp4">
     <!-- <source src="assets/videos/favicon.png" type="video/ogg"> -->
     Your browser does not support the video tag.
