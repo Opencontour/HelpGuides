@@ -8,6 +8,7 @@ nav:
     - Chapter 4 Mine Design Core Module: MineDesignCoreModule.md
     - Chapter 5 Stacking Model: stackingModel.md
     - Chapter 7 Heap Leach Model: heapLeachModel.md
+    - Appendix: appendix.md
 theme: 
     name: material
     palette:

@@ -344,7 +344,7 @@ Select the “Misc” tab in the Leach Stacking Menu to import the CutterResult 
 
 If blocks have been rehandled to make new room for the new stacking, the old blocks will be deleted and replaced with the new stacking.
 
-![Image](./images/import_cutres.png)
+![Image](./images/import_cutters.png)
 
 Use the Script tool to populate the ‘ltp’ property in the CutterResult layer. After you click Ok, exit the window.
 
