@@ -7,6 +7,7 @@ nav:
     - Capítulo 3 Configuración de  un  proyecto: projectsetup.md
     - Capítulo 4 Módulo central de diseño de minas: MineDesignCoreModule.md
     - Chapter 5 Apilamiento de lixiviación en pilas de Opencontour: stackingModel.md
+    - Capítulo 7 Modelo de apilamiento de lixiviación en pilas: heapLeachModel.md
 theme: 
     name: material
     palette:

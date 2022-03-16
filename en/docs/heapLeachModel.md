@@ -9,7 +9,7 @@ What you will learn:
 ### Cutter Result Recovery Model Properties: 
 
 | **Name** | **Summary**|
-|-------------------|------------------------------------------------------------------------------|          
+|----------|---------------|          
 |        midx |  Block center point X coordinate (ex. 6501625)                                            
 |        midy |  Block center point Y coordinate (ex. 2182875)                                            
 |        midz |  Block elevation (ex. 2930)                                                               
