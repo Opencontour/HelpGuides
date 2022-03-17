@@ -2,9 +2,11 @@
 
 https://www.mkdocs.org/
 
-## Install and Build in respective en/es folders
+## Install and Build
 pip install -r requirements.txt
-## Build the html
+
+## Build the html in respective en/es folders
 mkdocs build
-## run test environment/preview
+
+## run test environment/preview in respective en/es folders
 mkdocs serve

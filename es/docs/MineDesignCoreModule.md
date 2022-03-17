@@ -6,6 +6,14 @@
   <!-- <source src="assets/videos/favicon.png" type="video/ogg"> -->
   Your browser does not support the video tag.
 </video>
+<h3 id="chapter-4-mine-design-core-module">Building Fillers</h3>
+
+<video width="70%" height="300px" style="margin-left:3em;" controls>
+  <source src="../images/videos/filler_layers.mp4" type="video/mp4">
+  <!-- <source src="assets/videos/favicon.png" type="video/ogg"> -->
+  Your browser does not support the video tag.
+</video>
+
 
 ## 4.1 Descripción general
 La ventana Proyecto se utiliza para crear y editar proyectos a través de varios elementos, como paneles, barras, ventanas, etc. Tras realizar los ajustes a través de **Project Settings** (**configuración del proyecto**), se creará el nuevo proyecto.   El nombre del proyecto y el número de versión se mostraran en la  esquina  superior  derecha    de  la  **ventana del proyecto**. 
