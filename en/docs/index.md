@@ -1,12 +1,12 @@
 site_name: MkLorum
-# Chapter 1 Introuction
+# Chapter 1 Introduction
 <video width="70%" height="300px" style="margin-left:3em;" controls>
     <source src="./images/videos/navigating.mp4" type="video/mp4">
     <!-- <source src="assets/videos/favicon.png" type="video/ogg"> -->
     Your browser does not support the video tag.
 </video>
 
-## Overview 
+## Overview
 
 Opencontour® is mining-based software that provides cost-benefit mine design options and provides foresight into designs that maximize productivity. It uses CAD functionality for open-pit mine planning.
 
