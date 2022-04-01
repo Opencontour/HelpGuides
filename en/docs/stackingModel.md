@@ -11,7 +11,7 @@ ____________________________________________________________________
 
 
 
-## Utility Menu > 
+## Utility Menu >
 ## Stacking Menu
 
 Pressing the Utility Menu’s **Stacking** button will launch the Leach Stacking module.  This is used to assign leach panel properties to the CutterResult, Model, and Mineplan layers.     Leach pads are ﬁrst designed as filler layers. These may be separated into vertical lifts. The **Cut Contour with Cutter/Filler** function is run to get the CutterResult shapes of material to be stacked.  
@@ -19,10 +19,10 @@ Pressing the Utility Menu’s **Stacking** button will launch the Leach Stacking
 
 The following steps are then followed:
 
-1.	Load or build the Grid, stored in the Model layer (needs to be completed once for the project) 
+1.	Load or build the Grid, stored in the Model layer (needs to be completed once for the project)
 2.	Break up, or Discretize the CutterResult shapes into shapes using a grid
 
-3.	Import the Mineplan (CSV or JSON file).  If importing a CSV, this layer should be saved as a JSON file for later use and to save importing time. 
+3.	Import the Mineplan (CSV or JSON file).  If importing a CSV, this layer should be saved as a JSON file for later use and to save importing time.
 
 4.	Use the **Populate Mineplan** function to populate the CutterResult shapes with a timestamp (pm) and Mineplan property information, including grades.
 
@@ -55,11 +55,11 @@ The Home tab displays a status indicator light for completed process stages.
 
 - Grid
 
-- Discretize 
+- Discretize
 
 - Mineplan
 
-- Populate Mineplan 
+- Populate Mineplan
 
 **Progress Indicator Lights Color Status**
 ![Image](./images/Progress Indicator Lights Color Status.jpg)
@@ -106,11 +106,11 @@ The Discretize button separates the CutterResult shapes using the Model layer's 
 
 ###### Mineplan Layer
 
-Discretize will clear the Mineplan layer and the progress indicator button will be red in the **Home tab**. 
+Discretize will clear the Mineplan layer and the progress indicator button will be red in the **Home tab**.
 
 To load the layer:
 
-1. Click **File > Open Model> CSV** or **JSON**. 
+1. Click **File > Open Model> CSV** or **JSON**.
 
 2. Select a previously saved CSV or JSON ﬁle.
 
@@ -177,15 +177,15 @@ The radio button option Manual Grid uses the entries in this window.
 
 
    |   Project Settings Property       |   Grid Tab Parameter Populated   |
-    | :------------: | :---------------: | 
+    | :------------: | :---------------: |
     | Block Rotate (degrees clockwise) |   Angle Oﬀset (degrees). For more details, click [here](#angle-offset) |
     | MidBench |   Z Origin       |  
     | viewExtentMinx |   X Origin. For more details, click [here](#x-origin-and-y-origin).|  
     | viewExtentMiny |   Y Origin. For more details, click [here](#x-origin-and-y-origin). |  
-    | Block X |   X Panel Size. For more details, click [here](#x-and-y-panel-size).       | 
+    | Block X |   X Panel Size. For more details, click [here](#x-and-y-panel-size).       |
     |   Block Y |   Y Panel Size. For more details, click [here](#x-and-y-panel-size).       |  
-    |   X Number of Panels |   X Number of Panels: = (viewExtentMaxx - viewExtentMinx)/X Panel Size. For more details, click [here](#x-and-y-number-of-panels).      | 
-    |   Y Number of Panels |   Y Number of Panels: = (viewExtentMaxy - viewExtentMiny)/Y Panel Size. For more details, click [here](#x-and-y-number-of-panels).  | 
+    |   X Number of Panels |   X Number of Panels: = (viewExtentMaxx - viewExtentMinx)/X Panel Size. For more details, click [here](#x-and-y-number-of-panels).      |
+    |   Y Number of Panels |   Y Number of Panels: = (viewExtentMaxy - viewExtentMiny)/Y Panel Size. For more details, click [here](#x-and-y-number-of-panels).  |
 
 
 These entries can be overwritten in the Grid tab.  A further description of each Grid tab parameter follows.
@@ -213,7 +213,7 @@ The **Direction** speciﬁes the direction in which the panel sequence (seq) num
 
 ######	Angle Offset
 
-This is initially populated by the **Project Settings**, **Block Rotate** (degrees clockwise). The **Angle Offset** (degrees) is used to rotate the alignment of the specified grid when cutting the CutterResult layer.  By measuring the strike of the CutterResult panels, this angle entry can be deduced.  An entry of zero represents the North used for unrotated leach pad projects. If possible, a zero rotation angle is strongly suggested (rotated models do not work in the Leach Recovery Modelling module). 
+This is initially populated by the **Project Settings**, **Block Rotate** (degrees clockwise). The **Angle Offset** (degrees) is used to rotate the alignment of the specified grid when cutting the CutterResult layer.  By measuring the strike of the CutterResult panels, this angle entry can be deduced.  An entry of zero represents the North used for unrotated leach pad projects. If possible, a zero rotation angle is strongly suggested (rotated models do not work in the Leach Recovery Modelling module).
 
   ![Image](./images/Angle Offset (degrees).jpg)
 
@@ -226,7 +226,7 @@ This is initially populated by the **Project Settings**, **Block Rotate** (degre
 The X Origin and Y Origin are located in the bottom-left (Southwest) corner of the panels. The **Preview** button can be used to confirm and relocate this position.
 
 
-For reference, the viewExtentMin and viewExtentMax for the X and Y directions from the **Project Settings** are written in bold where the Origins are entered. 
+For reference, the viewExtentMin and viewExtentMax for the X and Y directions from the **Project Settings** are written in bold where the Origins are entered.
 
   ![Image](./images/X Origin and Y Origin.jpg)
 
@@ -256,7 +256,7 @@ The X or Y Panel Size is initially determined by the entries in the **Project Se
 The X Panel Size and X Number of Panels determine the X direction extent of panels created. The same can be said for the Y Number of Panels.
 
 
-######	Save Button 
+######	Save Button
 
 Click the **Save** button to save the Grid tab entries to the project. The entries will be recalled with the opening of a saved group file (All (Model), All, Contour Group, Mineplan Group).
 
@@ -299,7 +299,7 @@ Clicking the grouped Add Layer function in the Main Menu, select the Add Solutio
 
 #### Drawing Solution Layer Leach Shapes
 
-Polygon shapes can be built around the discretized CutterResult shapes using the **Add Polygon Features** button, on any elevation of the  CutterResult layer with the Solution layer active.  The polygon and its properties will be visible in the Drawing Window at the elevation in the Solution layer where the shape is drawn. 
+Polygon shapes can be built around the discretized CutterResult shapes using the **Add Polygon Features** button, on any elevation of the  CutterResult layer with the Solution layer active.  The polygon and its properties will be visible in the Drawing Window at the elevation in the Solution layer where the shape is drawn.
 
 
 Next, follow the below steps:
@@ -346,19 +346,19 @@ There are two categories of stacking:
 
 #### Historical Stacking
 
-**Step 1 - Base** 
+**Step 1 - Base**
 
-To create the Historical stacking project the starting topography, or Base, must first be created from ‘as build’ surfaces, usually by importing supplied DXF’s into the Base layer.  The final Base layer should be exported and clearly named for future use, e.g. Date_MasterTopo_base.json. 
+To create the Historical stacking project the starting topography, or Base, must first be created from ‘as build’ surfaces, usually by importing supplied DXF’s into the Base layer.  The final Base layer should be exported and clearly named for future use, e.g. Date_MasterTopo_base.json.
 
 During Base creation, the project extents, MidBench and BenchHeight and site density need to be considered and checked/saved in the Project Settings.  The Base layer usually represents the liner topography.
 
-**Step 2 - Lifts** 
+**Step 2 - Lifts**
 
 The lifts of each stage in the historical stacking are bounded by supplied ‘as build’ surfaces (DXF’s).  The DXF’s should be logically named, e.g., Stage1Lift1, or Stage3Lift2.  The Import layer can be used to contain the imported DXF’s and the fillers can be drawn in their respective stacking order, guided by the Import layer contents.
 
 The lifts can be composed of several fillers.  The shapes of the fillers depend on the stacking method used, i.e., truck or radial stackers.  After the first lift is constructed in Opencontour it is advised that the user **Cut Contours with Cutter/Filler**.  
 
-**Step 3 - Grid** 
+**Step 3 - Grid**
 
 The grid, as described in the Grid Tab, is stored in the Model layer in Opencontour.  It will be used for each historical stacking project.  The next step is to **Discretize**, as described in the color button reference of the Leach Stacking Module.
 
@@ -380,7 +380,7 @@ Store the entire project file, saved as an’All (Model)’ type in the folder �
 To combine each stage and lift into a single project a new project must be opened.  Drag in the original Base created, e.g. Date_MasterTopo_base.json.  Now drag in the CutterResult files for each lift and stage from the ‘05_CutterResults’ folder.
 
 Subsequent historical stacking can be added to this project, using the project’s CutterResult layer. A Solution layer should be added to this project.  
- 
+
 
 
 **Step 6 - 3D Visualization**
@@ -391,17 +391,17 @@ An animation of the stacking project can be viewed in the **Display>3D>New Timel
 
 The forecast stacking follows the respective steps described above, but with some differences explained below.
 
-**Step 1 - Base** 
+**Step 1 - Base**
 
 In a new project for the forecast stacking, use the most recent export of the BaseResult from the Historical Stacking project as the Base (make sure the Base is active before dragging in the BaseResult file).
 
 
-**Step 2 - Lifts** 
+**Step 2 - Lifts**
 
 The lifts of each stage in the forecast stacking are bounded by designed surfaces (DXF’s) and the procedure is like the process described above in the Historical Stacking section.  
 
 
-**Step 3 - Grid** 
+**Step 3 - Grid**
 
 The previously constructed grid, e.g. ‘ProjectName_100x100_model.json’ can be dragged in to the model layer to discretize the designed fillers.
 
@@ -409,7 +409,7 @@ The previously constructed grid, e.g. ‘ProjectName_100x100_model.json’ can b
 **Step 4 - Mineplan**
 
 A CSV can be built using the forecast Mineplan data, using the properties previously described. This layer should be saved as a JSON file for later use.  This will save time, rather than repeating the import process for a CSV.
-  
+
 The **Populate Mineplan** function is run, with no adjustments in the filler densities.  
 
 **Step 5 - 3D Visualization**
