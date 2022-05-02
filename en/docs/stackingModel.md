@@ -47,7 +47,6 @@ The Leach Stacking module window provides several conﬁguration tab options:
 
 1. Click **Utility Menu  > Stacking**. The Leach Stacking module window will appear with the **Home Tab** open.
 
-![Image](./images/Leach Stacking module.jpg)
 
 The Home tab displays a status indicator light for completed process stages.
 
@@ -293,9 +292,6 @@ Clicking the grouped Add Layer function in the Main Menu, select the Add Solutio
 
 
 
-  ![Image](./images/Adding the Solution Layer.jpg)
-
-
 
 #### Drawing Solution Layer Leach Shapes
 
@@ -318,18 +314,6 @@ Next, follow the below steps:
 
 ![Image](./images/Drawing Solution Layer Leach Shapes2.jpg)
 
-#### Update Solution Layer Properties
-
-Using the **Properties** display the individual features can be viewed and updated.  These are listed in the table below.
-
-Solution layer features that do not already have values populated for application rate (app_rate, gpm/ft2 or L/m2/hr) and Leach time (lt, days) can be added in bulk using the Update Solution function.  This is accessed from **Utility Menu > Stacking > Solution**.  The **Update Solution** function will use the Solution layer to populate the CutterResult, Model and Mineplan layer’s ‘on’ and ‘lt’ properties with a value for each record centroid contained within the **Solution** layer polygon.  The CutterResult layer will have the ‘app_rate’ property written to it.
-
-Click **Utility Menu > Stacking**. The Leach Stacking module window will appear with the Home tab open.  The Solution tab is displayed below.
-
-
-**NOTE: The polygon must be drawn above the CutterResult's elevation.**
-
-![Image](./images/UpdateSolutionLayerProperties.jpg)
 
 
 ### Stacking Procedure

@@ -67,11 +67,9 @@ Activate the Solution Layer (which will turn orange) and select the cycle in whi
     </ol>
 </ol>
 
-Now that the Solution Shapes are in place is important that you update and confirm the Properties for the actual Solution Shape. Select the Heap Leach Stacking module from the Utility Menu, then the Solution Tab.
+Now that the Solution Shapes are in place is important that you update and confirm the Properties for the actual Solution Shape. Select the **Update Solution** button from the Heap Leach Recovery Model module from the Utility Menu. The user may choose to **Add BreakThrough Time** onto the solution polygons that exist in the solution layer. If the project has CutterResult blocks that have an on and lt properties written to them via a script the **Update Solution** together with **Add BreakThrough Time** function will append however many days it takes to break through onto the lt property. The breakthrough time is calculated based on the global inputs of the project and distance to liner.
 
 We recommend reviewing the data for your App rate and Leach Time; these two data points would be populated from your Project Settings File.
-
-Click on Update Solution. If you forget to Run the Updated Solution, your Model will not carry the updated information.
 
 When the Solution is updated, all your CutterResult shapes that have an on and lt and all your solutions shapes are combined and written to your Model Layer. To view the Solution Layers created, activate the Solution Layer and click the “A” key. You will now see the Solutions Shapes within the Model.
 
@@ -159,7 +157,16 @@ This feature allows the user to run the Model using a Write State, meaning up to
 
 The user can save all inputs at any time during the Project. However, we recommend that if Write State has been used, or if any inputs are updated and differ from the original project settings, the user exports the CVS file and saves it. We also recommend discussing how to name and save these files with your team before you save and upload updated information.
 
-More details can be found in <span style="color:green"><em>Chapter 7.8</em>.</span>
+This functionality makes the following assumptions:
+
+* The user has gone through the stacking module through completion,
+* The user has written the ltp and on properties to the Model Layer.
+
+To confirm that this has been done, select the Model from the label's dropdown menu, and selecting on property. The information shown on the project window will confirm the number of times that the specific model column will receive solution throughout the course of the model run.
+
+>The user can save all inputs at any time during the Project. However, we recommend that if Write State is used, or if any inputs are updated and differ from the original project settings, the user exports the .json file and saves it.
+
+>We also recommend discussing how to name and save these files with your team before you save and upload updated information.
 
 ### 7.4.2 Systems
 
@@ -171,7 +178,7 @@ Contains any data stored as an array (time series data), whether that is climate
 | Ranges     | Min/Max dates of the system's data|
 | Dropdown   | You can view multiple system's data through a chart|
 
-Some Projects will have Climate Data. If this is the case for your project, please review the following steps; otherwise, move on to <span style="color:green">step 7.5</span>
+Some Projects will have Climate Data. If this is the case for your project, please review the following steps; otherwise, move on to step 7.5.
 
 #### <em>Adding Climate Data</em>
 
@@ -209,7 +216,7 @@ Note: By Saving you will Save all the leach model menu information at this point
 
 All graphs can be updated to suit the user’s needs. Opencontour allows for simpler modifications within the Software or by editing data using third-party Cloud Software Plotly.
 
-## 7.4.4 Leach Type App Rate
+## 7.4.4 Solution
 
 In this Tab you will find inputs that can change from block to block or throughout time.
 
@@ -224,7 +231,7 @@ In this Tab you will find inputs that can change from block to block or througho
 | infl                                            | Assign where the pad receives solution throughout time, based on each block's days leaching.|
 | Write properties to CutterResult based on 'ltp' | Writes the table property information to each CutterResult grouped by 'ltp'|
 
-The first step is to assign manual values to: ltp, imc, r_ar, ar, and ar_v.
+The first step is to assign manual values to: ltp, imc, r_ar, ar, and ar_v (ar_v values can only be entered when **Modify Application Rate** is checked).
 
 When assigning the value to your ltp, remember that this number(s) is exclusive and unrelated to the Designation number given to your plant or pond. 1 = Rom, 2 = Crushed
 
@@ -268,9 +275,15 @@ While in the Heap Leach Recovery Model, you can run the model from any tab.
 
 ## 7.6	Using the Write and Read State function for larger models.
 
+Before we consider adding more data it is recommended that the engineer takes the time to calibrate the model to get their values as close to actuals as their scope requires.
+
 Some projects will require additional data to be added to an existing large model.  This addition could be a monthly or weekly actual leach stacking update or can be a forecasted stacking plan. When a large model is run to a certain timestamp (“Write State”), all block parameters are stored so that concurrent runs start from that date. We will now describe the necessary steps required to add the data to the model.
 
-1. Run the existing model using the “write state” function: Once calibration has been completed, determine the last date you want to run your model for, with the ‘Write State’ checked, Run the model (note this date will be the starting date for this file, rather than the minimum ‘pm’.<br/><br/>This will save each CutterResult’s “state” at the end of the model run. This includes saving properties like flow out, days leaching, extractable metal remaining, cumulative metal realized, cumulative applied/drainage flows. Additionally, a grouped .JSON file will be saved; persisting any historic data.<br/><br/>The user is now able to use this new file for future work, such as forecasts stacking when they need to create more fillers or can continue work on this instance creating more filler shapes.<br/><br/>
+1. Run the existing model using the “write state” function: Once calibration has been completed, determine the last date you want to run your model for, with the ‘Write State’ checked, Run the model (note this date will be the starting date for this file, rather than the minimum ‘pm’).
+
+   The write state checkbox automatically saves the Leach Model Group. This file can be found under "File, Save Dropdown".
+
+   This will save each CutterResult’s “state” at the end of the model run. This includes saving properties like flow out, days leaching, extractable metal remaining, cumulative metal realized, cumulative applied/drainage flows. Additionally, a grouped .JSON file will be saved; persisting any historic data.<br/><br/>The Leach Model Group is the new Base and written as such, it is not the base result. The user is now able to use this new file for future work, such as forecasts stacking when they need to create more fillers or can continue work on this instance creating more filler shapes.<br/><br/>
 2. Either working on this instance, or a separate one, the user will now need to check the ‘Read State’ to tell    the model to pick up where our last model run left off. Notice that when we run the model with the ‘Read State’ checked, a dotted red line appears marking the last run model date. Additionally, we display the dates that the model was last run at the top of the screen (from and to).<br/><br/>
 
 To summarize, to start any model run where the save will be read or wrote we must first start by checking the “Write State”, the user can either continue working on their file or work on the saved group file later.  Now that this base model has been run, the user will only need to check “Read State” to continue where the last model left off. The user can also use both check boxes together to continuously append the reported values.
@@ -280,19 +293,23 @@ To summarize, to start any model run where the save will be read or wrote we mus
 The user will be required to follow steps outlined under Chapter 7.6 including saving the grouped .JSON file.
 
 Create a new stacking plan:  A stacking plan can be created from the “Write/Read State” date as a separate file.  This can be a monthly historical update, or it can be a forecasted stacking.  
-1.	Use the new group .json file from the larger model as the starting Base topography for this new stacking so that there are no gaps.<br/><br/>
+1.	Use the new LeachModelGroup.json file from the larger model as the starting Base topography for this new stacking so that there are no gaps.<br/><br/>
 2.	Follow the historical or forecast stacking instructions.<br/><br/>
 3.	Save this file with descriptions, for example [YYMMDD]_pad1_stacking_all.json<br/><br/>
 4.	Save the CutterResult layer as a separate file for import, not the larger model.Save this file with descriptions, for example: [YYMMDD]_pad1_stacking_cr.json<br/><br/>
 5.	Save any solution shapes as a separate file: [YYMMDD]_pad1_stacking_solution.json<br/><br/>
 
-### 7.7.1 Import the CutterResult file into the existing model
+### 7.7.1 Append the CutterResult file into the existing model
 
-The new stacking dataset (CutterResult) will be appended to the existing model.  
+Open a new Project session (new Tab), drag & drop the newly created.json file with the write_state_all.json description.
 
-Select the “Misc” tab in the Leach Stacking Menu to import the CutterResult file (“Rehandled CutterResult”).
+The new CutterResult file, with actual or forecast data, will need to be appended to the BasellAll file by following these steps:
 
-If blocks have been rehandled to make new room for the new stacking, the old blocks will be deleted and replaced with the new stacking.
+Open Heap Leach Stacking Module (Utility menu)
+Misc Tab - Append Cutter Result - Choose File
+
+The Append function will override any existent CutterResult blocks with any new ones. This avoids having duplicated CutterResult shapes.The new stacking dataset (CutterResult) will be appended to the existing model.  
+
 
 ![Image](./images/import_cutters.png)
 
@@ -302,11 +319,28 @@ Use the Script tool to populate the ‘ltp’ property in the CutterResult layer
 
 Append the new solution shapes by dragging the new solution file into the solution layer.
 
-Back to the Utility menu, select Stacking Module and under the Solution tab, run the “Update Solution” function to populate the model layer with the newest solution polygons.
+Back to the Utility menu, select Heap Leach Model Module and under the Progress tab, run the “Update Solution” function to populate the model layer with the newest solution polygons.
 
-![Image](./images/update_solution.png)
+>At this time, the user can add (calculate) the BreakThrough Time to solution polygons that exist in the solution layer. If the project has CutterResult blocks that have an on and lt properties written to them via a script, by selecting the 'Add BreakThrough Time' functionality together with 'Update Solution', it will append however many days takes to breakthrough onto the lt property. The calculation of the BreakThrough Time is based on the Global Inputs of your project, and distance to liner.
 
-After running the model (for more information on how to Run the Model go to <span style="color:green"><em>Chapter 7.7</em></span> ), the new data will be cumulative for the whole pad. Data can be exported into Excel for further analysis.
+
+### 7.7.2 Read State
+
+The user will see that once the write_state_all.json is dragged to the Project Window, the Read State will be checked.
+
+What this means is that the Model will now read the last "# of days", specified under Run Duration, of the model that we have already run.
+
+Under Global Inputs, the user will now see a new start date: the day after we run the last model.
+
+### 7.7.3 Review the Updated model
+
+The user will need to open the Outputs tab, from our Heap Leach Recovery Model. Then assign data to be reviewed to the data bar, and Run the model.
+
+The red dash line signals that everything prior to the red line has already had the model run for. Now, we are starting from the red dash line onwards.
+
+After running the model (for more information on how to Run the Model go to Chapter 7.7</em></span> ), the new data will be cumulative for the whole pad. Data can be exported into Excel for further analysis.
+
+> This process will be repeated every time the user wishes to update their model with actual, and forecast information.
 
 ### Cutter Result Recovery Model Properties:
 

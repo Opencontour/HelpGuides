@@ -16,7 +16,7 @@
 
 
 ## 4.1 Descripción general
-La ventana Proyecto se utiliza para crear y editar proyectos a través de varios elementos, como paneles, barras, ventanas, etc. Tras realizar los ajustes a través de **Project Settings** (**configuración del proyecto**), se creará el nuevo proyecto.   El nombre del proyecto y el número de versión se mostraran en la  esquina  superior  derecha    de  la  **ventana del proyecto**. 
+La ventana Proyecto se utiliza para crear y editar proyectos a través de varios elementos, como paneles, barras, ventanas, etc. Tras realizar los ajustes a través de **Project Settings** (**configuración del proyecto**), se creará el nuevo proyecto.   El nombre del proyecto y el número de versión se mostraran en la  esquina  superior  derecha    de  la  **ventana del proyecto**.
 
 ![Image](./images/proejct_window_dashboard.jpg)
 
@@ -38,7 +38,7 @@ En la ventana del proyecto, es posible acceder a los siguientes menús:
 
 **Menú de herramientas:**  El menú de herramientas permite realizar cambios en **Project Settings** (configuración del proyecto), **Project Properties** (propiedades del proyecto), **Scheduling** (calendarización), **Scripts**, **Graphs** (graficas), y **Reports** (informes), **Heap Leach Stacking** (apilamiento de lixiviación en pilas), y **Heap Leach Recovery Model** (modelo de lixiviación). Dichas opciones se describen  a lo largo de  este  documento  en  el  orden  en  que se producen  procesalmente.
 
-**Menú de Layers:** El  menú  de capas  se  utiliza  para  editar capas individuales. 
+**Menú de Layers:** El  menú  de capas  se  utiliza  para  editar capas individuales.
 
 **Barra de mensajes:** La barra de  mensajes  se  usa para proporcionar al usuario información    como  coordenadas,  elevaciones, ángulos de rumbo,  ángulos de muro  y distancias.
 
@@ -46,7 +46,7 @@ En la ventana del proyecto, es posible acceder a los siguientes menús:
 
 **Opciones adicionales:**
 
-- **Acercar:** Presione el botón  verde  **+** para  acercar.   Esto tiene el mismo  efecto  que  girar la rueda del  ratón. 
+- **Acercar:** Presione el botón  verde  **+** para  acercar.   Esto tiene el mismo  efecto  que  girar la rueda del  ratón.
 
 - **Alejar:** Presione  el  botón  verde   **-** para  alejarse.   Esto tiene el  mismo  efecto  que  girar la rueda del  ratón.  
 
@@ -60,7 +60,11 @@ En la ventana del proyecto, es posible acceder a los siguientes menús:
 
 **Paneo**
 
-El usuario  también podrá realizar un paneo haciendo clic izquierdo en la Ventana Drawing (Ventana de Trazado) y arrastrándola a una nueva ubicación. Esta función también puede usarse para ver todo el contenido de la ventana Properties (Visualización Propiedades) y a la vez ver las propiedades de una característica.
+El usuario  también podrá realizar un paneo usando el mouse y keyboard:
+
+Window: Ctrl+Click
+
+Mac: Cmd+Click
 
 **Ingresar valor en la ventana Schedule (calendario)**
 
@@ -121,7 +125,7 @@ Las opciones disponibles  son:
 
 ## 4.2 Menú desplegable
 
-Existe un menú desplegable debajo de la barra de direcciones  del  navegador.   Este menú  se  usa para  abrir, importar y guardar archivos. También se pueden escribir PDF. Aquí puede configurar los parámetros de visualización de la cuadrícula, acceder a las funciones de diseño,   ver  resúmenes  volumétricos  y  abrir  las herramientas de visualización  3D.   Hay    enlaces de acceso  directo de la Guía de  ayuda  y   opciones de modelado de  lixiviación. 
+Existe un menú desplegable debajo de la barra de direcciones  del  navegador.   Este menú  se  usa para  abrir, importar y guardar archivos. También se pueden escribir PDF. Aquí puede configurar los parámetros de visualización de la cuadrícula, acceder a las funciones de diseño,   ver  resúmenes  volumétricos  y  abrir  las herramientas de visualización  3D.   Hay    enlaces de acceso  directo de la Guía de  ayuda  y   opciones de modelado de  lixiviación.
 
   ![Image](./images/drop_down1.jpg)
 
@@ -138,7 +142,7 @@ El tablero muestra:
 - Una lista de proyectos actuales.   Haga clic en **New project** (Nuevo  proyecto)  para  iniciar  un  nuevo  proyecto. Además, puede volver a abrir  un  proyecto  anterior  haciendo  clic en el nombre  del  proyecto que aparece  debajo de la opción **Nuevo  proyecto**, por  ejemplo, Mina  X.
 
 - El **nombre de usuario**  se  muestra  en  la parte superior  de  la  ventana. A la derecha  del nombre de  usuario  hay  una  x  cuando se expande el    panel.   Presione esta  x  para  contraer la pantalla del  panel.  
- 
+
 - **Logout** (Cerrar sesión) (presione las palabras Cerrar sesión).  Podrá cambiar de usuario    volviendo a la pantalla de inicio de sesión.   
 <hr>
 
@@ -222,9 +226,9 @@ Para importar un archivo DXF,
 ![Image](./images/polygon_error.jpg)
 
 
-##### File (Archivo) > Open Model (Abrir modelo) 
+##### File (Archivo) > Open Model (Abrir modelo)
 
-Esta función se usa para importar **modelos** y **planos mineros** a un proyecto.Los archivos OMF  (Open  Mining  Format)  también  se pueden  guardar  aquí.   Después de seleccionar  un tipo de    archivo,    el    usuario  debe  especificar el directorio  y la ubicación del  archivo.   Los formatos de archivo  compatibles  son: 
+Esta función se usa para importar **modelos** y **planos mineros** a un proyecto.Los archivos OMF  (Open  Mining  Format)  también  se pueden  guardar  aquí.   Después de seleccionar  un tipo de    archivo,    el    usuario  debe  especificar el directorio  y la ubicación del  archivo.   Los formatos de archivo  compatibles  son:
 
 - JSON
 - CSV
@@ -235,7 +239,7 @@ Esta función se usa para importar **modelos** y **planos mineros** a un proyect
 
 >- **Es importante que  todos los  archivos  CSV    utilizados  para la importación de datos  estén  en  el  formato  'genérico'  (por  ejemplo,  43914  sin  decimales  para  la propiedad pm).   No se deben usar comas.**
 
->- **Las fechas deben ingresarse en el formato serie de Excel. Evite el formato:  m / d / año.** 
+>- **Las fechas deben ingresarse en el formato serie de Excel. Evite el formato:  m / d / año.**
 
 To import a CSV or OMF file:
 
@@ -247,7 +251,7 @@ To import a CSV or OMF file:
 
  • La opción Model (Modelo) small (pequeño)  es  para archivos CSV más pequeños
  • La importación en la  opción  Mineplan  se  utiliza  para proyectos de apilamiento de  lixiviación
-  
+
   ![Image](./images/CSV_IMPORT.jpg)
 
 
@@ -281,7 +285,7 @@ Esta función se usa para crear un archivo PDF para su posterior trazado. Todo l
 
 <hr>
 
-### 4.2.3 Visualización 
+### 4.2.3 Visualización
 
 El menú  de visualización  se  utiliza  para  resumir vistas específicas y datos específicos
 
@@ -308,7 +312,7 @@ Los datos representan un resumen de los atributos y características de la capa 
 &nbsp;
 2. Las propiedades de cada forma CutterResult se explican en la siguiente tabla.   Los valores de la tabla se pueden ordenar presionando el encabezado, por ejemplo, (pn, Nombre de fase).   Esto ordena las entradas pn  en  toda  la  tabla  para  que  se  enumeren  alfanuméricamente. Aparecerá una    flecha junto al encabezado ordenado. Al reprimir el    encabezado, se ordenarán    en la dirección opuesta.   Los datos de la tabla se pueden    copiar y  pegar  directamente  en  Excel,  o  toda  la  tabla  se  puede  guardar  en  formato  CSV  utilizando  el  botón Exportar.   La exportación creará    un archivo delimitado por comas  que  se  puede  ver  en  Excel  o en un programa similar.
 
-  ![Image](./images/Details_table.jpg) 
+  ![Image](./images/Details_table.jpg)
 
 
 **Resumir por**
@@ -317,25 +321,25 @@ Estos resúmenes se usan para consultar los volúmenes del pozo, diseñar escomb
 
 Esta función ofrece tres opciones para filtrar:
 
-- Filler/Cutter (Corte/Relleno) 
+- Filler/Cutter (Corte/Relleno)
 
 - Phase Name (Nombre de fase)
 
-- Bench (Banco) 
+- Bench (Banco)
 
 **Filler/Cutter#**: Resume las áreas de corte y relleno, los volúmenes y la masa, y genera un archivo con un cálculo para cada número de corte/relleno.
 
-  ![Image](./images/Volumeteric summary_1.jpg) 
+  ![Image](./images/Volumeteric summary_1.jpg)
 
 
 **Phase Name**: Funciona de manera similar a la opción **Filler/Cutter**, pero cada línea de datos incluirá el Nombre de Fase (pn). Las similitudes entre el número de relleno/corte y el pn pueden apreciarse en el informe detallado.
 
-  ![Image](./images/Volumeteric summary_2.jpg) 
+  ![Image](./images/Volumeteric summary_2.jpg)
 
 
 **Bench**: Esta opción hace uso de la elevación (z) pero no brinda información sobre el número inicial “cut ﬁll num” ni del pn.
 
-  ![Image](./images/Volumeteric summary_3.jpg) 
+  ![Image](./images/Volumeteric summary_3.jpg)
 
 
 ##### Display (Visualización) > Contour By PM (Contorno por PM)
@@ -344,7 +348,7 @@ Esta función puede usarse para completar la capa baseResult con contornos de ma
 
 1. Haga clic en **Display (Visualización) > Contour By PM (Contorno por PM)**. Aparecerá la ventana Contour By Period Mined (Contorno por período minado).
 
-    ![Image](./images/ContourByPM.jpg) 
+    ![Image](./images/ContourByPM.jpg)
 
 Podrá ingresar un número de período (por ejemplo, 5) o una fecha en la casilla **Period Mined (pm)** (Período minado). La flecha hacia abajo muestra un calendario, mientras que las demás sirven para modificar la fecha actual.
 
@@ -359,36 +363,36 @@ Grid settings are used to include grids in the project Drawing Window display.
 
 1. Para seleccionar el intervalo de la cuadrícula, haga clic en **Display > Grid Settings**.
 
-  ![Image](./images/Grid_settngs.jpg) 
+  ![Image](./images/Grid_settngs.jpg)
 
 &nbsp;
 2. Haga clic en **Save (Guardar)**. Se activará el botón View Latitude and Longitude (Ver latitud y longitud) del menú principal. Para detener la visualización, presione el botón View Latitude and Longitude hasta que cambie a verde. En las siguientes secciones se muestra cada opción de los Ajustes de cuadrícula.
 
 
-**Scale Bar (Barra de escala)** 
+**Scale Bar (Barra de escala)**
 
 Si se activa esta función, aparecerá en la esquina inferior izquierda de la Ventana Drawing. El valor indicado en la barra y el espacio entre las líneas de la cuadrícula pueden ajustarse girando la rueda del mouse.
 
-  ![Image](./images/grid_settings_scale_bar.jpg) 
+  ![Image](./images/grid_settings_scale_bar.jpg)
 
 
-**Compass (Brújula)** 
+**Compass (Brújula)**
 
 Si se muestra la brújula, aparecerá en la esquina superior derecha de la Ventana Drawing. La flecha apunta hacia el norte.
 
-  ![Image](./images/grid_settings_compass.jpg) 
+  ![Image](./images/grid_settings_compass.jpg)
 
 
 **Labels (Etiquetas)**
 
 Los intervalos norte y este aparecen al marcar la casilla Labels (Etiquetas) en **Grid Settings** (Ajustes de cuadrícula).
 
-  ![Image](./images/grid_settings_label.jpg) 
+  ![Image](./images/grid_settings_label.jpg)
 
 
 ##### Display (Visualización) > 3D
 
-Se mostrarán tridimensionalmente las capas de la Ventana Drawing en una nueva pestaña de navegador. Haga clic en **Display > 3D**. 
+Se mostrarán tridimensionalmente las capas de la Ventana Drawing en una nueva pestaña de navegador. Haga clic en **Display > 3D**.
 
 
 Las opciones de la vista 3D son:
@@ -407,7 +411,7 @@ Las opciones de la vista 3D son:
 
 Estas herramientas se detallan en la sección 3D View Tools (Herramientas de vista 3D).
 
-  ![Image](./images/3D_new_browser_tab.jpg) 
+  ![Image](./images/3D_new_browser_tab.jpg)
 
 
   ![Image](./images/3D_newtab_elementDetails.jpg)
@@ -481,7 +485,7 @@ La selección de esta opción  organizará  los  rellenos que se muestran en el 
 
 <hr>
 
-### 4.2.5 Ayuda 
+### 4.2.5 Ayuda
 
 Para acceder a  la documentación de ayuda, visite  help.opencontour.com o vaya a la opción  Help (Ayuda) en el menú desplegable.    
 
@@ -502,7 +506,7 @@ This will take you an online help tool in a new browser tab.
 
 A través del menú principal es posible acceder a herramientas para crear y editar proyectos. Permite ver y controlar el contexto de la tarea o el flujo de trabajo actualmente en ejecución.
 
-- Cuando puede seleccionarse un botón, se muestra en verde claro  ![Image](./images/green_button.jpg). 
+- Cuando puede seleccionarse un botón, se muestra en verde claro  ![Image](./images/green_button.jpg).
 
 - Cuando un botón está seleccionado y actualmente activo, se muestra en naranjo ![Image](./images/orange_buton.jpg). Es posible desactivar el botón volviendo a seleccionarlo. Cuando no está en uso, debería volver a su color verde claro predeterminado.
 
@@ -542,7 +546,7 @@ A través del **Menú Layer**, seleccione la capa para visualizar los botones oc
 - **Add Cutter Layer** ![Image](./images/Add Cutter Layer.jpg): Located under the grouped **Add Layer** function, this adds and activates another Cutter layer. Each additional layer will be sequentially numbered and the new layer will be active. The Phase Name (pn) should be edited for each..
 <hr>
 
-- **Add Filler Layer (Añadir capa Cutter)** ![Image](./images/Add Filler Layer.jpg): Ubicado debajo de la función **Add Layer** (Grouped) (Agregar capa) agrupada, esto agrega y  activa  otra capa de relleno.   Cada  capa  adicional  se  numerará  secuencialmente    y  la  nueva  capa    estará  activa. El  nombre de  fase  (pn)  debe  editarse    para  cada uno 
+- **Add Filler Layer (Añadir capa Cutter)** ![Image](./images/Add Filler Layer.jpg): Ubicado debajo de la función **Add Layer** (Grouped) (Agregar capa) agrupada, esto agrega y  activa  otra capa de relleno.   Cada  capa  adicional  se  numerará  secuencialmente    y  la  nueva  capa    estará  activa. El  nombre de  fase  (pn)  debe  editarse    para  cada uno
 <hr>
 
 
@@ -552,7 +556,7 @@ A través del **Menú Layer**, seleccione la capa para visualizar los botones oc
 
 To use
 
-  1. Active la capa a través del Menú Layer. 
+  1. Active la capa a través del Menú Layer.
   2. Haga clic en el botón ![Image](./images/Fix All Polygons.jpg) a través del menú principal. Seleccione un contorno en la elevación actual que se muestra en la barra de mensajes para preparar las características que serán editadas.
   3. Elija las opciones de la fila superior: para All Features (Todas las funciones), Características seleccionadas (requiere una selección previa de la función antes de utilizar la función Fix All Poligons (Corregir todos los polígonos) o la elevación actual.
   4. Ahora marque  los  tipos  de  error que se  corregirán  o  verificarán.
@@ -567,7 +571,7 @@ To use
     - Características con menos de dos coordenadas
     - Retorceduras
     - No bench (sin banco),  características  eliminadas  que no  están en  las  elevaciones  del medio banco  
-    - Sin polígonos 
+    - Sin polígonos
     - Reducir puntos adicionales  (fix only, solo corrección),  0.1  Check for/ Fixes (Comprueba/Corrige)  puntos  adicionales    en  una  función  y los reduce a la  cantidad  introducida.   
     - Polígonos duplicados
     - Comprobación de errores 3D (corrección manual), esto indicará    dónde se  cruza  un  contorno  en  la  elevación por encima o por debajo. La descripción de la capa de error dirá “Contours overlapping on either elevation above or below” ( "Contornos superpuestos en cualquiera de las  elevaciones por encima o  por  debajo")
@@ -576,13 +580,13 @@ To use
 <hr>
 
 - **Display Vertice Number (Mostrar número de vértice)** ![Image](./images/Display Vertice Number.jpg): Esta función sirve para mostrar el orden de puntos de un contorno. Permite ver retorceduras en los números presentados cuando estos se superponen entre sí. Siga estos pasos:
-    
+
     1. Active la capa Cutter o Filler a través del Menú Layer
     2. Seleccione la herramienta ![Image](./images/feature tool.jpg), y seleccione el contorno que desea etiquetar.
     3. Haga clic en el botón ![Image](./images/Display Vertice Number.jpg). Se asignará un número secuencial a cada vértice del contorno seleccionado, lo que facilitará identificar las retorceduras, etc. donde se superponen los números.
 
     ![Image](./images/Figure 5 7 Numbered Vertices.jpg)
-      
+
 <hr>
 
 - **Add Toe Crest**![Image](./images/Add Toe Crest.jpg): Opencontour can add toe and crest lines for projects that require extra detail. To add these lines at the appropriate elevations  (0.5 x BenchHeight):
@@ -595,8 +599,8 @@ The contours designed and viewed are at mid bench elevations. Bench elevation co
 
 <hr>
 
-- **Clear Toe Crest (Añadir pie/cresta)**![Image](./images/Clear Toe Crest.jpg): Opencontour puede añadir líneas de pies y crestas en proyectos que requieran detalles adicionales. Solo está disponible cuando la  capa  Cutter,  Filler  o  BaseResult  está  activa. 
-    
+- **Clear Toe Crest (Añadir pie/cresta)**![Image](./images/Clear Toe Crest.jpg): Opencontour puede añadir líneas de pies y crestas en proyectos que requieran detalles adicionales. Solo está disponible cuando la  capa  Cutter,  Filler  o  BaseResult  está  activa.
+
     1. A través del Menú Layer, active la capa Cutter o Filler que necesite líneas de pies y crestas.
     2. Clic **Clear Toe Crest**![Image](./images/Clear Toe Crest.jpg) situado bajo la función de **Toe Crest** agrupada.
 
@@ -609,7 +613,7 @@ The contours designed and viewed are at mid bench elevations. Bench elevation co
 - **Choose feature (Seleccionar característica)** ![Image](./images/feature tool.jpg): Esta opción permite seleccionar una función deseada cuando se ha seleccionado la capa correspondiente a través del Menú Layer. Este botón se  encuentra debajo de  la  función  Seleccionar  agrupada  y  funciona  en la capa  activa  y  la  elevación actual.   Las funciones seleccionadas mostrarán un verde resaltado.  
 <hr>
 
-- **Select features with a Box (Seleccionar características con una casilla)**![Image](./images/Select features with a Box.jpg): Esta opción permite seleccionar las entidades de la capa activa. Este  botón  se  encuentra debajo de  la  función Select (Seleccionar) agrupada  y  funciona  en la capa  activa  y  la  elevación actual. 
+- **Select features with a Box (Seleccionar características con una casilla)**![Image](./images/Select features with a Box.jpg): Esta opción permite seleccionar las entidades de la capa activa. Este  botón  se  encuentra debajo de  la  función Select (Seleccionar) agrupada  y  funciona  en la capa  activa  y  la  elevación actual.
 
     1. Haga clic en la esquina de la primera casilla ![Image](./images/Select features with a Box.jpg) para  seleccionar  una característica en  la capa activa, situada  debajo de  la función **Select** (Seleccionar)  agrupada.  
     2. Haga clic y mueva el mouse para dibujar la casilla hasta la esquina diagonalmente opuesta.
@@ -626,13 +630,13 @@ The contours designed and viewed are at mid bench elevations. Bench elevation co
 
     - Los cargadores   recibirán    una calificación de productividad tnsPerHr.  
   - Los camiones requieren velocidades nominales  para gradientes bajas,  medios,  altos,  un  'truckfactor' (carga útil del camión)    y  rango.
-  - Las unidades que se utilicen en  las  velocidades  y  tonelajes  deben  coincidir con las   de los archivos  del  proyecto  (es decir,  imperial  o  métrico). 
-Vuelva a hacer clic en el botón **Add Haul/Load Features** (Agregar características de  acarreo/carga) cuando se complete la adición de funciones. 
+  - Las unidades que se utilicen en  las  velocidades  y  tonelajes  deben  coincidir con las   de los archivos  del  proyecto  (es decir,  imperial  o  métrico).
+Vuelva a hacer clic en el botón **Add Haul/Load Features** (Agregar características de  acarreo/carga) cuando se complete la adición de funciones.
 
 
 <hr>
 
-- **Add Dump Features (Añadir características de escombrera)** ![Image](./images/Add Dump Features.jpg): Este botón se encuentra debajo del agrupado **Add Schedule Feature**  function, Haga clic en este botón y especifique la ubicación haciendo clic izquierdo para insertar una característica que que contenga los siguientes datos: elevación, tipo, capacidad, tns (completada durante la ejecución de un calendario), y nombre. Disponible cuando la capa Schedule está activa. Re-click the **Add Dump Features** cuando se completa la adición de características  . 
+- **Add Dump Features (Añadir características de escombrera)** ![Image](./images/Add Dump Features.jpg): Este botón se encuentra debajo del agrupado **Add Schedule Feature**  function, Haga clic en este botón y especifique la ubicación haciendo clic izquierdo para insertar una característica que que contenga los siguientes datos: elevación, tipo, capacidad, tns (completada durante la ejecución de un calendario), y nombre. Disponible cuando la capa Schedule está activa. Re-click the **Add Dump Features** cuando se completa la adición de características  .
 <hr>
 
 - **Add Phase Features** ![Image](./images/Add Phase Features.jpg) : Este botón se encuentra debajo del agrupado **Add Schedule Feature** function, (Añadir características de fase). Haga clic en este botón y especifique la ubicación haciendo clic izquierdo para insertar una característica (intersección) que contenga los siguientes datos: elevación (z), tipo, nombre y orden. Disponible cuando la capa Schedule está activa.  Estas características de fase se utilizan para conectar una fase a las carreteras.
@@ -656,7 +660,7 @@ Vuelva a hacer clic en el botón **Add Haul/Load Features** (Agregar caracterís
 
 <hr>
 
-- **Add Point Features (Añadir características de puntos)** ![Image](./images/Add Point Features.jpg): Se añadirán características de puntos a la capa activa. Solo disponible para  las  capas: 
+- **Add Point Features (Añadir características de puntos)** ![Image](./images/Add Point Features.jpg): Se añadirán características de puntos a la capa activa. Solo disponible para  las  capas:
 
     - Schedule (utilizado para  insertar  intersecciones  para  conectar fases a  carreteras),  
     - Model (utilizado para  insertar  bloques  en la capa del  modelo),    o
@@ -670,15 +674,15 @@ Vuelva a hacer clic en el botón **Add Haul/Load Features** (Agregar caracterís
 - **Add Polygon Features (Añadir características de polígonos)** ![Image](./images/Add Polygon Features.jpg): Para comenzar a dibujar polígonos o líneas de contornos activas en Base, Geotech, Cutter, Filler, BaseResult, CutterResult or Solution layers, siga estos pasos:
 
     1. Active la capa correspondiente.  
-    2. Haga clic en  **Add Polygon Features** ![Image](./images/Add Polygon Features.jpg) button. 
-    
+    2. Haga clic en  **Add Polygon Features** ![Image](./images/Add Polygon Features.jpg) button.
+
 
 <hr>
 
 - **Edit features (Modificar características)** ![Image](./images/Modify Features.jpg): Disponible para  cualquier  capa  activa  que  contenga características que  se  puedan  dibujar:
 
 
-    1. Para añadir un vértice, haga clic izquierdo una vez en la línea donde desea colocar el vértice. 
+    1. Para añadir un vértice, haga clic izquierdo una vez en la línea donde desea colocar el vértice.
     2. Para eliminar un vértice, haga clic izquierdo una vez en el vértice que desea eliminar.
     3. Para mover un vértice, haga clic izquierdo y arrastre el vértice. Suéltelo una vez que haya quedado en la ubicación deseada.
 <hr>
@@ -715,9 +719,9 @@ Vuelva a hacer clic en el botón **Add Haul/Load Features** (Agregar caracterís
 
     1. Active la capa de la característica. Esta acción es necesaria para insertar vértices en la curva.
 
-    2. Seleccione una característica en la capa activa. 
+    2. Seleccione una característica en la capa activa.
 
-    3. Haga clic en el botón **Create Curve** ![Image](./images/Create Curve Smoothing A Feature.jpg). Se reemplazará la característica seleccionada por una característica curva, y se insertarán los vértices que sean necesarios. Está función se activa en capas con características (Base, Geotech, Cutter, Filler y Roads). 
+    3. Haga clic en el botón **Create Curve** ![Image](./images/Create Curve Smoothing A Feature.jpg). Se reemplazará la característica seleccionada por una característica curva, y se insertarán los vértices que sean necesarios. Está función se activa en capas con características (Base, Geotech, Cutter, Filler y Roads).
 
 <hr>
 
@@ -731,8 +735,8 @@ Vuelva a hacer clic en el botón **Add Haul/Load Features** (Agregar caracterís
 
 
 
- 
-- **Split Polygon (Dividir polígono)** ![Image](./images/Split Polygon.jpg): Situado bajo  el  agrupado **Polygon Functions**. Elija una característica y luego elija otra. La primera característica dividirá la segunda. Se mantendrá el área de la primera característica seleccionada adentro de la segunda. El resto de la primera característica seleccionada podrá eliminarse. 
+
+- **Split Polygon (Dividir polígono)** ![Image](./images/Split Polygon.jpg): Situado bajo  el  agrupado **Polygon Functions**. Elija una característica y luego elija otra. La primera característica dividirá la segunda. Se mantendrá el área de la primera característica seleccionada adentro de la segunda. El resto de la primera característica seleccionada podrá eliminarse.
 <hr>
 
 - **Union Two Polygons (Unir dos polígonos)** ![Image](./images/Union two polygons.jpg): Situado bajo  el  agrupado **Polygon Functions**, Elija una característica, luego elija otra, y ambas se unirán para formar una nueva característica. Si usa rampas, el inicio de la rampa (indicada por el círculo rojo) se conservará para la segunda característica seleccionada.  
@@ -744,26 +748,26 @@ Vuelva a hacer clic en el botón **Add Haul/Load Features** (Agregar caracterís
     2. Click **Set First Poly Vertex** ![Image](./images/Set First Poly Vertex.jpg) a través del menú principal y haga clic en la nueva posición desde donde desea que comience el vértice interno de la rampa.
     3. Vuelva a hacer clic en el botón para salir de esta función.
 
- 
+
 <hr>
 
 - **Properties (Propiedades):** ![Image](./images/Properties.jpg): Se mostrará la tabla de la capa o las Propiedades de la característica (la capa debe estar activa en el Menú Layer). Para seleccionar esta opción, haga clic izquierdo en Properties (Propiedades) o presione la tecla p del teclado
-    
+
     - Haga clic en el botón **+** para añadir parámetros a la tabla de Propiedades.
     - Haga clic en el botón **x** para eliminar parámetros de las Propiedades.               
     - Haga clic en “Save” para guardar los cambios.
- 
+
 <hr>
 
-- **Measure (Medir)**![Image](./images/Measure.jpg): 
+- **Measure (Medir)**![Image](./images/Measure.jpg):
     - Distancia: Para determinar la distancia, use la herramienta **Measure** (Medir) ![Image](./images/Measure.jpg). Haga clic izquierdo en el primer vértice de la Ventana Drawing y luego en el segundo vértice que desea medir. El resultado aparecerá en la barra de mensajes
-       
+
           ![Image](./images/Figure 5 2 Measured segment displays in the Message bar.jpg)
-       
-    
+
+
     - Strike (Rumbo): Describe el ángulo entre el vector norte y el sentido de la línea. Para el rumbo, seleccione los dos vértices del contorno en el sentido en que fueron trazados (en el sentido de las manecillas del reloj o en sentido opuesto a las mismas).  
-    
-    - Wall Angle (Ángulo de muro): Al medir ángulos de muro, seleccione la línea para el primer banco intermedio, luego seleccione una línea para un banco intermedio más alto o más bajo del mismo plano vertical. 
+
+    - Wall Angle (Ángulo de muro): Al medir ángulos de muro, seleccione la línea para el primer banco intermedio, luego seleccione una línea para un banco intermedio más alto o más bajo del mismo plano vertical.
 
         1. La línea azul más clara que aparece reconoce la primera selección en la elevación de 1950.
 
@@ -820,14 +824,14 @@ Haga clic en el botón Project Settings (Ajustes de proyecto) a través del Men�
 
 La ventana del proyecto se divide en tres secciones de ajustes distintas.
 
-- Ajustes de Ventana Drawing 
+- Ajustes de Ventana Drawing
 
-- Ajustes de  Schedule 
+- Ajustes de  Schedule
 
-- Ajustes de buildMineplan 
+- Ajustes de buildMineplan
 
 
-Tras realizar cualquier cambio, haga clic en **Save** (Guardar). Estos ajustes se guardarán en una base de datos en línea y podrán verse desde cualquier computadora con conexión a Internet. El usuario será redirigido a la Ventana Drawing en la elevación vista por última vez. 
+Tras realizar cualquier cambio, haga clic en **Save** (Guardar). Estos ajustes se guardarán en una base de datos en línea y podrán verse desde cualquier computadora con conexión a Internet. El usuario será redirigido a la Ventana Drawing en la elevación vista por última vez.
 
   ![Image](./images/Figure 6 2 Project Settings Window.jpg)
 
@@ -845,7 +849,7 @@ La variable de **Constraint** pueden ser las toneladas de propiedad (data.tns) o
 La variable **Routing** se utiliza para determinar si el material es ore (>0) o residuo (0). Este valor controla a  dónde  se  enviará  ese  bloque    después de  la minería. Los residuos  se  envían  directamente  a  vertederos definidos, mientras que  el mineral  se  procesa  o  almacena  para  procesos de beneficio.  
 
 
-##### Adjustes de BUILDMINEPLAN 
+##### Adjustes de BUILDMINEPLAN
 
 
 La sección buildMineplan Settings (s Ajustes de buildMineplan) se  usa para  establecer  valores  Model específicos  al sitio que sean escritos en el Mineplan a través de Opencontour Open Pit Design.
@@ -859,7 +863,7 @@ Es necesario tener una variable de enrutamiento **ow property (ow)**, data.ow en
 
 
 Cuando se selecciona la casilla de verificación,  el    intervalo  producirá    una copia de seguridad  del archivo de  grupo  All  (Model),  por ejemplo, "11  de abril de 2019-09.41.00AM  pit1  all  backup.json".
- 
+
 
 <hr>
 
@@ -899,9 +903,9 @@ Para agregar  una  propiedad  a  una  **capa**:
 
 4. Haga clic el botón **Populate Property**.
 
-5. Haga clic en el boton **Save** para guardar la información ingresada al Proyecto. 
+5. Haga clic en el boton **Save** para guardar la información ingresada al Proyecto.
 
-##### SPREADSHEET (Hoja de calculo) 
+##### SPREADSHEET (Hoja de calculo)
 
 Los datos de una capa elegida se pueden ver en la pestaña Hoja de cálculo. La información se puede copiar y pegar directamente o se puede exportar como CSV utilizando el botón Exportar **CSV**. Los cambios  también  se pueden  realizar  y  guardar  en  la tabla mostrada
 
@@ -921,8 +925,8 @@ Para crear una leyenda, siga estos pasos:
   2. Escriba la propiedad de interés que se esta sombreada en el cuadro Property column, por ejemplo au. La entrada de propiedad debe coincidir con el caso de propiedad y la sintaxis tal como se encuentran en la capa Mineplan o Model Layer.
   3.	En la ventana de **Project Properties**, ingrese en los contenedores numéricos y los colores de sombreado de la misma fila.
   4.	Haga clic en el botón **Save Legend** para guardar la información.   
-      - Para guardar la leyenda para usarla en otro proyecto, marque la casilla **Export** (Exportar).   Se le pedirá que guarde la leyenda con el nombre de archivo "legend.json". La leyenda guardada aparecerá en la lista desplegable de leyendas guardadas para el proyecto 
-  5.	Cierre la ventana de **Project Properties**. Una vez que esta devuelta en la ventana **Drawing Window**, haga clic en la casilla de Legend en el **Screen Menu** (o presione la tecal l). 
+      - Para guardar la leyenda para usarla en otro proyecto, marque la casilla **Export** (Exportar).   Se le pedirá que guarde la leyenda con el nombre de archivo "legend.json". La leyenda guardada aparecerá en la lista desplegable de leyendas guardadas para el proyecto
+  5.	Cierre la ventana de **Project Properties**. Una vez que esta devuelta en la ventana **Drawing Window**, haga clic en la casilla de Legend en el **Screen Menu** (o presione la tecal l).
   6.	Seleccione la capa que contiene la propiedad de interés en el cuadro desplegable de la derecha, en la parte Leyenda del **Screen Menu** (menú pantalla).     
   7.	Seleccione la propiedad legend en el siguiente cuadro a la derecha y actualice la pantalla presionando las teclas de acceso rápido del teclado,  **q**  o  **w**.
 
@@ -944,7 +948,7 @@ La ventana contiene tres pestañas:
 #### 4.4.4 Create Script (Crear Script)
 
 Para abrir la ventana de Script, haga clic en el botón **Create Script** en el menú de Utility.
- 
+
 Los scripts son útiles para agregar o editar propiedades para una capa elegida. Las expresiones están escritas en JavaScript y que implican cálculos de otras propiedades y/o números y pueden depender del tiempo.
 
 - Los scripts se utilizan para agregar propiedades predefinidas al Mineplan utilizado en Gráficas e informes.
@@ -957,7 +961,7 @@ Los scripts son útiles para agregar o editar propiedades para una capa elegida.
 
 #### 4.4.5 Create Charts (Crear Graficas)
 
-Para abrir la ventana  haga clic en **Create Charts** en el menú de  Utility. La capa Mineplan es la fuente principal de datos para los gráficos, después de que se haya ejecutado el Schedule (Cronograma). Estos se discuten en la sección Programación 
+Para abrir la ventana  haga clic en **Create Charts** en el menú de  Utility. La capa Mineplan es la fuente principal de datos para los gráficos, después de que se haya ejecutado el Schedule (Cronograma). Estos se discuten en la sección Programación
 
   ![Image](./images/Figure 6 8 Upper Create Charts Window.jpg)
 
@@ -987,7 +991,7 @@ Para activar una capa, presione la capa en el Menú Layer (Capa). La capa se exp
 
   - El orden de las capas enumeradas en el Layer menu (menú Capas) se puede cambiar arrastrando cada capa a la ubicación deseada. La posición de cada uno no será recordada en la reapertura del proyecto.
 
-  - Todos los contornos de una capa activa se pueden mostrar con la tecla de método abreviado de teclado, a, o presionando el botón de opción para el botón de opción All Contours (Todos los contornos) en Configuración de vista. Estos se pueden mostrar continuamente en una superposición para las capas Base y BaseResult al cambiar entre elevaciones (presionando  **q**  o  **w**)marcando la casilla Leyenda en la parte Leyenda del Settings menu (menú Configuración de vista 
+  - Todos los contornos de una capa activa se pueden mostrar con la tecla de método abreviado de teclado, a, o presionando el botón de opción para el botón de opción All Contours (Todos los contornos) en Configuración de vista. Estos se pueden mostrar continuamente en una superposición para las capas Base y BaseResult al cambiar entre elevaciones (presionando  **q**  o  **w**)marcando la casilla Leyenda en la parte Leyenda del Settings menu (menú Configuración de vista
 
   - Los tres “QuickButtons” ubicados en la parte superior del Menú Layer, All/None (Todos/Ninguno), Schedule (Calendario) y Drawing (Trazado), se usan para activar y desactivar de manera eficiente la visualización de varias capas en el Menú Layer dentro de un proyecto. Las capas mostradas por cada botón se muestran en la siguiente tabla.  
 
@@ -998,7 +1002,7 @@ Para activar una capa, presione la capa en el Menú Layer (Capa). La capa se exp
 
 ### 4.5.1 Layer Geometry Types (Tipos de geometría de capas)
 
-Cada capa definida tiene un tipo de geometría único, tal como se muestra en la siguente tabla: 
+Cada capa definida tiene un tipo de geometría único, tal como se muestra en la siguente tabla:
 
   ![Image](./images/Table 7 3 Layer Geometry Types.jpg)
 
@@ -1014,7 +1018,7 @@ Esta incluye la topografía superficial antes de cortar o rellenar cualquier for
   ![Image](./images/Figure 7 5 Base layer Red Coloring.jpg)
 
 
-#### Geotech Layer (Capa Geotech) 
+#### Geotech Layer (Capa Geotech)
 
 Las características de esta capa son azules, con sombreado gris. Dichas características no cambian de apariencia cuando se producen cambios en la elevación.
 
@@ -1068,7 +1072,7 @@ Los archivos DXF también se pueden importar y guardar en capas Filler.
 #### BaseResult Layer
 
 Las características de la capa BaseResult son naranjas, con un sombreado naranjo más claro. La capa BaseResult muestra los contornos superficiales del proyecto tras haberse cortado (minado) el pozo y/o tras haberse rellenado la escombrera o las canchas de lixiviación. La capa BaseResult se completa al usar la opción **Cut Contour with Cutter/Filler**. Esto es solo para las capas que están selecionadas en el Menu Layer, y se sobrescribe cada vez que se ejecuta la función.
- 
+
 La función Menu’s **Display > Contour** by PM se usa para crear mapas de un período determinado de minería.  
 
  ![Image](./images/Drawing Window ButterResult Layer Properties.jpg)
@@ -1080,7 +1084,7 @@ La función Menu’s **Display > Contour** by PM se usa para crear mapas de un p
 #### CutterResult Layer (Capa CutterResult)
 
 Las características de la capa CutterResult son de color lima. La forma que se muestra en la capa CutterResult corresponde al polígono cortado resultante que representa el material cortado (minado) o rellenado (vertido). Esta capa se completa a través de la opción Cut Contour with Cutter/Filler. Esta información también se usa en la función Volumetric/Summary del Menú desplegable.
- 
+
 
 La función CutterResult se llevará a cabo en aquellas capas marcadas a través del Menú Layer cuando se ejecute la opción Cut Contour.
 
@@ -1118,7 +1122,7 @@ La capa Model se puede utilizar para almacenar el modelo de bloque geológico pa
   4.	Presione las teclas **q** o **w** para actualizar la pantalla.  
   5.	Vaya a una elevación de interés y haga clic con el botón izquierdo del ratón una vez en uno de los números que se muestran en la ventana Drawing para ver qué otra información está disponible en ese bloque. Para ver la panorámica completa de la pantalla fuera de la ventana de visualización.
 
-  La Model layer también se utiliza para almacenar la red para proyectos de apilamiento de lixiviación. La cuadrícula discretiza la capa CutterResult en bloques uniformes que se pueden programar. 
+  La Model layer también se utiliza para almacenar la red para proyectos de apilamiento de lixiviación. La cuadrícula discretiza la capa CutterResult en bloques uniformes que se pueden programar.
 
   Encontrará más información sobre las cuadrículas almacenadas en la capa Model para apilar proyectos en la documentación de Stacking (Apilamiento).
 
@@ -1132,9 +1136,9 @@ La capa Model se puede utilizar para almacenar el modelo de bloque geológico pa
 #### Solution Layer (Capa Solución)  
 
 
-Los proyectos de apilamiento de lixiviación incluirán una capa de Solution (solución), agregada eligiendo el **Add Layer>Add Solution Layer** desde el menú principal. Esta capa representa la funcionalidad de on (on) (activar) (activar) y off (off) (desactivar) (desactivado) la solución  para las formas de polígonos seleccionadas. Estas formas se pueden construir utilizando el botón **Add Poligon Features (Agregar características de polígono)**  para contener los centroides de los paneles CutterResult en cualquier elevación de la capa CutterResult. 
+Los proyectos de apilamiento de lixiviación incluirán una capa de Solution (solución), agregada eligiendo el **Add Layer>Add Solution Layer** desde el menú principal. Esta capa representa la funcionalidad de on (on) (activar) (activar) y off (off) (desactivar) (desactivado) la solución  para las formas de polígonos seleccionadas. Estas formas se pueden construir utilizando el botón **Add Poligon Features (Agregar características de polígono)**  para contener los centroides de los paneles CutterResult en cualquier elevación de la capa CutterResult.
 
-El polígono dibujado y sus propiedades serán visibles a elevaciones inferiores coincidiendo con la capa CutterResult. La capa Solution rellenará las propiedades on/off de las capas CutterResult y Mineplan como un número para los registros dentro del polígono de la capa Solution y la forma CutterResult. 
+El polígono dibujado y sus propiedades serán visibles a elevaciones inferiores coincidiendo con la capa CutterResult. La capa Solution rellenará las propiedades on/off de las capas CutterResult y Mineplan como un número para los registros dentro del polígono de la capa Solution y la forma CutterResult.
 
   ![Image](./images/Solution Layer.jpg)
 
@@ -1150,12 +1154,12 @@ Se incluyen más detalles para la capa Carreteras en la instrucción Schedule.
 ![Image](./images/Detail Displayed On Pressing The a Key.jpg)
 
 
-#### Import Layer (capa de importación) 
+#### Import Layer (capa de importación)
 
 La Import layer se puede utilizar al importar archivos de tipo CAD, como topografías actualizadas y superficies como compilación. Esta capa se puede utilizar para dibujar o corregir lo que se almacena en las otras capas del menú de capas que contienen contornos, información geotécnica, cortadores, rellenos y carreteras.
 
 
-## 4.6 View Settings (Ver configuración) 
+## 4.6 View Settings (Ver configuración)
 
 Las opciones elegidas en la sección de View Settings se obtienen inicialmente de la ventana de Project Settings. Afectan a lo que se muestra en la ventana Drawing. Este menú se puede contraer y expandir usando el botón en el extremo izquierdo de la barra de mensajes ![Image](./images/view_settings_button.jpg).   
 
@@ -1178,5 +1182,3 @@ La posición de elevación indicará si la elevación del contorno se encuentra 
 
 
 ![Image](./images/message_bar.jpg)
-
-
