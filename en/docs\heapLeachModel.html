@@ -57,7 +57,7 @@
 <p>Some Projects will require the use of Solution Shapes; if this is the case for your project, please review the following steps; otherwise, move on to step 7.4.</p>
 <h3 id="7-3-1-if-solution-shapes-already-exist-within-your-stacking-plan">7.3.1 If Solution Shapes already exist within your Stacking plan</h3>
 <p>Activate the Solution Layer (which will turn orange) and select the cycle in which you want to view the Shapes, e.g., All. Click on the Project Window and move up or down the Elevation to view the shapes (Q or W).</p>
-<h3 id="7-3-2-if-solution-shapes-do-not-exist-but-need-to-be-added">7.3.2 If Solution Shapes do not exist but need to be added</h3>
+<h3 id="7-3-2-adding-solution-to-the-model">7.3.2 Adding Solution to the model</h3>
 <ol type="I">
     <li>Create your own solution shapes:</li>
         <ol type="a">
@@ -70,7 +70,7 @@
     </ol>
 </ol>
 
-<p>Now that the Solution Shapes are in place is important that you update and confirm the Properties for the actual Solution Shape. Select the <strong>Update Solution</strong> button from the Heap Leach Recovery Model module from the Utility Menu. The user may choose to <strong>Add BreakThrough Time</strong> onto the solution polygons that exist in the solution layer. If the project has CutterResult blocks that have an on and lt properties written to them via a script the <strong>Update Solution</strong> together with <strong>Add BreakThrough Time</strong> function will append however many days it takes to break through onto the lt property. The breakthrough time is calculated based on the global inputs of the project and distance to liner.</p>
+<p>Now that Solution information is in the model, it is important to update the Model Layer. Select the <strong>Update Solution</strong> button from the Heap Leach Recovery Model module from the Utility Menu in the progress tab. The user may choose to <strong>Add BreakThrough Time</strong> onto the solution polygons that exist in the solution layer. If the project has CutterResult blocks that have an on and lt properties written to them via a script the <strong>Update Solution</strong> together with <strong>Add BreakThrough Time</strong> function will append however many days it takes to break through onto the lt property. The breakthrough time is calculated based on the global inputs of the project and distance to liner.</p>
 <p>We recommend reviewing the data for your App rate and Leach Time; these two data points would be populated from your Project Settings File.</p>
 <p>When the Solution is updated, all your CutterResult shapes that have an on and lt and all your solutions shapes are combined and written to your Model Layer. To view the Solution Layers created, activate the Solution Layer and click the “A” key. You will now see the Solutions Shapes within the Model.</p>
 <h3 id="7-3-3-adding-a-plant">7.3.3 Adding a Plant</h3>
@@ -119,7 +119,7 @@
 </tr>
 <tr>
 <td>Time Step</td>
-<td>The interval between model calculations, measured in days. Opencontour is set up to default Time Step to 1, meaning daily. The user has the capability to edit this field and update it every two days (2), weekly (7), etc.</td>
+<td>The interval between model calculations, measured in days. Opencontour is set up to default Time Step to 1, meaning daily.</td>
 </tr>
 </tbody></table>
 <ol>**We recommend adjusting the number of days to reflect a shorter period unless the user requires all data at once. </ol>
@@ -409,12 +409,12 @@
 <p>If all steps have been completed and all Solutions Layers Properties containing on and lt properties have been updated you are now ready to Run the Model.</p>
 <p>While in the Heap Leach Recovery Model, you can run the model from any tab.</p>
 <h2 id="7-6-using-the-write-and-read-state-function-for-larger-models-">7.6    Using the Write and Read State function for larger models.</h2>
-<p>Before we consider adding more data it is recommended that the engineer takes the time to calibrate the model to get their values as close to actuals as their scope requires.</p>
+<p>Before we consider adding more forecast data it is recommended that the engineer takes the time to calibrate the model to get their values as close to actuals as their scope requires.</p>
 <p>Some projects will require additional data to be added to an existing large model.  This addition could be a monthly or weekly actual leach stacking update or can be a forecasted stacking plan. When a large model is run to a certain timestamp (“Write State”), all block parameters are stored so that concurrent runs start from that date. We will now describe the necessary steps required to add the data to the model.</p>
 <ol>
 <li><p>Run the existing model using the “write state” function: Once calibration has been completed, determine the last date you want to run your model for, with the ‘Write State’ checked, Run the model (note this date will be the starting date for this file, rather than the minimum ‘pm’).</p>
 <p>The write state checkbox automatically saves the Leach Model Group. This file can be found under "File, Save Dropdown".</p>
-<p>This will save each CutterResult’s “state” at the end of the model run. This includes saving properties like flow out, days leaching, extractable metal remaining, cumulative metal realized, cumulative applied/drainage flows. Additionally, a grouped .JSON file will be saved; persisting any historic data.<br><br>The Leach Model Group is the new Base and written as such, it is not the base result. The user is now able to use this new file for future work, such as forecasts stacking when they need to create more fillers or can continue work on this instance creating more filler shapes.<br><br></p>
+<p>This will save each CutterResult’s “state” at the end of the model run. This includes saving properties like flow out, days leaching, extractable metal remaining, cumulative metal realized, cumulative applied/drainage flows. Additionally, a grouped .JSON file will be saved.<br><br>The Leach Model Group is the new Base and written as such, it is not the base result. The user is now able to use this new file for future work, such as forecasts stacking when they need to create more fillers or can continue work on this instance creating more filler shapes.<br><br></p>
 </li>
 <li>Either working on this instance, or a separate one, the user will now need to check the ‘Read State’ to tell    the model to pick up where our last model run left off. Notice that when we run the model with the ‘Read State’ checked, a dotted red line appears marking the last run model date. Additionally, we display the dates that the model was last run at the top of the screen (from and to).<br><br></li>
 </ol>
@@ -427,7 +427,7 @@
 <li>Follow the historical or forecast stacking instructions.<br><br></li>
 <li>Save this file with descriptions, for example [YYMMDD]<em>pad1</em>stacking_all.json<br><br></li>
 <li>Save the CutterResult layer as a separate file for import, not the larger model.Save this file with descriptions, for example: [YYMMDD]<em>pad1</em>stacking_cr.json<br><br></li>
-<li>Save any solution shapes as a separate file: [YYMMDD]<em>pad1</em>stacking_solution.json<br><br></li>
+<li>Save any solution shapes as a separate file for example: [YYMMDD]<em>pad1</em>stacking_solution.json<br><br></li>
 </ol>
 <h3 id="7-7-1-append-the-cutterresult-file-into-the-existing-model">7.7.1 Append the CutterResult file into the existing model</h3>
 <p>Open a new Project session (new Tab), drag &amp; drop the newly created.json file with the write_state_all.json description.</p>
@@ -435,14 +435,16 @@
 <p>Open Heap Leach Stacking Module (Utility menu)
 Misc Tab - Append Cutter Result - Choose File</p>
 <p>The Append function will override any existent CutterResult blocks with any new ones. This avoids having duplicated CutterResult shapes.The new stacking dataset (CutterResult) will be appended to the existing model.  </p>
-<p><img src="./images/import_cutters.png" alt="Image"></p>
-<p>Use the Script tool to populate the ‘ltp’ property in the CutterResult layer. After you click Ok, exit the window.</p>
+<blockquote>
+<p>Use the Script tool to populate the ‘ltp’ property in the CutterResult layer. After you click Ok, exit the window. Opencontour uses a default of 1 for ltp, the script can be used to add different values.</p>
+</blockquote>
 <p><img src="./images/ltp_populate.png" alt="Image"></p>
 <p>Append the new solution shapes by dragging the new solution file into the solution layer.</p>
 <p>Back to the Utility menu, select Heap Leach Model Module and under the Progress tab, run the “Update Solution” function to populate the model layer with the newest solution polygons.</p>
 <blockquote>
 <p>At this time, the user can add (calculate) the BreakThrough Time to solution polygons that exist in the solution layer. If the project has CutterResult blocks that have an on and lt properties written to them via a script, by selecting the 'Add BreakThrough Time' functionality together with 'Update Solution', it will append however many days takes to breakthrough onto the lt property. The calculation of the BreakThrough Time is based on the Global Inputs of your project, and distance to liner.</p>
 </blockquote>
+<p><img src="./images/breakthrough_time_button.jpg" alt="Image"></p>
 <h3 id="7-7-2-read-state">7.7.2 Read State</h3>
 <p>The user will see that once the write_state_all.json is dragged to the Project Window, the Read State will be checked.</p>
 <p>What this means is that the Model will now read the last "# of days", specified under Run Duration, of the model that we have already run.</p>
