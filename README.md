@@ -12,10 +12,10 @@ mkdocs build
 mkdocs serve
 
 ## Build to html in opencontour-portal
-Install MkDocs and MkDocs-Material
+Install MkDocs and MkDocs-Material:
 https://suedbroecker.net/2021/01/25/how-to-install-mkdocs-on-mac-and-setup-the-integration-to-github-pages/
 
-Install Powershell
+Install Powershell:
 https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos?view=powershell-7.2
 
 Make sure HelpGuides and opencontour-portal repositories are downloaded into the XAMPP/htdocs folders
