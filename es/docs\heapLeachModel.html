@@ -21,314 +21,651 @@
   }
 </style>
 </head>
-<body><div id="readme" class="container"><article class="markdown-body entry-content"><h1 id="chapter-5-stacking-model">Chapter 5 Stacking Model</h1>
+<body><div id="readme" class="container"><article class="markdown-body entry-content"><p>﻿# Capítulo 7 Modelo de apilamiento de lixiviación en pilas</p>
 <p>What you will learn:</p>
 <ul>
-<li><a href="#Stacking-Menu">Stacking Menu (Utility Menu)</a></li>
+<li><a href="#Cutter-Result-Recovery-Model-Properties">Cutter Result Recovery Model Properties</a></li>
+<li><a href="#Cutter-Result-Recovery-Model-Properties">Overview</a></li>
 </ul>
-<hr>
-<h2 id="utility-menu-">Utility Menu &gt;</h2>
-<h2 id="stacking-menu">Stacking Menu</h2>
-<p>Pressing the Utility Menu’s <strong>Stacking</strong> button will launch the Leach Stacking module.  This is used to assign leach panel properties to the CutterResult, Model, and Mineplan layers.     Leach pads are ﬁrst designed as filler layers. These may be separated into vertical lifts. The <strong>Cut Contour with Cutter/Filler</strong> function is run to get the CutterResult shapes of material to be stacked.  </p>
-<p>The following steps are then followed:</p>
-<ol>
-<li>Load or build the Grid, stored in the Model layer (needs to be completed once for the project)</li>
-<li><p>Break up, or Discretize the CutterResult shapes into shapes using a grid</p>
-</li>
-<li><p>Import the Mineplan (CSV or JSON file).  If importing a CSV, this layer should be saved as a JSON file for later use and to save importing time.</p>
-</li>
-<li><p>Use the <strong>Populate Mineplan</strong> function to populate the CutterResult shapes with a timestamp (pm) and Mineplan property information, including grades.</p>
-</li>
+<h2 id="7-1-visi-n-general">7.1 Visión general</h2>
+<p>Antes de empezar con el modelo de recuperación de lixiviación en pilas (modelo HPL), Opencontour recomienda que el usuario siga algunos pasos para permitir que el modelo se ejecute sin mayores contratiempos. Es importante destacar que el modelo HPL se ejecuta después de que el plan de apilamiento histórico y/o previsto se haya actualizado y guardado.</p>
+<p>Esta guía del usuario asume que el usuario tendrá la configuración del proyecto más actualizada, con toda la información de apilamiento del proyecto.</p>
+<p>Para obtener más información sobre la configuración del proyecto y las propiedades del proyecto, consulte el Capítulo 3.</p>
+<p>Al configurar un modelo HPL, es importante resaltar las propiedades que deberán revisarse y actualizarse si es necesario. Asegúrese de seleccionar su unidad de medida, métrica o imperial. Opencontour rellenará previamente la mayoría de estos campos con datos estándar de la industria. Asegúrese de actualizar la densidad utilizada para su proyecto.</p>
+<p>BenchHeight: Opencontour discretiza a la altura del banco. Por lo tanto, al seleccionar la altura del banco Propiedades del proyecto, se de forma predeterminada la altura de discretización.  Nota: la altura del banco suele ser una fracción de la altura de elevación establece automáticamente. Por ejemplo, una altura de elevación de 10m puede tener una altura de banco de 2m.</p>
+<h2 id="7-2-setting-up-for-a-new-heap-leach-recovery-model">7.2 Setting-up for a new Heap Leach Recovery Model</h2>
+<h3 id="7-2-1-nuevo-proyecto">7.2.1 Nuevo proyecto</h3>
+<p>Cree un nuevo proyecto importando la configuración del proyecto, incluida la información de apilamiento más actualizada. Arrastre y suelte su allfile.json o importe su archivo csv "all". Vaya a la elevación adecuada para ver la capa base; puede usar Q o W, actualizar la elevación en la sección Banco (Bench) de configuración de la vista del proyecto, presionar Enter o Ejecutar (Run).</p>
+<p>Ahora puede ver todas las capas de relleno utilizadas para crear el plan de apilamiento. Utilizamos estas capas de relleno para hacer los levantamientos, todo dentro de su capa base (siempre resaltado en rojo).</p>
+<h3 id="7-2-2-pr-cticas-recomendadas">7.2.2 Prácticas recomendadas</h3>
+<p>Antes de empezar a trabajar en el modelo de recuperación hpl, le recomendamos que siga estos pasos:</p>
+<ol type="I">
+<li>En el menú Utilidad, seleccione el módulo de apilamiento de lixiviación en pilas. La ventana Apilamiento de lixiviación tendrá como valor predeterminado la ficha Progreso. Antes de que el usuario pueda ejecutar el modelo, todos los iconos de progreso deberán tener una marca de verificación verde; para revisar el proceso de apilamiento de lixiviación en pilas y cómo llegar a este punto en el proceso, revise el Capítulo 5</li>
+<li>Marque la casilla "Para el modelo" (For Model) de la ventana de progreso y haga clic en Discretizar; esto dividirá todas las formas en  bloques completos para que se ajusten al modelo.</li>
+
+<li>El siguiente paso es importar su Plan de Mina, y una vez que esto ocurra, se le pedirá que Llene el Plan de Mina (populate mine plan). Esto esencialmente dividirá el Plan minero en pequeños bloques que se ajustarán al modelo creado cuando se discretizaron los datos.  Recuerde que el Modelo asignará automáticamente un ltp (tipo de lixiviación) de 1 a las Propiedades del Plan de Mina. Si está buscando tener varias designaciones ltp, abra el menú de la utilidad de script y agregue / edite scripts.</li>
 </ol>
-<p>To learn more about the Leach Stacking Module Guide &amp; Procedures documentation, click on the <strong>?</strong> button to the right of  the text Leach Stacking at the top of the window.</p>
-<p>The Leach Stacking module window provides several conﬁguration tab options:</p>
+
+<p>Ahora que estamos seguros de que nuestro Plan de apilamiento está en su lugar y toda la información necesaria para ejecutar el modelo se ha actualizado, podemos preparar y ejecutar el Modelo de recuperación de lixiviación en pilas.</p>
+<h2 id="7-3-preparar-y-ejecutar-el-modelo-de-recuperaci-n-de-lixiviaci-n-en-pilas">7.3 Preparar y ejecutar el modelo de recuperación de lixiviación en pilas</h2>
+<p>Algunos proyectos requerirán el uso de formas de solución; si este es el caso de su proyecto, revise los siguientes pasos; de lo contrario, continúe con el paso 7.4.</p>
+<h3 id="7-3-1-si-las-formas-de-soluci-n-ya-existen-en-el-plan-de-apilamiento">7.3.1 Si las formas de solución ya existen en el plan de apilamiento</h3>
+<p>Active la capa de solución (solution layer) (que se volverá naranja) y seleccione el ciclo en el que desea ver las formas, por ejemplo, Todo. Haga clic en la ventana del proyecto y suba o baje la elevación para ver las formas (Q o W).</p>
+<h3 id="7-3-2-adici-n-de-soluci-n-al-modelo">7.3.2 Adición de solución al modelo</h3>
+<ol type="I">
+    <li>Cree sus propias formas de solución:</li>
+        <ol type="a">
+            <li>Seleccione Agregar capa (Add Layer) y, a continuación, Agregue capa de solución (Solution Layer)</li>
+            <li>Asegúrese de que la capa de solución está seleccionada, seleccione la herramienta Agregar polígono  <img alt="" src="../images/add_polygon.png"> en la barra de herramientas y dibuje la el polígono de la solución. Asegúrese de hacer doble clic cuando la forma esté terminada; esto creará la forma y proporcionará propiedades como la fecha de inicio y el periodo lt (días).</li>
+        </ol>
+            <li>Crear un script para aplicar propiedades de lixiviación a cada bloque de modelo /li&gt;
+    <ol type="a">
+        <li>En el menú Utilidad, seleccione Scripts y agregue scripts a cada propiedad. Hay scripts de solución simples dentro del menú desplegable repetitivo, pero se pueden crear scripts más complejos si es necesario. </li>
+    </ol>
+</li></ol>
+
+<p>Ahora que la información de la solución está en el modelo, es importante actualizar la capa del modelo. Seleccione el botón <strong>Actualizar solución</strong> (Update Solution) del módulo Modelo de recuperación de lixiviación en pilas del menú Utilidad de la ficha progreso. El usuario puede optar por <strong>Add BreakThrough Time</strong> en los polígonos de solución que existen en la capa de solución. Si el proyecto tiene bloques CutterResult que tienen propiedades <strong>on y lt</strong> escritas en ellos a través de un script, la solución actualizada (Update Solution) junto con la función <strong>Add BreakThrough Time</strong> anexará los días que tarde en pasar en función de las entradas globales del proyecto y la distancia al revestimiento.</p><p>
+Te recomendamos que revises los datos de la tasa de aplicación y el tiempo de lixiviación; estos dos puntos de datos se rellenarían desde el archivo de configuración del proyecto.</p><p>
+Cuando se actualiza la solución, todas las formas de CutterResult que tienen un on y lt y todas las formas de soluciones se combinan y se escriben en la capa del modelo. Para ver las capas de solución creadas, active la capa de solución y haga clic en la clave "A". Ahora verá las formas de soluciones dentro del modelo.</p>
+<h3 id="7-3-3-agregar-una-planta">7.3.3 Agregar una planta</h3>
+<p>Los proyectos de lixiviación en pilas generalmente tendrán una (1) planta donde se procesa la solución. Recomendamos agregar su(s) planta(s) en este punto del proceso de desarrollo del modelo.</p>
+<p>Seleccione Herramienta de programación (Schedule tool) en la barra de herramientas y, a continuación, seleccione Agregar características de planta (Plant Properties). El icono se volverá naranja cuando esté activo, luego haga clic en la ventana del proyecto (fuera de su cuadrícula), aparecerá la ventana Propiedades de la planta. Agregue tantas plantas como sea necesario y, a continuación, desactive la herramienta Programar de la barra de herramientas (volver a verde).</p>
+<p>Una vez que se crea una planta, puede actualizar manualmente sus propiedades y cargar datos históricos (si corresponde) desde un archivo CSV.</p>
+<p>Si el proyecto contiene flujos y tenores estériles históricos, el usuario tiene la opción de cargar el archivo csv con todas las propiedades. Seleccione el icono Planta / Estanque en su ventana de dibujo y haga clic para cargar un CSV. Aparecerá la ventana Propiedades, seleccione CSV y busque su archivo.</p>
+<p>Opencontour recomienda los siguientes encabezado de columna y formato al crear un archivo CSV de propiedades de planta / estanque:</p>
+<p>Consejo: vuelva a activar la capa de programación para asegurarse de que el número de planos sea correcto. Si agregó más de lo necesario, seleccione la herramienta Eliminar y elimine las que ya no necesite.</p>
+<p>Opencontour establece de forma predeterminada el script Model ltp en 1, sin embargo, recomendamos que el usuario revise los Model Scripts después de agregar uns planta(s) (Plant(s)). En el menú Utilidad, seleccione Script. El Software establecerá de forma predeterminada las filas a las que se agregaron scripts durante la configuración del proyecto. Se recomienda que siempre carguemos scripts desde la fila 1 en adelante.</p>
 <ul>
-<li><p>Home Tab</p>
-</li>
-<li><p>Grid Tab</p>
-</li>
-<li><p>Solution Tab</p>
-</li>
+ <li>Elija la capa → CutterResult</li>
+ <li>Prop (Propiedades) → ltp(Tipo de lixiviación)</li>
+ <li>Expresión de script  → 1(Predeterminado)</li>
 </ul>
-<hr>
+
+<ol>Si se agregaron más de una (1) propiedades ltp, actualice y ejecute (run) el script, y se le pedirá información sobre cuántos scripts se calcularon. Haga clic en Aceptar. A continuación, cierre la ventana de script. De lo contrario, cierre la ventana.</ol>
 
 
+<h3 id="7-3-4-agregar-un-estanque">7.3.4 Agregar un estanque</h3>
+<p>Seleccione la herramienta Programar (Schedule) en la barra de herramientas y, a continuación, Agregar estanque (add pond). De vuelta en su capa de solución, verá una nueva opción llamada "impermeable" seleccionada en el menú desplegable Ciclo (cycle).</p>
+<p>Seleccione Agregar polígono y dibuje la forma; haga doble clic para crear la forma y la lista Propiedades.  Es importante que agregue propiedades y lt a su estanque.</p>
+<h2 id="7-4-modelo-de-recuperaci-n-de-lixiviaci-n-en-pilas">7.4 Modelo de recuperación de lixiviación en pilas</h2>
+<p>En el menú de la utilidad, seleccione Recuperación de lixiviación; la siguiente ventana tendrá como valor predeterminado Entradas (inputs). Se recomienda que revise y ajuste, si es necesario, el número de fechas para las que desea ejecutar el modelo. El número de días afectará la velocidad para ejecutar su modelo.</p>
+<p>También recomendamos verificar sus entradas, especialmente si es la primera vez que ejecuta el modelo. Las entradas se cargaron como parte de la configuración de la configuración del proyecto; sin embargo, estos se pueden actualizar manualmente. Recuerde guardar su proyecto con un nuevo nombre e informar a otros usuarios sobre los cambios (si usa los mismos archivos).</p>
+<h3 id="7-4-1-entradas-inputs-">7.4.1 Entradas (Inputs)</h3>
+<p>Aquí, encontrará entradas estáticas de bloque a bloque (todos los bloques comparten estas propiedades) y entradas de control durante la duración del modelo.</p>
+<h4 id="-em-definiciones-globales-de-inputs-em-"><em>Definiciones globales de inputs</em></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Entradas(Input)</strong></th>
+<th><strong>Definición</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Start</td>
+<td>Fecha de inicio desde la que se ejecutará el modelo: tomada del bloque más antiguo colocado, no se requiere la entrada del usuario.</td>
+</tr>
+<tr>
+<td>Run Duration</td>
+<td>Duración en días en que se ejecutará el modelo. La actualización de la duración de la ejecución actualizará automáticamente la fecha de finalización.**</td>
+</tr>
+<tr>
+<td>End</td>
+<td>Fecha de finalización para la que se ejecutará el modelo. La actualización de la entrada final actualizará automáticamente la duración de la ejecución.</td>
+</tr>
+<tr>
+<td>Time Step</td>
+<td>El intervalo entre los cálculos del modelo, medido en días. Opencontour está configurado para que el paso de tiempo predeterminado sea 1, es decir, diario.</td>
+</tr>
+</tbody></table>
+<ol>**Recomendamos ajustar el número de días para reflejar un período más corto a menos que el usuario requiera todos los datos a la vez. </ol>
 
-<h2 id="utility-menu">Utility Menu</h2>
-<h3 id="leach-stacking-module-home-tab">Leach Stacking module  &gt; Home Tab</h3>
+<h4 id="-em-inputs-operational-definitions-em-"><em>Inputs Operational Definitions</em></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Entradas(Input)</strong></th>
+<th><strong>Definición</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Flowing Solutions Fraction</td>
+<td>Un factor de calibración que representa el porcentaje de solución que se mueve entre bloques verticales. El 20% es el estándar de campo probado. La mayoría de los modelos de lixiviación no necesitarán ajustar este número. Opencontour/Forte puede proporcionar más definición e investigación si así lo solicita.</td>
+</tr>
+<tr>
+<td>Mass Transfer Coefficient</td>
+<td>Un factor de calibración que representa la velocidad a la que las partículas de oro se transfieren a la solución que fluye. 0.05 es el estándar de campo probado. La mayoría de los modelos de lixiviación no necesitarán ajustar este número. Opencontour/Forte puede proporcionar más definición e investigación si así lo solicita.</td>
+</tr>
+<tr>
+<td>Dry Ore Bulk Density</td>
+<td>Densidad de cada bloque de resultados de corte.</td>
+</tr>
+<tr>
+<td>Leach Capacity</td>
+<td>El contenido de humedad gravimétrica en estado estacionario cuando el mineral está siendo lixiviado, basado en datos de laboratorio y cálculo de la metodología de lixiviación en pilas para flujos insaturados. Esto puede ser proporcionado por Forte basado en el análisis de datos de laboratorio y otras propiedades del mineral.</td>
+</tr>
+<tr>
+<td>Field Capacity</td>
+<td>El contenido de humedad gravimétrica residual, basado en datos de laboratorio. Por lo general, se encuentra a partir de pruebas de permeabilidad compactadas.</td>
+</tr>
+</tbody></table>
+<h4 id="-em-grid-parameters-definitions-em-"><em>Grid Parameters Definitions</em></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Entradas(Input)</strong></th>
+<th><strong>Definición</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Width</td>
+<td>Ancho de cada celda de cuadrícula</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>Altura de cada celda de cuadrícula</td>
+</tr>
+<tr>
+<td>Area</td>
+<td>Área de cada celda de cuadrícula</td>
+</tr>
+</tbody></table>
+<h4 id="-em-extraction-delay-by-depth-em-"><em>Extraction Delay by Depth</em></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Entradas(Input)</strong></th>
+<th><strong>Definición</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cut Point</td>
+<td>El factor científico que simula el retraso de extracción por profundidad. 300 pies o 100 metros es el estándar de campo probado. La mayoría de los modelos de lixiviación no necesitarán ajustar este número. Opencontour/Forte puede proporcionar más definición e investigación si así lo solicita.</td>
+</tr>
+<tr>
+<td>Slope</td>
+<td>Factor científico que simula el retraso de extracción por profundidad. 3 es el estándar de campo probado. La mayoría de los modelos de lixiviación no necesitarán ajustar este número. Opencontour/Forte puede proporcionar más definición e investigación si así lo solicita.</td>
+</tr>
+</tbody></table>
+<h4 id="-em-drenaje-em-"><em>Drenaje</em></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Entradas (Input)</strong></th>
+<th><strong>Definición</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Closure</td>
+<td>Fecha para aplicar la lógica de cierre permanente. Opencontour/Forte puede proporcionar más detalles de la lógica de cierre.</td>
+</tr>
+<tr>
+<td>Discharge Flow Rate</td>
+<td>Caudal a la instalación de tratamiento aplicado en la fecha de cierre. Opencontour/Forte puede proporcionar más detalles de la lógica de cierre.</td>
+</tr>
+</tbody></table>
+<h4 id="-em-write-state-em-"><em>Write State </em></h4>
+<p>Esta característica permite al usuario ejecutar el modelo utilizando Write State, es decir, hasta un cierto punto en el tiempo, luego hacer una pausa. Cuando un modelo se ejecuta en una marca de tiempo específica ("Write State"), todos los parámetros de bloque se almacenan para que las ejecuciones simultáneas comiencen a partir de esa fecha. Esta característica se puede utilizar al combinar datos de apilamiento históricos y pronosticados, o al ejecutar iteraciones después de una fecha especificada determinada.</p><p>Esta funcionalidad hace las siguientes suposiciones:</p>
 <ol>
-<li>Click <strong>Utility Menu  &gt; Stacking</strong>. The Leach Stacking module window will appear with the <strong>Home Tab</strong> open.</li>
+<li>El usuario ha pasado por el módulo de apilamiento hasta la finalización,</li>
+<li>El usuario ha escrito las propiedades ltp y on en la capa del modelo.
+Para confirmar que esto se ha hecho, seleccione el Modelo en el menú desplegable de la etiqueta y seleccione en la propiedad. La información que se muestra en la ventana del proyecto confirmará el número de veces que la columna del modelo específico recibirá la solución a lo largo de la ejecución del modelo.<p><br>El usuario puede guardar todas las entradas en cualquier momento durante el proyecto. Sin embargo, se recomienda que si se utiliza el estado de escritura, o si alguna entrada se actualiza y difiere de la configuración original del proyecto, el usuario exporta el archivo .json y lo guarda.
+También recomendamos que analice cómo nombrar y guardar estos archivos con su equipo antes de guardar y cargar información actualizada.</p></li>
 </ol>
-<p>The Home tab displays a status indicator light for completed process stages.</p>
+<p>Se pueden encontrar más detalles en el Capítulo 7.8.</p>
+<h3 id="7-4-2-sistemas">7.4.2 Sistemas</h3>
+<p>Contiene cualquier dato almacenado como una matriz (datos de series temporales), ya sea clima, tenor o flujos estériles. Muestra cada 'icono' (Planta, estanque o Lixiviación) agregado a la capa Programación y cualquier dato utilizado en el modelo desde ese icono.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Sistemas</strong></th>
+<th><strong>Nombre del sistema (lixiviación, estanque, planta)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Data</td>
+<td>Encabezados importados de una .csv de series temporales (leaching_I, unleaching_I, unloaded_I, barren_flow barren_tenor)</td>
+</tr>
+<tr>
+<td>Ranges</td>
+<td>Fechas mínimas/máximas de los datos del sistema</td>
+</tr>
+<tr>
+<td>Dropdown</td>
+<td>Puede ver los datos de varios sistemas a través de un gráfico</td>
+</tr>
+</tbody></table>
+<p>Algunos proyectos tendrán datos climáticos. Si este es el caso de su proyecto, revise los siguientes pasos; de lo contrario, continúe con el paso 7.5.</p>
+<h4 id="-em-adici-n-de-datos-clim-ticos-em-"><em>Adición de datos climáticos</em></h4>
+<p>Opencontour recomienda el siguiente encabezado de columna y formato al crear un archivo CSV de propiedades climáticas.</p>
+<p>Todas las entradas que no sean la fecha deberán definirse como métricas o imperiales.</p>
+<table>
+<thead>
+<tr>
+<th>*<em>Unit of Measurement *</em></th>
+<th>** **</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Métrico</td>
+<td>milímetros/día</td>
+</tr>
+<tr>
+<td>Imperial</td>
+<td>pulgadas/día</td>
+</tr>
+</tbody></table>
+<p>Para importar los datos climáticos del proyecto:</p>
 <ul>
-<li><p>Grid</p>
-</li>
-<li><p>Discretize</p>
-</li>
-<li><p>Mineplan</p>
-</li>
-<li><p>Populate Mineplan</p>
-</li>
+ <li>Seleccione la capa de programación, luego la herramienta de programación (Schedule tool) y, a continuación, agregar lixiviación (add leach). Haga clic en la ventana del proyecto.  Aparecerá un nuevo icono en la ventana del proyecto. Haga clic en él para ver sus propiedades.  </li>
+ <li>Desde la ventana Propiedades, cargará el CSV o actualizará manualmente la información.</li>
 </ul>
-<p><strong>Progress Indicator Lights Color Status</strong>
-![Image](./images/Progress Indicator Lights Color Status.jpg)</p>
-<hr>
 
-
-<h6 id="grid-model-layer-">Grid (Model layer)</h6>
-<p>The Grid is built into the Grid tab of the Leach Stacking module.  This process is explained in the <strong>Leach Stacking &gt; Grid</strong> section.  The following assumes the Grid has already been added to the project, as this is a one-time step only.</p>
-<hr>
-
-
-<h6 id="discretize-button">Discretize Button</h6>
-<p>The Discretize button separates the CutterResult shapes using the Model layer's grid and adds the block panel properties for each panel to the CutterResult layer.</p>
+<h2 id="7-4-3-cin-tica-de-extracci-n">7.4.3 Cinética de extracción</h2>
+<p>Contiene las curvas de extracción para cada tipo de mineral (ow) que muestran la velocidad de extracción para cada tipo de mineral.  La designación de ow para cada bloque colocado estará asociada con el Plan de Mina. El usuario puede agregar las ecuaciones de extracción aquí. Los valores se agregan manualmente a cada ow.  Se pueden agregar nuevos tipos de mineral en la ventana de texto. La propiedad Designación (Ore Type Designation ) de tipo de mineral debe estar asociada con el ow del plano de mina para conectar las curvas a los bloques dentro del modelo.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Nombre</strong></th>
+<th><strong>Definición</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Name Dropdown</td>
+<td>Escriba un nombre para agregar una curva de extracción</td>
+</tr>
+<tr>
+<td>Ultimate</td>
+<td>El valor final de extracción para ese tipo de mineral, basado en datos de prueba metalúrgica.</td>
+</tr>
+<tr>
+<td>a</td>
+<td>Un factor de velocidad para la ecuación de extracción, basado en datos de prueba metalúrgica. Opencontour/Forte puede proporcionar herramientas para crear estas ecuaciones basadas en datos de prueba.</td>
+</tr>
+<tr>
+<td>b</td>
+<td>Un factor de velocidad para la ecuación de extracción, basado en datos de prueba metalúrgica. Opencontour/Forte puede proporcionar herramientas para crear estas ecuaciones basadas en datos de prueba.</td>
+</tr>
+<tr>
+<td>Ore Type Designation</td>
+<td>Esta propiedad (debe ser un número) coincidirá con la propiedad 'ow' del Plan de Mina para correlacionar las curvas de extracción.</td>
+</tr>
+</tbody></table>
+<p>Una vez que todas las entradas estén en su lugar, guarde todas las entradas de extracción de mineral.  Seleccione Guardar y exportar el nuevo archivo json. Una vez más, recomendamos discutir con su equipo el proceso de cómo nombrar y guardar estos archivos antes de guardarlos, y cargar información actualizada. Ahora debería poder cargar el nuevo archivo en su proyecto utilizando la función Cargar dentro del menú Cinética de extracción.</p>
+<p>Nota: Al guardar, guardará toda la información del menú del modelo de lixiviación en este punto y no solo la cinética de entrada.</p>
+<p>Todos los gráficos se pueden actualizar para adaptarse a las necesidades del usuario. Opencontour permite modificaciones más simples dentro del Software o editando datos utilizando El software en la nube de terceros Plotly.</p>
+<h2 id="7-4-4-soluci-n-solution-">7.4.4 Solución (Solution)</h2>
+<p>En esta pestaña encontrarás entradas que pueden cambiar de bloque a bloque o a lo largo del tiempo.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Nombre</strong></th>
+<th><strong>Definición</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ltp</td>
+<td>Tipo de lixiviación. Se utiliza para agrupar bloques y asignar propiedades específicas (histórico vs pronóstico, diferentes contenidos de humedad inicial, ROM vs Crush, tarifas de aplicación aplicadas, etc. ).</td>
+</tr>
+<tr>
+<td>imc</td>
+<td>Moisture Content inicial de un bloque en formato decimal (por ejemplo, 0,05 para un contenido de humedad inicial del 5%).</td>
+</tr>
+<tr>
+<td>r_ar</td>
+<td>Tasa de aplicación de referencia (L/m2/hr o gpm)</td>
+</tr>
+<tr>
+<td>ar</td>
+<td>Tasa de aplicación (L/m2/hr o gpm).</td>
+</tr>
+<tr>
+<td>ar_v</td>
+<td>Aplicación Rate Variance, que se usa cuando la casilla  de verificación Modify Application Rate está marcada y es el porcentaje que la tasa de la aplicación puede cambiar en formato decimal (por ejemplo, 0.  3 es una varianza del 30%).</td>
+</tr>
+<tr>
+<td>outfl</td>
+<td>Asigne dónde se drena la almohadilla a lo largo del tiempo, según los días de lixiviación de cada bloque.</td>
+</tr>
+<tr>
+<td>infl</td>
+<td>Asigne dónde recibe la solución la almohadilla a lo largo del tiempo, en función de los días de lixiviación de cada bloque.</td>
+</tr>
+<tr>
+<td>Write properties to CutterResult based on 'ltp'</td>
+<td>Escribe la información de la propiedad de la tabla en cada CutterResult agrupada por 'ltp'.</td>
+</tr>
+</tbody></table>
+<p>El primer paso es asignar valores manuales a: ltp, imc, r_ar, ar y ar_v (Los valores ar_v solo se pueden introducir cuando se marca Modificar tasa de aplicación (Modify Application Rate)).</p>
+<p>Al asignar el valor a su ltp, recuerde que este número (s) es exclusivo y no está relacionado con el número de designación dado a su planta o estanque. Por ejemplo, 1 = Rom, 2 = Triturado (crushed)</p>
+<p>La operación típica del modelo tendrá marcada la opción Modificar tasa de aplicación. Una vez que se alcanza el aumento de la planta y se cumple el caudal objetivo (Q_tar), la tasa de aplicación variará dentro de los límites del ar_v y el caudal de la planta se mantendrá constante. Q_tar y las propiedades de designación se establecen dentro del icono de la planta.</p>
+<p>Cuando se enumeran todas estas entradas, asegúrese de "Escribir propiedades en CutterResult según ltp" haciendo clic en el botón asociado.</p>
+<p>Ahora asigne sus salidas y entradas. Para cada columna y fila, seleccione "Asignar" (assign).</p>
+<h3 id="7-4-5-salidas-outflows-">7.4.5 Salidas (Outflows)</h3>
+<p>Antes de comenzar a actualizar las entradas para las salidas de soluciones, asegúrese de comprobar la designación. Si su proyecto tiene más de una planta o estanque, y diferentes plazos, se le pedirá que agregue filas. Ejemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Fecha de inicio (número de días)</strong></th>
+<th><strong>Fecha de finalización (número de días)</strong></th>
+<th><strong>Designación</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>90</td>
+<td>119</td>
+<td>1</td>
+</tr>
+<tr>
+<td>60</td>
+<td>89</td>
+<td>2</td>
+</tr>
+<tr>
+<td>30</td>
+<td>59</td>
+<td>2</td>
+</tr>
+<tr>
+<td>0</td>
+<td>29</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h3 id="7-4-6-flujos-inflows-">7.4.6 Flujos (Inflows)</h3>
+<p>Antes de comenzar a actualizar las entradas para las entradas de soluciones, asegúrese de comprobar la designación. Si su proyecto tiene más de una planta o estanque, y diferentes plazos, se le pedirá que agregue filas. Q_tar (Q_target) solo se puede actualizar en las Propiedades de cada planta o estanque. Si necesita editar esta entrada, cierre esta ventana, vuelva a la ventana del proyecto y haga doble clic en el icono de la planta o del estanque, o seleccione la herramienta Propiedades en la barra de herramientas. Ejemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Fecha de inicio (número de días)</strong></th>
+<th><strong>Fecha de finalización (número de días)</strong></th>
+<th><strong>Designación</strong></th>
+<th><strong>Q_tar (gpm or m3/hr)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>90</td>
+<td>119</td>
+<td>1</td>
+<td>2200</td>
+</tr>
+<tr>
+<td>60</td>
+<td>89</td>
+<td>2</td>
+<td>2400</td>
+</tr>
+<tr>
+<td>30</td>
+<td>59</td>
+<td>2</td>
+<td>2400</td>
+</tr>
+<tr>
+<td>0</td>
+<td>29</td>
+<td>2</td>
+<td>2200</td>
+</tr>
+</tbody></table>
+<p>Si su proyecto tiene más de un ltp, entonces la suma de ambos flujos de entrada (1 y 2) es lo que el proyecto está apuntando a la suma de ambos ejecutándose al mismo tiempo, en las unidades designadas para todo el pad.</p>
+<p>Ahora es el momento de escribir estas propiedades en el CutterResult basado en ltp" seleccionando este icono. A continuación, Guardar.</p>
+<h2 id="7-5-ejecuci-n-del-modelo-de-recuperaci-n-de-lixiviaci-n-en-pila">7.5 Ejecución del modelo de recuperación de lixiviación en pila</h2>
+<p>Si se han completado todos los pasos  y se han actualizado todas las propiedades de capas de soluciones (Solutions Layers Properties ) que contienen propiedades on y lt, ahora está listo para ejecutar el modelo.</p>
+<p>While in the Heap Leach Recovery Model, you can run the model from any tab.</p>
+<h2 id="7-6-uso-de-la-funci-n-write-state-y-lectura-para-modelos-m-s-grandes">7.6 Uso de la función Write State y lectura para modelos más grandes</h2>
+<p>Antes de considerar agregar más datos de pronóstico, se recomienda que el ingeniero se tome el tiempo para calibrar el modelo para que sus valores se acerquen lo más posible a los reales que su alcance requiera.</p><p>
+Algunos proyectos requerirán que se agreguen datos adicionales a un modelo grande existente. Esta adición podría ser una actualización de apilamiento de lixiviación real mensual o semanal o puede ser un plan de apilamiento pronosticado. Cuando un modelo se ejecuta a una determinada marca de tiempo ("Write State"), todos los parámetros de bloque se almacenan para que las ejecuciones simultáneas comiencen a partir de esa fecha. Ahora describiremos los pasos necesarios para agregar los datos al modelo.</p>
 <ol>
-<li><p>The <strong>Discretize</strong> button separates the CutterResult shapes using the Model layer's grid and adds the block panel properties for each panel to the CutterResult layer. Using the ‘For Model’ checkbox populates properties for full blocks that have their centroid in the CutterResult shape only.</p>
-<p>![Image](./images/Discretize Button.jpg)</p>
-</li>
+<li>Ejecute el modelo existente utilizando la función "Write State". Una vez completada la calibración, determine la última fecha para la que desea ejecutar su modelo, con el 'Write State' marcado, ejecute el modelo (tenga en cuenta que esta fecha será la fecha de inicio de este archivo, en lugar de el primer pm).<p> La casilla de verificación “Write State” guarda automáticamente el grupo de modelos de lixiviación. Este archivo se puede encontrar en "Archivo, Guardar menú desplegable".</p><p>
+Esto guardará el "estado" (state) de cada CutterResult al final de la ejecución del modelo. Esto incluye propiedades como flujo de salida, días de lixiviación, metal extraíble restante, metal acumulado realizado, flujos acumulativos aplicados / drenaje. Además, se guardará el archivo .JSON.</p></li>
 </ol>
+<p>El Grupo de Modelos de Lixiviación es la nueva Base y escrito como tal, no es el resultado base. El usuario ahora puede usar este nuevo archivo para trabajos futuros, como el apilamiento de pronósticos cuando necesita crear más rellenos o puede continuar trabajando en esta instancia creando más formas de relleno.</p>
 <ol start="2">
-<li><p>After the Discretize process is complete, a conﬁrmation message will appear, indicating the quantity of new blocks created. Select the <strong>OK</strong> option. If no blocks were created the Discretize function failed. In that instance the Model layer should be checked in the Drawing Window to ensure it encompasses the entire CutterResult shapes (including elevation and spatially). The function should be re-run after this check.</p>
-<p>![Image](./images/Figure 4 53 Confimation After Discretize Function Is Run.jpg)</p>
-</li>
+<li>Ya sea trabajando en esta instancia, o en una separada, el usuario ahora tendrá que verificar el Read State para decirle al modelo que retome donde lo dejó nuestra última ejecución de modelo. Observe que cuando ejecutamos el modelo con el Read State marcado, aparece una línea roja punteada que marca la fecha del último modelo de ejecución. Además, mostramos las fechas en que el modelo se ejecutó por última vez en la parte superior de la pantalla (desde y hacia).<br><br></li>
 </ol>
-<p><strong>NOTE: There is a message warning the user against repeatedly hitting the button if the CutterResult layer has not changed since the previous execution of the Discretize function.</strong></p>
-<p>  ![Image](./images/Figure 4 54 Re-run Warning Message.jpg)</p>
-<p><strong>Grid Properties Assigned To The CutterResult Layer During Discretize</strong></p>
-<p>![Image](./images/Grid Properties Assigned To The CutterResult Layer During Discretize.jpg)</p>
-<hr>
-
-
-<h6 id="mineplan-layer">Mineplan Layer</h6>
-<p>Discretize will clear the Mineplan layer and the progress indicator button will be red in the <strong>Home tab</strong>.</p>
-<p>To load the layer:</p>
+<p>Para resumir, para iniciar cualquier ejecución de modelo donde se leerá o escribirá el guardado, primero debemos comenzar marcando el "Read State", el usuario puede continuar trabajando en su archivo o trabajar en el archivo de grupo guardado más tarde.  Ahora que se ha ejecutado este modelo base, el usuario solo tendrá que marcar "Estado de lectura" para continuar donde lo dejó el último modelo. El usuario también puede usar ambas casillas de verificación juntas para anexar continuamente los valores informados.</p>
+<h2 id="7-7-combinaci-n-de-datos-hist-ricos-con-actualizaciones-futuras-pron-stico-">7.7 Combinación de datos históricos con actualizaciones futuras (pronóstico)</h2>
+<p>Se requerirá que el usuario siga los pasos descritos en el Capítulo 7.8, incluido el guardado del grupo archivo .JSON.</p>
+<p>Crear un nuevo plan de apilamiento: se puede crear un plan de apilamiento a partir de la fecha de "Write/Read State" como un archivo independiente.  Esto puede ser una actualización histórica mensual, o puede ser un apilamiento pronosticado.  </p>
 <ol>
-<li><p>Click <strong>File &gt; Open Model&gt; CSV</strong> or <strong>JSON</strong>.</p>
-</li>
-<li><p>Select a previously saved CSV or JSON ﬁle.</p>
-</li>
+<li>Utilice el nuevo archivo .json de grupo del modelo más grande como la topografía base inicial para este nuevo apilamiento para que no hayan brechas.<br><br></li>
+<li>Siga las instrucciones de apilamiento histórico o de pronóstico.<br><br></li>
+<li>Guarde este archivo con descripciones, por ejemplo, 211221_pad1_2021stacking_all.json<br><br></li>
+<li>Guarde la capa CutterResult como un archivo independiente para la importación, no como el modelo más grande. Guarde este archivo con descripciones, por ejemplo: 211221_pad1_202_stacking_cr.json<br><br></li>
+<li>Guarde las formas de la solución como un archivo independiente:211221_pad1_202 1_stacking_solution.json<br><br></li>
 </ol>
-<p>This file must contain:</p>
-<ul>
-<li><p>ore tons (otns)</p>
-</li>
-<li><p>grade information (au or ag)</p>
-</li>
-<li><p>ore type (ow, always a number)</p>
-</li>
-<li><p>period stacked (pm) in Excel serial (general) format, i.e. 43914</p>
-</li>
-</ul>
-<p>If importing a CSV, the Mineplan layer should be saved in Opencontour for later use and to save re-importing.</p>
-<hr>
-
-
-<h6 id="populate-mineplan-button">Populate Mineplan Button</h6>
-<p>The <strong>Populate Mineplan</strong> button in the Leach Stacking <strong>Home tab</strong> will distribute the Mineplan tons into each discretized CutterResult shape. The filler sequence, direction (dir), density (dens) and ow designations (min and ow max) are considered in this function.  A message will appear stating how many Mineplan blocks have been created, as shown.</p>
-<p>![Image](./images/populate mineplan button.jpg)</p>
-<p><strong>Note:</strong></p>
-<ul>
-<li><p><strong>The ‘sseq’ property is calculated during the Populate Mineplan function, sorting the CutterResult by 'cut_fill_num', 'seq', and 'z'. This builds the proper order to start assigning tons in a linear fashion. After the list is sorted, the function assigns the 'sseq', which is where it is in that sorted list (i.e. 'sseq' = 5 means that block would be filled 5th during the Populate Mineplan function).</strong></p>
-</li>
-<li><p><strong>The mid_x and mid_y are the center points of the grid location and are created in the CutterResult during the discretize function. During the Populate Minelan function, these coordinates are assigned to the Mineplan records so that they are viewable.</strong></p>
-</li>
-</ul>
-<p><strong>Properties are added to both the Mineplan layer</strong>   </p>
-<p>![Image](./images/Properties are added to both the Mineplan layer.jpg)</p>
-<p><strong>Properties are added to the CutterResult layer</strong></p>
-<p>![Image](./images/Properties are added to the CutterResult layer.jpg)</p>
-<hr>
-
-<h3 id="leach-stacking-module-grid-tab">Leach Stacking module  &gt; Grid Tab</h3>
-<p>The grid can either use the project extents as the origin (decided when constructing the Base) or can be a smaller region within the Base layer extents.  Once constructed, the grid should be exported and logically named, for example, ProjectName_100x100_model.json describes a 100x100 foot grid.  A descriptor can be added to this name for the lift height.</p>
-<p>Click <strong>Utility Menu  &gt; Stacking  &gt; Grid Tab</strong>. The Leach Stacking Module grid tab will appear.</p>
-<h4 id="manual-grid-radio-button">Manual Grid Radio Button</h4>
-<p>The radio button option Manual Grid uses the entries in this window.</p>
-<p>![Image](./images/Manual Grid Radio Button.jpg)</p>
-<p><strong>NOTE: When a project is saved, the grid tab entries are not retained. All inputs for this tab are saved as part of the Group file. It is recommended to create a new project with distinct Project Settings for designing and scheduling the Leach Module panels.</strong></p>
-<ol>
-<li>The <strong>Grid</strong> tab includes several configuration options. Most are automatically populated by the Project Settings, described in the table below.  </li>
-</ol>
+<h3 id="7-7-1-importe-el-archivo-cutterresult-en-el-modelo-existente-">7.7.1 Importe el archivo CutterResult en el modelo existente:</h3>
+<p>Abra una nueva sesión de proyecto (nueva pestaña), arrastre y suelte el archivo.json recién creado con la descripción write_state_all.json. </p><p> El nuevo archivo CutterResult, con datos reales o de previsión, deberá anexarse al archivo BasellAll siguiendo estos pasos:</p><p> Abra el módulo de apilamiento de lixiviación en pila (menú utilidad) Pestaña Misc - Anexar resultado del cortador - Elija archivo. </p><p> La función Append anulará cualquier bloque CutterResult existente con cualquier bloque nuevo. Esto evita tener formas duplicadas de CutterResult. El nuevo conjunto de datos de apilamiento (CutterResult) se anexará al modelo existente. </p><p></p>
+<p>Utilice la herramienta Script para rellenar la propiedad 'ltp' en la capa CutterResult. Después de hacer clic en Aceptar, salga de la ventana.</p><p> Opencontour utiliza un valor predeterminado de 1 para ltp, el script se puede utilizar para añadir diferentes valores.</p>
+<p><img src="./images/ltp_populate.png" alt="Image"></p>
+<p>Anexe las nuevas formas de solución arrastrando el nuevo archivo de solución a la capa de solución.</p><p>De vuelta al menú Utilidad, seleccione Módulo de modelo de lixiviación en pilas y, en la pestaña Progreso, ejecute la función "Actualizar solución" para rellenar la capa del modelo con los polígonos de solución más recientes.</p><p>En este momento, el usuario puede agregar (calcular) el BreakThrough Time a los polígonos de solución que existen en la capa de solución. Si el proyecto tiene bloques CutterResult que tienen propiedades on y lt escritas en ellos a través de un script, seleccionando la funcionalidad Add BreakThrough Time junto con 'Actualizar solución',(Update Solution) se agregarán los días que se tarden en irrumpir en la propiedad lt. El cálculo del tiempo de interrupción se basa en las entradas globales de su proyecto y la distancia al revestimiento.</p>
+<p><img src="/Users/mariaechavarria/Documents/GitHub/HelpGuides/en/docs/images/breakthrough_time_button.jpg" alt="Image"></p>
+<h3 id="7-7-2-read-state">7.7.2 Read state</h3>
+<p>El usuario verá que una vez que el write_state_all.json se arrastra a la ventana del proyecto, se comprobará el Read State.</p><p>
+Lo que esto significa es que el Modelo ahora leerá el último "# de días", especificado en duración de ejecución (Run Duration), del modelo que ya hemos ejecutado.</p><p>
+En Entradas globales, el usuario ahora verá una nueva fecha de inicio: el día después de ejecutar el último modelo.</p>
+<h3 id="7-7-3-revisar-el-modelo-actualizado">7.7.3 Revisar el modelo actualizado</h3>
+<p>El usuario deberá abrir la pestaña Salidas (Outputs), desde nuestro Modelo de recuperación de lixiviación en pilas. A continuación, asigne los datos que se revisarán a la barra de datos y ejecute el modelo. La línea roja del tablero indica que todo lo anterior a la línea roja ya ha tenido el modelo ejecutado. Ahora, estamos comenzando desde la línea roja del tablero en adelante. </p><p>Después de ejecutar el modelo (para obtener más información sobre cómo ejecutar el modelo, vaya al Capítulo 7.7 ), los nuevos datos serán acumulativos para todo el panel. Los datos se pueden exportar a Excel para su posterior análisis.</p>
+<blockquote>
+<p>Este proceso se repetirá cada vez que el usuario desee actualizar su modelo con información real y de previsión.</p>
+</blockquote>
+<h3 id="cutter-result-recovery-model-properties-">Cutter Result Recovery Model Properties:</h3>
 <table>
 <thead>
 <tr>
-<th align="center">Project Settings Property</th>
-<th align="center">Grid Tab Parameter Populated</th>
+<th><strong>Name</strong></th>
+<th><strong>Summary</strong></th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">Block Rotate (degrees clockwise)</td>
-<td align="center">Angle Oﬀset (degrees). For more details, click <a href="#angle-offset">here</a></td>
+<td>midx</td>
+<td>Block center point X coordinate (ex. 6501625)                                            </td>
 </tr>
 <tr>
-<td align="center">MidBench</td>
-<td align="center">Z Origin</td>
+<td>midy</td>
+<td>Block center point Y coordinate (ex. 2182875)                                            </td>
 </tr>
 <tr>
-<td align="center">viewExtentMinx</td>
-<td align="center">X Origin. For more details, click <a href="#x-origin-and-y-origin">here</a>.</td>
+<td>midz</td>
+<td>Block elevation (ex. 2930)                                                               </td>
 </tr>
 <tr>
-<td align="center">viewExtentMiny</td>
-<td align="center">Y Origin. For more details, click <a href="#x-origin-and-y-origin">here</a>.</td>
-</tr>
-<tr>
-<td align="center">Block X</td>
-<td align="center">X Panel Size. For more details, click <a href="#x-and-y-panel-size">here</a>.</td>
-</tr>
-<tr>
-<td align="center">Block Y</td>
-<td align="center">Y Panel Size. For more details, click <a href="#x-and-y-panel-size">here</a>.</td>
-</tr>
-<tr>
-<td align="center">X Number of Panels</td>
-<td align="center">X Number of Panels: = (viewExtentMaxx - viewExtentMinx)/X Panel Size. For more details, click <a href="#x-and-y-number-of-panels">here</a>.</td>
-</tr>
-<tr>
-<td align="center">Y Number of Panels</td>
-<td align="center">Y Number of Panels: = (viewExtentMaxy - viewExtentMiny)/Y Panel Size. For more details, click <a href="#x-and-y-number-of-panels">here</a>.</td>
-</tr>
-</tbody></table>
-<p>These entries can be overwritten in the Grid tab.  A further description of each Grid tab parameter follows.</p>
-<h6 id="z-origin">Z Origin</h6>
-<p>The origin specified here should be the lowest elevation of your leach pad. The <strong>Volumetric/Summary By Bench</strong> option in the Dropdown Menu will display the lowest elevation of the shape. This elevation should be entered as the Z Origin.</p>
-<h6 id="lift-height">Lift Height</h6>
-<p>The BenchHeight parameter in the Project Settings will determine the lift height. This can be changed by overwriting the value in the Grid tab.</p>
-<h6 id="x-y-direction">X &amp; Y Direction</h6>
-<p>The <strong>Direction</strong> speciﬁes the direction in which the panel sequence (seq) numbers are ordered. Select the direction option from either the <strong>X Direction</strong> or <strong>Y Direction</strong> dropdown menu and then click the radio button to set the dominant direction.</p>
-<p>  ![Image](./images/Figure 4 63 Grid Direction Tab X Direction Options.jpg)</p>
-<p>  ![Image](./images/Grid Direction Tab X Direction Options.jpg)</p>
-<h6 id="angle-offset">Angle Offset</h6>
-<p>This is initially populated by the <strong>Project Settings</strong>, <strong>Block Rotate</strong> (degrees clockwise). The <strong>Angle Offset</strong> (degrees) is used to rotate the alignment of the specified grid when cutting the CutterResult layer.  By measuring the strike of the CutterResult panels, this angle entry can be deduced.  An entry of zero represents the North used for unrotated leach pad projects. If possible, a zero rotation angle is strongly suggested (rotated models do not work in the Leach Recovery Modelling module).</p>
-<p>  ![Image](./images/Angle Offset (degrees).jpg)</p>
-<h6 id="x-origin-and-y-origin">X Origin and Y Origin</h6>
-<p>The X Origin and Y Origin are located in the bottom-left (Southwest) corner of the panels. The <strong>Preview</strong> button can be used to confirm and relocate this position.</p>
-<p>For reference, the viewExtentMin and viewExtentMax for the X and Y directions from the <strong>Project Settings</strong> are written in bold where the Origins are entered.</p>
-<p>  ![Image](./images/X Origin and Y Origin.jpg)</p>
-<p>If the <strong>Fix</strong> box is ticked, the origin entries will be maintained in the <strong>Preview</strong>.  Unticking this box allows repositioning in the Drawing Window. The <strong>X Origin</strong> and <strong>Y Origin</strong> will be initially populated by the <strong>Project Settings</strong> : <strong>viewExtentMinx</strong> and <strong>viewExtentMiny</strong>.</p>
-<p><strong>Tip</strong>: Using the CutterResult layer's <strong>All Contours</strong> display, a Preview of the grid position ensures that the entire heap leach pad is contained. When the desired position is found, without ticking the Fix box, simply click the left mouse button to save the positions in the <strong>Grid tab</strong>.  This tool allows you to evaluate the X and Y panel sizes, as well as the X and Y panel numbers.</p>
-<h6 id="preview-button-fix-checkbox">Preview Button &amp; Fix checkbox</h6>
-<p>The <strong>Preview</strong> button enables the user to view the defined grid's boundaries relative to the CutterResult position of the designed leach pad. The CutterResult should be displayed in the Drawing Window ﬁrst, but it is usually displayed with <strong>All Contours</strong> to ensure the entire CutterResult layer is captured.  Once all contours are displayed for the CutterResult, go back to the Grid tab and click the <strong>Preview</strong> button.  The Grid tab will disappear from the display but can be accessed again.</p>
-<p>If the <strong>Fix</strong> checkbox is ticked, the origin of the displayed Preview will be as specified in the Grid tab. You can reposition the Grid in the Drawing Window by deselecting the Fix checkbox.</p>
-<p>Once the grid is positioned correctly and the left mouse button is pressed, the Grid tab's coordinates will update to reﬂect the new <strong>X Origin</strong> and <strong>Y Origin</strong>.  The X and Y Number of Panels, and X and Y Panel Size entries will remain unchanged.</p>
-<h6 id="x-and-y-panel-size">X and Y Panel Size</h6>
-<p>The X or Y Panel Size is initially determined by the entries in the <strong>Project Settings</strong> for Block X and Block Y. These entries may be overwritten.</p>
-<h6 id="x-and-y-number-of-panels">X and Y Number of Panels</h6>
-<p>The X Panel Size and X Number of Panels determine the X direction extent of panels created. The same can be said for the Y Number of Panels.</p>
-<h6 id="save-button">Save Button</h6>
-<p>Click the <strong>Save</strong> button to save the Grid tab entries to the project. The entries will be recalled with the opening of a saved group file (All (Model), All, Contour Group, Mineplan Group).</p>
-<h6 id="build-button">Build Button</h6>
-<p>This grid dataset will be used to represent the leach stacking model, which will be written to the Model layer when the <strong>Build</strong> button is pressed. The Drawing Window will display grid squares when it is refreshed and the Model layer is ticked on in the Layer Menu. Each leach elevation will display the a grid. The grid can be saved as a layer (JSON ﬁle) and reused by dragging into a project. It will be saved as part of a group ﬁle All (Model).</p>
-<p>Properties written to the Model layer during the <strong>Build</strong> function are written in the following table, common to all elevations:</p>
-<p>![Image](./images/Build function.jpg)</p>
-<h4 id="provided-grid-radio-button">Provided Grid Radio Button</h4>
-<p>Select the <strong>Provided Grid</strong> radio button to populate the grid with data from the imported DXF grid. When the <strong>Provided Grid</strong> radio button is selected, the lower portion of the entries will be removed from the Grid tab window. Manual entry is still required for the <strong>Lift Height</strong>, <strong>Z Origin</strong>, and <strong>Direction Portion</strong>.</p>
-<p>  ![Image](./images/Figure 4 73 Example DXF Grid Stored In The Import Layer.jpg)</p>
-<p>  ![Image](./images/Provided Grid Radio Button.jpg)</p>
-<h3 id="leach-stacking-module-solution-tab">Leach Stacking Module &gt; Solution tab</h3>
-<h4 id="adding-the-solution-layer">Adding the Solution Layer</h4>
-<p>To begin drawing on the Solution layer, the layer must first be added to the Layer Menu. To add the layer, Do this by:</p>
-<p>Clicking the grouped Add Layer function in the Main Menu, select the Add Solution Layer button,<img src="./images/Add_solution_layer.jpg" alt="Image">. This adds and activates the Solution layer.  This layer contains entries to populate the ‘on’, ‘app_rate’ and ‘lt’ properties in the CutterResult and Mineplan layers.</p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
 <td>z</td>
-<td>Elevation of the leach shape, the current elevation for the Update Solution function</td>
+<td>Block elevation (ex. 2930 = midz)                                                        </td>
 </tr>
 <tr>
-<td>Max_z</td>
-<td>Top of the leach lift, the current elevation for the Update Solution function</td>
+<td>type</td>
+<td>What kind of shape it is (always will be fill for modeling)                              </td>
 </tr>
 <tr>
-<td>Min_z</td>
-<td>Bottom of the leach lift, max_z-BenchHeight (from the Project Settings).  The polygon will not be visible at elevations below this entry.</td>
+<td>pn</td>
+<td>Property used to sort, combination of pn_gid_z (ex. S3_L1_C6_5x6_2930_)                  </td>
 </tr>
 <tr>
-<td>Cycle</td>
-<td>Chosen cycle.  1=Primary, 2=Secondary, 3=Tertiary or 4=Quaternary.  Will default to the cycle option chosen for the Solution Layer in the Layer Menu</td>
+<td>gy</td>
+<td>Numbered grid coordinate Y (ex. 7)                                                       </td>
 </tr>
 <tr>
-<td>on [44141]</td>
-<td>Start of leaching for the polygon, the values inside [] shows date value in general format.  To display the calendar option, press the calendar icon</td>
+<td>gx</td>
+<td>Numbered grid coordinate X (ex. 5)                                                       </td>
 </tr>
 <tr>
-<td>lt*</td>
-<td>Leach solution time (days). Default is 120</td>
+<td>gid</td>
+<td>Unique property for each block, combination of gx and gy (ex. 5x7)                       </td>
 </tr>
 <tr>
-<td>app_rate*</td>
-<td>Application rate, gmp/ft2 for imperial projects, L/m2/hr for metric.</td>
+<td>seq</td>
+<td>After sorting, we assign numbers 1 – n where n represents the number of blocks (ex. 11450)  </td>
 </tr>
 <tr>
-<td>*</td>
-<td>Populated (if does not have an entry) by pressing the Update Solution button in the Solution tab</td>
+<td>swell</td>
+<td>Used for Ton calculation (should be 1 for most models without Opencontour   </td>
+</tr>
+<tr>
+<td>on</td>
+<td>Date when the block receives solution, used with ‘lt’ to decide when it turns  </td>
+</tr>
+<tr>
+<td>la</td>
+<td>Layer type (ex. cr, negligible)                                             </td>
+</tr>
+<tr>
+<td>lt</td>
+<td>Leach cycle, Days receiving solution (ex. 75)                               </td>
+</tr>
+<tr>
+<td>dens</td>
+<td>Block density, used in ton calculation (ex. 0.057)                          </td>
+</tr>
+<tr>
+<td>tns</td>
+<td>Tons of block = vol x dens (ex. 1425)                                       </td>
+</tr>
+<tr>
+<td>area</td>
+<td>Area of the block = width x height (ex. 2500.00)                            </td>
+</tr>
+<tr>
+<td>vol</td>
+<td>Volume of the block = vol x area x bench height (ex. 25000)                 </td>
+</tr>
+<tr>
+<td>fi</td>
+<td>Phase name of the block, assigned through the Filler layer (ex. S3_L1_C6)   </td>
+</tr>
+<tr>
+<td>cut_fill_num</td>
+<td>Filler number from layer menu, (ex. 7)                                      </td>
+</tr>
+<tr>
+<td>dir</td>
+<td>Direction of stacking of the pad, assigned through the layer menu (ex. 180)</td>
+</tr>
+<tr>
+<td>ow_min</td>
+<td>Type of ore type (‘ow’) received minimum (ex. 0.5)                       </td>
+</tr>
+<tr>
+<td>ow_max</td>
+<td>Type of ore type (‘ow’) received maximum (ex. 10000                      </td>
+</tr>
+<tr>
+<td>au</td>
+<td>Grade of gold in block (ex. 0.027056889)                                 </td>
+</tr>
+<tr>
+<td>ag</td>
+<td>Grade of silver in block (ex. 0.3522071110000001)                        </td>
+</tr>
+<tr>
+<td>imc</td>
+<td>Initial Moisture Content (ex. 0.08)                                      </td>
+</tr>
+<tr>
+<td>sseq</td>
+<td>Stacking sequence, used with direction (ex. 3797)                        </td>
+</tr>
+<tr>
+<td>ow</td>
+<td>Ore type, imported from minplan (ex. 70)                                 </td>
+</tr>
+<tr>
+<td>pm</td>
+<td>Date block was placed (ex. 44884)                                        </td>
+</tr>
+<tr>
+<td>ltp</td>
+<td>Leach type (ex. 3)                                                       </td>
+</tr>
+<tr>
+<td>ultimate</td>
+<td>Ultimate from extraction curve (ex. 0.699999988079071_)                  </td>
+</tr>
+<tr>
+<td>on_seq</td>
+<td>Sorted number used for variance turning blocks on/off (ex. 9371)         </td>
+</tr>
+<tr>
+<td>aum1</td>
+<td>Metal placed initially (ex. 1199.5086669921876)                          </td>
+</tr>
+<tr>
+<td>aurp1</td>
+<td>Block recoverable metal placed beginning of model (ex. 839.6558837890625)</td>
+</tr>
+<tr>
+<td>aur1</td>
+<td>Block metal remaining beginning of model (ex. 458.4161071777344)         </td>
+</tr>
+<tr>
+<td>auer1</td>
+<td>Block extractable metal remaining beginning of model (ex. 98.5635604858398  </td>
+</tr>
+<tr>
+<td>aufi1</td>
+<td>Block flowing solution metal inventory at beginning of model (ex. 0)     </td>
+</tr>
+<tr>
+<td>ausi1</td>
+<td>Block stagnant solution metal inventory beginning of model (ex. 0.30331748  </td>
+</tr>
+<tr>
+<td>aux1</td>
+<td>Block extraction beginning of model (ex. 0.6178300380706787)             </td>
+</tr>
+<tr>
+<td>aum2</td>
+<td>Metal placed end of time =aum1 (ex. 1199.5086669921876)                  </td>
+</tr>
+<tr>
+<td>aurp2</td>
+<td>Block recoverable metal placed end of model = aurp1 (ex. 839.6558837890625  </td>
+</tr>
+<tr>
+<td>aur2</td>
+<td>Metal remaining at end of model run (ex 58.4161071777344)                </td>
+</tr>
+<tr>
+<td>auer2</td>
+<td>Total extractable metal remaining at end of model (ex. 98.56356048583985)</td>
+</tr>
+<tr>
+<td>aufi2</td>
+<td>Flowing solution metal at end of model (ex. 0)                           </td>
+</tr>
+<tr>
+<td>ausi2</td>
+<td>Stagnant solution metal at end of model (ex. 0.30331748723983767)        </td>
+</tr>
+<tr>
+<td>aux2</td>
+<td>% Metal extracted at the end of the model run (ex. 0.6178300380706787)     </td>
+</tr>
+<tr>
+<td>flow_out_bottom</td>
+<td>Flow out of the bottom of block at the end of the model run (ex.          </td>
+</tr>
+<tr>
+<td>days_leaching</td>
+<td>Number of days leaching, includes cut point and slope calculations         </td>
+</tr>
+<tr>
+<td>moisture_content</td>
+<td>Moisture content of last day of model run (ex. 0.13926574587821            </td>
+</tr>
+<tr>
+<td>r_ar</td>
+<td>Reference application rate (ex. 0.005)                                   </td>
+</tr>
+<tr>
+<td>pm2</td>
+<td>Date placed block above (ex. 47785)                                   </td>
+</tr>
+<tr>
+<td>pm3</td>
+<td>Difference between date placed above and current blocks date place (ex. 12)</td>
 </tr>
 </tbody></table>
-<h4 id="drawing-solution-layer-leach-shapes">Drawing Solution Layer Leach Shapes</h4>
-<p>Polygon shapes can be built around the discretized CutterResult shapes using the <strong>Add Polygon Features</strong> button, on any elevation of the  CutterResult layer with the Solution layer active.  The polygon and its properties will be visible in the Drawing Window at the elevation in the Solution layer where the shape is drawn.</p>
-<p>Next, follow the below steps:</p>
-<ol>
-<li><p>Assign a cycle in the Layer Menu for the new polygon (Primary, Secondary, Tertiary or Quaternary, Drainage Zone or Infrastructure).</p>
-</li>
-<li><p>Choose a Solution Color in the Layer Menu for the shape drawn.</p>
-</li>
-<li><p>On completion of drawing the shape, double-click and the Properties window will appear.  A description of these properties is shown in the table below.</p>
-</li>
-<li><p>If required, update and save these properties to ensure that any changes are retained.</p>
-</li>
-</ol>
-<p><strong>NOTE:</strong> <strong>A solution layer feature’s properties can be viewed and edited at any time with the Solution layer active and viewing the properties display.</strong></p>
-<p>![Image](./images/Drawing Solution Layer Leach Shapes.jpg)</p>
-<p>![Image](./images/Drawing Solution Layer Leach Shapes2.jpg)</p>
-<h3 id="stacking-procedure">Stacking Procedure</h3>
-<p>When starting a stacking project in Opencontour, there are specific steps to follow.  A suggested folder structure is shown below.</p>
-<p>There are two categories of stacking:</p>
-<ul>
-<li><p><strong>Historical Stacking</strong> – It includes all material currently placed on the pad.  The site will have surveyed as build DXF files to outline the stacking areas.</p>
-</li>
-<li><p><strong>Forecast Stacking</strong> – Stacking future material, building on the Historical Stacking surface.  </p>
-</li>
-</ul>
-<p><img src="./images/Stacking_folder-structure.jpg" alt="Image"></p>
-<h4 id="historical-stacking">Historical Stacking</h4>
-<p><strong>Step 1 - Base</strong></p>
-<p>To create the Historical stacking project the starting topography, or Base, must first be created from ‘as build’ surfaces, usually by importing supplied DXF’s into the Base layer.  The final Base layer should be exported and clearly named for future use, e.g. Date_MasterTopo_base.json.</p>
-<p>During Base creation, the project extents, MidBench and BenchHeight and site density need to be considered and checked/saved in the Project Settings.  The Base layer usually represents the liner topography.</p>
-<p><strong>Step 2 - Lifts</strong></p>
-<p>The lifts of each stage in the historical stacking are bounded by supplied ‘as build’ surfaces (DXF’s).  The DXF’s should be logically named, e.g., Stage1Lift1, or Stage3Lift2.  The Import layer can be used to contain the imported DXF’s and the fillers can be drawn in their respective stacking order, guided by the Import layer contents.</p>
-<p>The lifts can be composed of several fillers.  The shapes of the fillers depend on the stacking method used, i.e., truck or radial stackers.  After the first lift is constructed in Opencontour it is advised that the user <strong>Cut Contours with Cutter/Filler</strong>.  </p>
-<p><strong>Step 3 - Grid</strong></p>
-<p>The grid, as described in the Grid Tab, is stored in the Model layer in Opencontour.  It will be used for each historical stacking project.  The next step is to <strong>Discretize</strong>, as described in the color button reference of the Leach Stacking Module.</p>
-<p>A good place to store the Grid file is under the ‘Working’, because it is used in both Historical and Forecast stacking projects.</p>
-<p><strong>Step 4 - Mineplan</strong></p>
-<p>Once the CSV file is created, it is imported into the Mineplan layer. This layer should be saved as a JSON file for later use and to save re-importing.</p>
-<p>The <strong>Populate Mineplan</strong> function can be run from the Leach Stacking Module.  </p>
-<p>After running the <strong>Populate Mineplan</strong> function the CutterResult layer should be exported and clearly named, e.g., LP30_EOM_YearMonth_CR.json.  Save this in the folder ‘05_CutterResults’.</p>
-<p>Store the entire project file, saved as an’All (Model)’ type in the folder ’04 Historical Stacking’.</p>
-<p><strong>Step 5 - Final Historical Stacking Project</strong></p>
-<p>To combine each stage and lift into a single project a new project must be opened.  Drag in the original Base created, e.g. Date_MasterTopo_base.json.  Now drag in the CutterResult files for each lift and stage from the ‘05_CutterResults’ folder.</p>
-<p>Subsequent historical stacking can be added to this project, using the project’s CutterResult layer. A Solution layer should be added to this project.  </p>
-<p><strong>Step 6 - 3D Visualization</strong></p>
-<p>An animation of the stacking project can be viewed in the <strong>Display&gt;3D&gt;New Timeline</strong> with shading and labelling from the properties in the CutterResult layer.  The fillers should be stacked in their respective orders.</p>
-<h4 id="forecast-stacking">Forecast Stacking</h4>
-<p>The forecast stacking follows the respective steps described above, but with some differences explained below.</p>
-<p><strong>Step 1 - Base</strong></p>
-<p>In a new project for the forecast stacking, use the most recent export of the BaseResult from the Historical Stacking project as the Base (make sure the Base is active before dragging in the BaseResult file).</p>
-<p><strong>Step 2 - Lifts</strong></p>
-<p>The lifts of each stage in the forecast stacking are bounded by designed surfaces (DXF’s) and the procedure is like the process described above in the Historical Stacking section.  </p>
-<p><strong>Step 3 - Grid</strong></p>
-<p>The previously constructed grid, e.g. ‘ProjectName_100x100_model.json’ can be dragged in to the model layer to discretize the designed fillers.</p>
-<p><strong>Step 4 - Mineplan</strong></p>
-<p>A CSV can be built using the forecast Mineplan data, using the properties previously described. This layer should be saved as a JSON file for later use.  This will save time, rather than repeating the import process for a CSV.</p>
-<p>The <strong>Populate Mineplan</strong> function is run, with no adjustments in the filler densities.  </p>
-<p><strong>Step 5 - 3D Visualization</strong></p>
-<p>An animation of the stacking project should be checked in the <strong>Display&gt;3D&gt;New Timeline</strong>.</p>
-<p><strong>NOTE:</strong> <strong>If there are many fillers in the project it can be broken up into multiple projects.  In this case, the created Opencontour project files for each should be logically named. Scripts and Reports can be run over the CutterResult layer to provide data on previously stacked and leached material, as well as forecast stacking.</strong></p>
 </article></div><div style="background-color: #b4b2b2;width: 50px;height:50px;line-height: 50px;text-align: center;position: fixed;bottom: 10px;right: 10px;padding-top:5px;" onclick="document.documentElement.scrollTop = document.body.scrollTop =0;">
   <svg t="1533629773982" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1035" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40"><defs><style type="text/css">@font-face { font-family: uc-nexus-iconfont; src: url("chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff") format("woff"), url("chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf") format("truetype"); }
   </style></defs><path d="M536.255427 195.182354c-7.804756-7.804756-17.966187-11.615549-28.311813-11.615549-9.43693 0-18.874883 3.449565-26.496467 10.163477-2.360767 1.452071-4.356214 3.267417-6.352685 5.262864L218.47792 455.611735c-15.607466 15.60542-15.607466 40.834011 0 56.43943 15.607466 15.607466 41.558511 15.607466 57.167001 0l193.46013-192.733583 0 600.526219c0 22.1423 17.787108 39.927361 39.927361 39.927361 22.140253 0 39.927361-17.785062 39.927361-39.927361L548.959773 319.317583 737.15704 508.422522c15.607466 15.607466 40.469714 15.607466 56.078203 0 15.607466-15.607466 15.425318-40.834011-0.182149-56.441477L536.255427 195.182354 536.255427 195.182354z" p-id="1036" fill="#333"></path><path d="M101.784174 143.097092l816.674071 0c22.140253 0 39.925315-17.785062 39.925315-39.927361 0-22.140253-17.784038-39.925315-39.925315-39.925315L101.784174 63.244416c-22.140253 0-39.927361 17.785062-39.927361 39.925315C61.856813 125.31203 79.643921 143.097092 101.784174 143.097092L101.784174 143.097092z" p-id="1037" fill="#333"></path></svg>

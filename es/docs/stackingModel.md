@@ -1,5 +1,5 @@
 
-# Chapter 5 Apilamiento de lixiviación en pilas de Opencontour 
+# Chapter 5 Apilamiento de lixiviación en pilas de Opencontour
 
 
 
@@ -10,10 +10,10 @@ Al presionar el botón **Stacking** del menú Utility, se abrirá el módulo Lea
 
 Posteriormente, se deben seguir estos pasos:
 
-1.  Cargue o cree la cuadrícula (Grid) almacenada en la capa Model (debe realizarse una sola vez durante el proyecto). 
+1.  Cargue o cree la cuadrícula (Grid) almacenada en la capa Model (debe realizarse una sola vez durante el proyecto).
 2.	Divida o discretice las figuras CutterResult a través de la cuadrícula.
 
-3.	Importe el Mineplan. 
+3.	Importe el Mineplan.
 
 4.	Use la función **Populate Mineplan** para completar las figuras CutterResult con una marca de tiempo (pm) e información de la propiedad Mineplan, incluidas las leyes.
 
@@ -21,7 +21,7 @@ Para acceder a la documentación sobre los procedimientos y la guía del módulo
 
 La ventana del módulo Leach Stacking incluye varias pestañas de configuración, donde las que principalmente se usan son:
 
-- Pestaña Home 
+- Pestaña Home
 
 - Pestaña Grid
 
@@ -43,17 +43,23 @@ La pestaña Home muestra luces indicadoras del estado respecto a las etapas del 
 
 
 
-- Grid 
+- Grid
 
 - Discretize  
 
 - Mineplan
 
-- Populate Mineplan 
+- Populate Mineplan
 
 **Estado de color de luces indicadoras de progreso**
 ![Image](./images/Progress Indicator Lights Color Status.jpg)
 
+Proceso   |  Luz indicadora roja |  Luz indicadora verde
+--|---|--
+Cuadrícula  |   La capa del modelo está vacía o no contiene una propiedad de panel. <p> **Nota**: si se presiona el botón de compilación, se activarán los pasos posteriores del proceso, es decir, Discretize, y este paso aparecerá en rojo.|  Cuando existe un archivo de modelo con el panel de tipo de propiedad y si se ha presionado el botón Generar de la ficha cuadrícula  |   
+Discretizar  | La capa CutterResult está vacía o no contiene las propiedades "gx" y "gy".Si se ejecuta la función Corte de Contorno con cortador/rellenos.<p>**Nota**: la capa del plan de mina se borrará después de hacer clic en Discreatizar| La capa CutterResult está contiene las propiedades "gx" y "gy". O cuando se ha hecho clic en Discretizar.
+Plan de Mina| La capa del plan de mina no se ha cargado  | La capa del plan de mina se ha cargado
+Generar Plan de Mina | El plan de mina no se ha ejecutado, si la capa del plan de mina se ha borrado o no contiene la propiedad "dest", si el botón Discretizar es rojo, y si la capa CutterResult está vacía. | El plan de mina se ha ejecutado, o si la capa Mineplan contiene la propiedad "dest".
 
 <hr>
 
@@ -119,9 +125,9 @@ Este archivo debe contener:
 <hr>
 
 
-###### Botón Populate Mineplan 
+###### Botón Populate Mineplan
 
-El botón **Populate Mineplan** de la pestaña Home del módulo Leach Stacking distribuirá las toneladas Mineplan en cada figura CutterResult discretizada. 
+El botón **Populate Mineplan** de la pestaña Home del módulo Leach Stacking distribuirá las toneladas Mineplan en cada figura CutterResult discretizada.
 
 En esta función se consideran las designaciones filler sequence, direction (dir), density (dens) y ow (min y max). Aparecerá un mensaje que mostrará cuántos bloques Mineplan se crearon:
 
@@ -147,7 +153,7 @@ En esta función se consideran las designaciones filler sequence, direction (dir
 
 <hr>
 
-### Módulo Leach Stacking > Pestaña Grid 
+### Módulo Leach Stacking > Pestaña Grid
 
 La cuadrícula puede usar la extensión del proyecto como origen (se decide al construir la Base) o puede ser una región más pequeña dentro de la extensión de la capa Base. Una vez creada, la cuadrícula debe exportarse y se debe asignar un nombre lógico a la misma, por ejemplo, ProjectName_100x100_model.json describe una cuadrícula de 100x100 pies. Es posible añadir un descriptor al nombre respecto a la altura de la elevación.
 
@@ -169,15 +175,15 @@ Este botón de opción incluye los campos que aparecen en la ventana a continuac
 
 
    |   Propiedad de Ajustes de proyecto       |   Parámetro de pestaña Grid completado   |
-    | :------------: | :---------------: | 
+    | :------------: | :---------------: |
     | Block Rotate (degrees clockwise) |   Angle Oﬀset (degrees). |
     | MidBench |   Z Origin       |  
     | viewExtentMinx |   X Origin. For more details.|  
     | viewExtentMiny |   Y Origin. For more details. |  
-    | Block X |   X Panel Size. For more details.       | 
+    | Block X |   X Panel Size. For more details.       |
     |   Block Y |   Y Panel Size. For more details.       |  
-    |   X Number of Panels |   X Number of Panels: = (viewExtentMaxx - viewExtentMinx)/X Panel Size.      | 
-    |   Y Number of Panels |   Y Number of Panels: = (viewExtentMaxy - viewExtentMiny)/Y Panel Size.  | 
+    |   X Number of Panels |   X Number of Panels: = (viewExtentMaxx - viewExtentMinx)/X Panel Size.      |
+    |   Y Number of Panels |   Y Number of Panels: = (viewExtentMaxy - viewExtentMiny)/Y Panel Size.  |
 
 
 Estos campos pueden sobrescribirse en la pestaña Grid. A continuación se describe cada parámetro de la pestaña Grid.
@@ -190,7 +196,7 @@ El origen que se especifique acá debe ser la elevación más baja de la cancha 
 
 ###### Lift Height
 
-El parámetro BenchHeight de Project Settings determinará la altura de la elevación. Puede cambiarse sobrescribiendo el valor en la pestaña Grid. 
+El parámetro BenchHeight de Project Settings determinará la altura de la elevación. Puede cambiarse sobrescribiendo el valor en la pestaña Grid.
 
 
 ######	X & Y Direction
@@ -218,7 +224,7 @@ Este parámetro se completa inicialmente a través de **Project Settings**, **Bl
 Estos parámetros se ubican en la esquina inferior izquierda (sudoeste) de los paneles. Es posible usar el botón **Preview** para confirmar y reubicar esta posición.
 
 
-Como referencia, los parámetros viewExtentMin y viewExtentMax respecto a los sentidos X e Y de **Project Settings** aparecen en negrita debajo del área donde se ingresen los orígenes. 
+Como referencia, los parámetros viewExtentMin y viewExtentMax respecto a los sentidos X e Y de **Project Settings** aparecen en negrita debajo del área donde se ingresen los orígenes.
 
   ![Image](./images/X Origin and Y Origin.jpg)
 
@@ -227,7 +233,7 @@ Si se marca la casilla **Fix**, los datos del origen se mantendrán en **Preview
 **Consejo**: Si se usa la pantalla **All Contours** de la capa CutterResult, la vista previa de la posición de la cuadrícula garantiza que toda la cancha de lixiviación en pilas esté contenida. Si no se marca la casilla Fix, al momento de encontrar la posición que desea, haga clic izquierdo para guardar los datos en la pestaña Grid, los que posteriormente volverán a aparecer. El parámetro X/Y Panel Size, así como **X/Y Number of Panels**, pueden revisarse a través de esta herramienta.
 
 
-###### Botón Preview y casilla Fix 
+###### Botón Preview y casilla Fix
 
 
 El botón Preview permite al usuario ver los límites definidos de la cuadrícula respecto a la posición CutterResult de la cancha de lixiviación diseñada. El CutterResult debe visualizarse primero en la ventana Drawing, donde suele mostrarse la opción All Contours para garantizar que toda la capa CutterResult sea capturada. Una vez que se visualicen todos los contornos correspondientes a CutterResult, vuelva a la pestaña Grid y presione el botón **Preview**. La pestaña Grid desaparecerá de la pantalla, pero posteriormente podrá volver a acceder a ella.
@@ -244,12 +250,12 @@ El parámetro X o Y Panel Size inicialmente se determina según los datos de Pro
 El parámetro X Panel Size y X Number of Panels determina el sentido X de los paneles creados. Lo mismo aplica al parámetro Y Number of Panels.
 
 
-######	Botón Save 
+######	Botón Save
 
 Haga clic en el botón **Save** para guardar los datos de la pestaña Grid en el proyecto. Los datos se recuperarán al momento de abrir un archivo grupal guardado (All (Model), All, Contour Group, Mineplan Group).
 
 
-######	Botón Build 
+######	Botón Build
 
 Este conjunto de datos de la cuadrícula se usa para representar el modelo Leach Stacking, el cual se escribirá en la capa Model al presionarse el botón **Build**. La ventana Drawing mostrará los cuadrados de la cuadrícula cuando se actualice y se marque la capa Model en el Menú Layer. Cada elevación de lixiviación mostrará una cuadrícula. Es posible guardar la cuadrícula como capa (archivo JSON) y reutilizarse arrastrándola a un proyecto. Se guardará como parte de un archivo grupal All (Model).
 
@@ -259,7 +265,7 @@ Las propiedades escritas en la capa Model durante la ejecución de la función *
 ![Image](./images/Build function.jpg)
 
 
-#### Botón Provided Grid 
+#### Botón Provided Grid
 
 
 Seleccione el botón de opción **Provided Grid** para completar la cuadrícula con los datos de la cuadrícula DXF importada. Si se selecciona el botón **Provided Grid**, los datos de la parte inferior se eliminarán de la pestaña Grid. Aun así, es necesario ingresar manualmente los valores **Lift Height**, **Z Origin**, y **Direction Portion**.
@@ -288,6 +294,18 @@ Para comenzar a trazar en la capa Solution, primero es necesario agregar la capa
 
 A través del botón **Add Solution** se creará una capa Solution en la parte superior del menú Layer. Esta capa contiene datos para completar las propiedades “on”, “app_rate” y “lt” de las capas CutterResult y Mineplan.
 
+Propiedad  |  Descripción
+--|--
+Z  | Elevación de la forma de lixiviación, la elevación actual para la función Actualizar solución
+Max_z  |  Parte superior de la elevación de lixiviación, la elevación de corriente para la función Actualizar solución
+Min_z  |  Parte inferior del elevador de lixiviación, max_z-BenchHeight (desde la configuración del proyecto). El polígono no será visible en las elevaciones por debajo de esta entrada.
+Ciclo  |  Ciclo elegido.  1=Primaria, 2=Secundaria, 3=Terciaria o 4=Cuaternaria.  Se establecerá de forma predeterminada la opción de ciclo elegida para la capa de solución en el menú Capa
+  on [44141]|  Inicio de la lixiviación para el polígono, los valores dentro de [] muestran el valor de fecha en formato general.  Para mostrar la opción de calendario, presione el icono de calendario
+lt*  |  Tiempo de solución de lixiviación (días). El valor predeterminado es 120
+app_rate*  |  Tasa de aplicación, gmp/ft2 para proyectos imperiales, L/m2/hr para métrica.
+*  |  Generado (si no tiene una entrada) presionando el botón Actualizar solución en la pestaña Solución
+
+
 #### Trazar figuras en la capa Solution
 
 Es posible crear polígonos alrededor de las figuras CutterResult discretizadas a través del botón **Add Polygon Features**, en cualquier elevación de la capa CutterResult con la capa Solution activa. El polígono y sus propiedades serán visibles en la Ventana Drawing en la elevación en la que se trace la figura en la capa Solution.
@@ -309,18 +327,6 @@ Posteriormente, siga estos pasos:
 
 ![Image](./images/Drawing Solution Layer Leach Shapes2.jpg)
 
-#### Actualizar propiedades de la capa Solution
-
-Mediante la visualización Propiedades,  las características individuales se pueden ver y actualizar.  Estos se enumeran en la tabla a continuación.
-
-Las características de la capa Solution que no tengan la tasa de aplicación de las propiedades (app_rate, gpm/ft2 o L/m2/hr) y el tiempo de lixiviación (lt, días) completados pueden añadirse a través de la función **Update Solution**. Es posible acceder a esta mediante el menú **Utility > Stacking > Solution**.  La función **Update Solution** usará la capa Solution para completar las propiedades “on” y “lt” de la capa CutterResult y Mineplan con un valor para el centroide de cada registro presente en el polígono de la capa Solution. La capa CutterResult tendrá la propiedad “app_rate” escrita en ella.
-
-Haga clic en Menú utilidad > Apilamiento. La  ventana del módulo Leach Stacking aparecerá con la pestaña Home  abierta. La pestaña Solución se muestra a continuación.
-
-**NOTA: El polígono debe trazarse por encima de la elevación CutterResult.**
-
-![Image](./images/Update Solution Layer Properties.jpg)
-
 
 ### Procedimiento de apilamiento
 
@@ -335,19 +341,19 @@ There are two categories of stacking:
 
 #### Historical Stacking
 
-**Paso 1: Base** 
+**Paso 1: Base**
 
-Para crear el proyecto Historical Stacking, primero se debe crear la topografía inicial, o Base, a partir de superficies “as build”, generalmente importando los DXF proporcionados a la capa Base. La capa Base final debe exportarse y se le debe asignar un nombre claro para su uso futuro; por ejemplo, Date_MasterTopo_base.json. 
+Para crear el proyecto Historical Stacking, primero se debe crear la topografía inicial, o Base, a partir de superficies “as build”, generalmente importando los DXF proporcionados a la capa Base. La capa Base final debe exportarse y se le debe asignar un nombre claro para su uso futuro; por ejemplo, Date_MasterTopo_base.json.
 
 Durante la creación de la Base, es necesario considerar y comprobar/guardar la extensión del proyecto, los parámetros Midbench y BenchHeight, y la densidad del sitio en Project Settings. La capa Base suele representar la topografía lineal.
 
-**Paso 2:  Elevaciones** 
+**Paso 2:  Elevaciones**
 
 Las elevaciones de cada etapa del proyecto Historical Stacking están delimitadas por superficies “as build” proporcionadas (DXF). Los archivos DXF deben tener un nombre lógico, por ejemplo, Stage1Lift1 o Stage3Lift1. La capa Import puede usarse para contener los DXF importados, y los Fillers pueden trazarse en su respectivo orden de apilamiento, en función del contenido de la capa Import.
 
 Las elevaciones pueden estar formadas por varios Fillers. Las figuras de los Fillers dependen del método de apilamiento utilizado, es decir, apiladores radiales o carretillas apiladoras. Tras construirse la primera elevación en Opencontour, se recomienda usar la opción **Cut Contours with Cutter/Filler**.   
 
-**Paso: Cuadrícula** 
+**Paso: Cuadrícula**
 
 La cuadrícula, que se describe en la pestaña Grid, se almacena en la capa Model de Opencontour. Se utilizará para cada proyecto Historical Stacking. El siguiente paso es usar la opción Discretize, tal como se describe en la referencia de botones de color del Módulo Leach Stacking.
 
@@ -369,7 +375,7 @@ Para combinar cada etapa y elevación en un solo proyecto, se debe abrir un nuev
 Es posible añadir proyectos Historical Stacking posteriores a este proyecto a través de la capa CutterResult del proyecto.
 
 Se debe añadir una capa Solution al proyecto.
- 
+
 
 
 **Paso 6: Visualización en 3D**
@@ -381,15 +387,15 @@ Es posible ver una animación del proyecto de apilamiento a través de **Display
 El proyecto Forecast Stacking requiere los mismos pasos descritos anteriormente, pero con algunas diferencias que se explican a continuación.
 
 
-**Paso 1: Base** 
+**Paso 1: Base**
 
 En un nuevo proyecto Forecast Stacking, use como Base la exportación más reciente del archivo BaseResult del proyecto Historical Stacking (asegúrese de que la Base esté activa antes de arrastrar el archivo BaseResult).
 
-**Paso 2: Elevaciones** 
+**Paso 2: Elevaciones**
 
 Las elevaciones de cada etapa del proyecto Forecast Stacking están delimitadas por superficies diseñadas (DXF), y el procedimiento es similar al descrito anteriormente en la sección Historical Stacking.
 
-**Paso 3: Cuadrícula** 
+**Paso 3: Cuadrícula**
 
 La cuadrícula anteriormente creada, por ejemplo, ‘ProjectName_100x100_model.json’ puede arrastrarse a la capa Model para discretizar los Fillers diseñados.
 

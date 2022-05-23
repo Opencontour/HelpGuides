@@ -290,7 +290,16 @@ To begin drawing on the Solution layer, the layer must first be added to the Lay
 
 Clicking the grouped Add Layer function in the Main Menu, select the Add Solution Layer button,![Image](./images/Add_solution_layer.jpg). This adds and activates the Solution layer.  This layer contains entries to populate the ‘on’, ‘app_rate’ and ‘lt’ properties in the CutterResult and Mineplan layers.
 
-
+Property  | Description
+--|--
+z  |  Elevation of the leach shape, the current elevation for the Update Solution function
+Max_z  |  Top of the leach lift, the current elevation for the Update Solution function
+Min_z  |  Bottom of the leach lift, max_z-BenchHeight (from the Project Settings).  The polygon will not be visible at elevations below this entry.
+Cycle  |  Chosen cycle.  1=Primary, 2=Secondary, 3=Tertiary or 4=Quaternary.  Will default to the cycle option chosen for the Solution Layer in the Layer Menu
+on [44141]  |  Start of leaching for the polygon, the values inside [] shows date value in general format.  To display the calendar option, press the calendar icon
+lt*  |  Leach solution time (days). Default is 120
+app_rate*  |  Application rate, gmp/ft2 for imperial projects, L/m2/hr for metric.
+*  |  Populated (if does not have an entry) by pressing the Update Solution button in the Solution tab
 
 
 #### Drawing Solution Layer Leach Shapes

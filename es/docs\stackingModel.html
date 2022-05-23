@@ -21,144 +21,168 @@
   }
 </style>
 </head>
-<body><div id="readme" class="container"><article class="markdown-body entry-content"><h1 id="chapter-5-stacking-model">Chapter 5 Stacking Model</h1>
-<p>What you will learn:</p>
-<ul>
-<li><a href="#Stacking-Menu">Stacking Menu (Utility Menu)</a></li>
-</ul>
-<hr>
-<h2 id="utility-menu-">Utility Menu &gt;</h2>
-<h2 id="stacking-menu">Stacking Menu</h2>
-<p>Pressing the Utility Menu’s <strong>Stacking</strong> button will launch the Leach Stacking module.  This is used to assign leach panel properties to the CutterResult, Model, and Mineplan layers.     Leach pads are ﬁrst designed as filler layers. These may be separated into vertical lifts. The <strong>Cut Contour with Cutter/Filler</strong> function is run to get the CutterResult shapes of material to be stacked.  </p>
-<p>The following steps are then followed:</p>
+<body><div id="readme" class="container"><article class="markdown-body entry-content"><h1 id="chapter-5-apilamiento-de-lixiviaci-n-en-pilas-de-opencontour">Chapter 5 Apilamiento de lixiviación en pilas de Opencontour</h1>
+<h2 id="5-1-men-utility-men-stacking">5.1 Menú Utility &gt; Menú Stacking</h2>
+<p>Al presionar el botón <strong>Stacking</strong> del menú Utility, se abrirá el módulo Leach Stacking. Este se usa para asignar propiedades de panel de lixiviación a las capas CutterResult, Model y Mineplan. Las canchas de lixiviación primero se diseñan como capas Filler. Estas pueden separarse en elevaciones verticales. La función <strong>Cut Contour with Cutter/Filler</strong> se ejecuta para apilar las figuras del material CutterResult.  </p>
+<p>Posteriormente, se deben seguir estos pasos:</p>
 <ol>
-<li>Load or build the Grid, stored in the Model layer (needs to be completed once for the project)</li>
-<li><p>Break up, or Discretize the CutterResult shapes into shapes using a grid</p>
+<li>Cargue o cree la cuadrícula (Grid) almacenada en la capa Model (debe realizarse una sola vez durante el proyecto).</li>
+<li><p>Divida o discretice las figuras CutterResult a través de la cuadrícula.</p>
 </li>
-<li><p>Import the Mineplan (CSV or JSON file).  If importing a CSV, this layer should be saved as a JSON file for later use and to save importing time.</p>
+<li><p>Importe el Mineplan.</p>
 </li>
-<li><p>Use the <strong>Populate Mineplan</strong> function to populate the CutterResult shapes with a timestamp (pm) and Mineplan property information, including grades.</p>
+<li><p>Use la función <strong>Populate Mineplan</strong> para completar las figuras CutterResult con una marca de tiempo (pm) e información de la propiedad Mineplan, incluidas las leyes.</p>
 </li>
 </ol>
-<p>To learn more about the Leach Stacking Module Guide &amp; Procedures documentation, click on the <strong>?</strong> button to the right of  the text Leach Stacking at the top of the window.</p>
-<p>The Leach Stacking module window provides several conﬁguration tab options:</p>
+<p>Para acceder a la documentación sobre los procedimientos y la guía del módulo Leach Stacking, haga clic en el botón <strong>?</strong> ubicado a la derecha del texto Leach Stacking en la parte superior de la ventana.</p>
+<p>La ventana del módulo Leach Stacking incluye varias pestañas de configuración, donde las que principalmente se usan son:</p>
 <ul>
-<li><p>Home Tab</p>
+<li><p>Pestaña Home</p>
 </li>
-<li><p>Grid Tab</p>
+<li><p>Pestaña Grid</p>
 </li>
-<li><p>Solution Tab</p>
+<li><p>Pestaña Solution</p>
 </li>
 </ul>
 <hr>
 
 
 
-<h2 id="utility-menu">Utility Menu</h2>
-<h3 id="leach-stacking-module-home-tab">Leach Stacking module  &gt; Home Tab</h3>
+<h2 id="5-2-utility-menu">5.2 Utility Menu</h2>
+<h3 id="m-dulo-leach-stacking-pesta-a-home">Módulo Leach Stacking &gt; Pestaña Home</h3>
 <ol>
-<li>Click <strong>Utility Menu  &gt; Stacking</strong>. The Leach Stacking module window will appear with the <strong>Home Tab</strong> open.</li>
+<li>Haga clic en el menú <strong>Utility &gt; Stacking</strong>. Aparecerá el módulo Leach Stacking con la pestaña Home abierta.</li>
 </ol>
-<p>The Home tab displays a status indicator light for completed process stages.</p>
+<p>![Image](./images/Leach Stacking module.jpg)</p>
+<p>La pestaña Home muestra luces indicadoras del estado respecto a las etapas del proceso finalizadas:</p>
 <ul>
 <li><p>Grid</p>
 </li>
-<li><p>Discretize</p>
+<li><p>Discretize  </p>
 </li>
 <li><p>Mineplan</p>
 </li>
 <li><p>Populate Mineplan</p>
 </li>
 </ul>
-<p><strong>Progress Indicator Lights Color Status</strong>
+<p><strong>Estado de color de luces indicadoras de progreso</strong>
 ![Image](./images/Progress Indicator Lights Color Status.jpg)</p>
+<table>
+<thead>
+<tr>
+<th>Proceso</th>
+<th>Luz indicadora roja</th>
+<th>Luz indicadora verde</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cuadrícula</td>
+<td>La capa del modelo está vacía o no contiene una propiedad de panel. <p> <strong>Nota</strong>: si se presiona el botón de compilación, se activarán los pasos posteriores del proceso, es decir, Discretize, y este paso aparecerá en rojo.</p></td>
+<td>Cuando existe un archivo de modelo con el panel de tipo de propiedad y si se ha presionado el botón Generar de la ficha cuadrícula</td>
+</tr>
+<tr>
+<td>Discretizar</td>
+<td>La capa CutterResult está vacía o no contiene las propiedades "gx" y "gy".Si se ejecuta la función Corte de Contorno con cortador/rellenos.<p><strong>Nota</strong>: la capa del plan de mina se borrará después de hacer clic en Discreatizar</p></td>
+<td>La capa CutterResult está contiene las propiedades "gx" y "gy". O cuando se ha hecho clic en Discretizar.</td>
+</tr>
+<tr>
+<td>Plan de Mina</td>
+<td>La capa del plan de mina no se ha cargado</td>
+<td>La capa del plan de mina se ha cargado</td>
+</tr>
+<tr>
+<td>Generar Plan de Mina</td>
+<td>El plan de mina no se ha ejecutado, si la capa del plan de mina se ha borrado o no contiene la propiedad "dest", si el botón Discretizar es rojo, y si la capa CutterResult está vacía.</td>
+<td>El plan de mina se ha ejecutado, o si la capa Mineplan contiene la propiedad "dest".</td>
+</tr>
+</tbody></table>
 <hr>
 
 
-<h6 id="grid-model-layer-">Grid (Model layer)</h6>
-<p>The Grid is built into the Grid tab of the Leach Stacking module.  This process is explained in the <strong>Leach Stacking &gt; Grid</strong> section.  The following assumes the Grid has already been added to the project, as this is a one-time step only.</p>
+<h6 id="grid-capa-model-">Grid (capa Model)</h6>
+<p>La cuadrícula (Grid) se crea a través de la pestaña Grid del módulo Leach Stacking. Este proceso se explica en la sección <strong>Leach Stacking &gt; Grid</strong>.  Lo siguiente asume que ya se agregó la cuadrícula al proyecto, ya que este paso solo se realiza una vez.</p>
 <hr>
 
 
-<h6 id="discretize-button">Discretize Button</h6>
+<h6 id="bot-n-discretize">Botón Discretize</h6>
 <p>The Discretize button separates the CutterResult shapes using the Model layer's grid and adds the block panel properties for each panel to the CutterResult layer.</p>
 <ol>
-<li><p>The <strong>Discretize</strong> button separates the CutterResult shapes using the Model layer's grid and adds the block panel properties for each panel to the CutterResult layer. Using the ‘For Model’ checkbox populates properties for full blocks that have their centroid in the CutterResult shape only.</p>
+<li><p>El botón <strong>Discretize</strong> separa las figuras CutterResult a través de la cuadrícula de la capa Model y añade las propiedades de cada panel de bloque a la capa CutterResult. Haga clic acá para ver las propiedades de la cuadrícula de la capa CutterResult. Si se marca la casilla “For Model”, se completarán las propiedades de los bloques completos que solo tengan su centroide en la figura CutterResult.</p>
 <p>![Image](./images/Discretize Button.jpg)</p>
 </li>
 </ol>
 <ol start="2">
-<li><p>After the Discretize process is complete, a conﬁrmation message will appear, indicating the quantity of new blocks created. Select the <strong>OK</strong> option. If no blocks were created the Discretize function failed. In that instance the Model layer should be checked in the Drawing Window to ensure it encompasses the entire CutterResult shapes (including elevation and spatially). The function should be re-run after this check.</p>
+<li><p>Tras finalizar el proceso de discretización (Discretize), aparecerá un mensaje de confirmación, que indicará la cantidad de nuevos bloques creados. Seleccione <strong>OK</strong>. Si no se crearon bloques, se produjo un error en la función Discretize. En este caso, se debe verificar la capa Model en la ventana Drawing para asegurarse de que abarque todas las figuras CutterResult (incluida la elevación y la espacialidad ). Tras dicha verificación, se debe volver a ejecutar esta función.</p>
 <p>![Image](./images/Figure 4 53 Confimation After Discretize Function Is Run.jpg)</p>
 </li>
 </ol>
-<p><strong>NOTE: There is a message warning the user against repeatedly hitting the button if the CutterResult layer has not changed since the previous execution of the Discretize function.</strong></p>
+<p><strong>NOTE: hay un mensaje que desaconseja al usuario presionar repetidamente el botón si la capa CutterResult no ha cambiado desde la ejecución anterior de la función Discretize</strong></p>
 <p>  ![Image](./images/Figure 4 54 Re-run Warning Message.jpg)</p>
-<p><strong>Grid Properties Assigned To The CutterResult Layer During Discretize</strong></p>
+<p><strong>Propiedades de cuadrícula asignadas a la capa CutterResult durante el proceso de discretización</strong></p>
 <p>![Image](./images/Grid Properties Assigned To The CutterResult Layer During Discretize.jpg)</p>
 <hr>
 
 
-<h6 id="mineplan-layer">Mineplan Layer</h6>
-<p>Discretize will clear the Mineplan layer and the progress indicator button will be red in the <strong>Home tab</strong>.</p>
+<h6 id="capa-mineplan">Capa Mineplan</h6>
+<p>La función Discretize borrará la capa Mineplan, y el botón indicador de progreso aparecerá en rojo en la pestaña Home. Para cargar la capa, siga estos pasos:</p>
 <p>To load the layer:</p>
 <ol>
-<li><p>Click <strong>File &gt; Open Model&gt; CSV</strong> or <strong>JSON</strong>.</p>
+<li><p>Haga clic en <strong>File &gt; Open Model&gt; CSV</strong> o <strong>JSON</strong>.  </p>
 </li>
-<li><p>Select a previously saved CSV or JSON ﬁle.</p>
+<li><p>Seleccione el archivo CSV o JSON anteriormente guardado.</p>
 </li>
 </ol>
-<p>This file must contain:</p>
+<p>Este archivo debe contener:</p>
 <ul>
-<li><p>ore tons (otns)</p>
+<li><p>toneladas de mineral (otns)</p>
 </li>
-<li><p>grade information (au or ag)</p>
+<li><p>información de ley (au o ag)</p>
 </li>
-<li><p>ore type (ow, always a number)</p>
+<li><p>tipo de mineral (ow, siempre un número)</p>
 </li>
-<li><p>period stacked (pm) in Excel serial (general) format, i.e. 43914</p>
+<li><p>período de apilamiento (pm) en formato de serie (general) Excel; es decir, 43914</p>
 </li>
 </ul>
-<p>If importing a CSV, the Mineplan layer should be saved in Opencontour for later use and to save re-importing.</p>
 <hr>
 
 
-<h6 id="populate-mineplan-button">Populate Mineplan Button</h6>
-<p>The <strong>Populate Mineplan</strong> button in the Leach Stacking <strong>Home tab</strong> will distribute the Mineplan tons into each discretized CutterResult shape. The filler sequence, direction (dir), density (dens) and ow designations (min and ow max) are considered in this function.  A message will appear stating how many Mineplan blocks have been created, as shown.</p>
+<h6 id="bot-n-populate-mineplan">Botón Populate Mineplan</h6>
+<p>El botón <strong>Populate Mineplan</strong> de la pestaña Home del módulo Leach Stacking distribuirá las toneladas Mineplan en cada figura CutterResult discretizada.</p>
+<p>En esta función se consideran las designaciones filler sequence, direction (dir), density (dens) y ow (min y max). Aparecerá un mensaje que mostrará cuántos bloques Mineplan se crearon:</p>
 <p>![Image](./images/populate mineplan button.jpg)</p>
-<p><strong>Note:</strong></p>
+<p><strong>Nota:</strong></p>
 <ul>
-<li><p><strong>The ‘sseq’ property is calculated during the Populate Mineplan function, sorting the CutterResult by 'cut_fill_num', 'seq', and 'z'. This builds the proper order to start assigning tons in a linear fashion. After the list is sorted, the function assigns the 'sseq', which is where it is in that sorted list (i.e. 'sseq' = 5 means that block would be filled 5th during the Populate Mineplan function).</strong></p>
+<li><p><strong>La propiedad “sseq” se calcula durante la ejecución de la función Populate Mineplan, donde se clasifica el CutterResult por “cut_fill_num”, “seq” y “z”. Esto genera el orden correspondiente para comenzar a asignar toneladas de manera lineal. Una vez clasificada la lista, la función asigna “sseq ”, que es donde se encuentra en la lista clasificada (es decir, “sseq” = 5 significa que el bloque se llenaría en quinto lugar durante la ejecución de la función Populate Mineplan).</strong></p>
 </li>
-<li><p><strong>The mid_x and mid_y are the center points of the grid location and are created in the CutterResult during the discretize function. During the Populate Minelan function, these coordinates are assigned to the Mineplan records so that they are viewable.</strong></p>
+<li><p><strong>mid_X y mid_y son los puntos centrales de la ubicación de la cuadrícula y se crean en el CutterResult durante la ejecución de la función Discretize. Durante la ejecución de la función Populate Minelan, dichas coordenadas se asignan a los registros Mineplan para que sean visibles.</strong></p>
 </li>
 </ul>
-<p><strong>Properties are added to both the Mineplan layer</strong>   </p>
+<p><strong>Se añadirán propiedades a la capa Mineplan</strong>   </p>
 <p>![Image](./images/Properties are added to both the Mineplan layer.jpg)</p>
-<p><strong>Properties are added to the CutterResult layer</strong></p>
+<p><strong>Se añadirán propiedades a la capa CutterResult:</strong></p>
 <p>![Image](./images/Properties are added to the CutterResult layer.jpg)</p>
 <hr>
 
-<h3 id="leach-stacking-module-grid-tab">Leach Stacking module  &gt; Grid Tab</h3>
-<p>The grid can either use the project extents as the origin (decided when constructing the Base) or can be a smaller region within the Base layer extents.  Once constructed, the grid should be exported and logically named, for example, ProjectName_100x100_model.json describes a 100x100 foot grid.  A descriptor can be added to this name for the lift height.</p>
-<p>Click <strong>Utility Menu  &gt; Stacking  &gt; Grid Tab</strong>. The Leach Stacking Module grid tab will appear.</p>
-<h4 id="manual-grid-radio-button">Manual Grid Radio Button</h4>
-<p>The radio button option Manual Grid uses the entries in this window.</p>
+<h3 id="m-dulo-leach-stacking-pesta-a-grid">Módulo Leach Stacking &gt; Pestaña Grid</h3>
+<p>La cuadrícula puede usar la extensión del proyecto como origen (se decide al construir la Base) o puede ser una región más pequeña dentro de la extensión de la capa Base. Una vez creada, la cuadrícula debe exportarse y se debe asignar un nombre lógico a la misma, por ejemplo, ProjectName_100x100_model.json describe una cuadrícula de 100x100 pies. Es posible añadir un descriptor al nombre respecto a la altura de la elevación.</p>
+<p>Haga clic en el menú <strong>Utility &gt; Stacking &gt; Grid</strong>. Aparecerá la pestaña Grid del módulo Stacking.</p>
+<h4 id="bot-n-de-opci-n-manual-grid">Botón de opción Manual Grid</h4>
+<p>Este botón de opción incluye los campos que aparecen en la ventana a continuación:</p>
 <p>![Image](./images/Manual Grid Radio Button.jpg)</p>
-<p><strong>NOTE: When a project is saved, the grid tab entries are not retained. All inputs for this tab are saved as part of the Group file. It is recommended to create a new project with distinct Project Settings for designing and scheduling the Leach Module panels.</strong></p>
+<p><strong>NOTA: Al guardar un proyecto, no se conservan los campos de la pestaña Grid. Todos los datos de esta pestaña se guardan como parte del archivo grupal. Se recomienda crear un nuevo proyecto con distintos ajustes para diseñar y programar los paneles del módulo Leach Stacking.</strong></p>
 <ol>
-<li>The <strong>Grid</strong> tab includes several configuration options. Most are automatically populated by the Project Settings, described in the table below.  </li>
+<li>La pestaña <strong>Grid</strong> incluye varias opciones de configuración. La mayoría se completa de manera automática a través de Project Settings (Ajustes de proyecto), tal como se describe en la siguiente tabla:   </li>
 </ol>
 <table>
 <thead>
 <tr>
-<th align="center">Project Settings Property</th>
-<th align="center">Grid Tab Parameter Populated</th>
+<th align="center">Propiedad de Ajustes de proyecto</th>
+<th align="center">Parámetro de pestaña Grid completado</th>
 </tr>
 </thead>
 <tbody><tr>
 <td align="center">Block Rotate (degrees clockwise)</td>
-<td align="center">Angle Oﬀset (degrees). For more details, click <a href="#angle-offset">here</a></td>
+<td align="center">Angle Oﬀset (degrees).</td>
 </tr>
 <tr>
 <td align="center">MidBench</td>
@@ -166,169 +190,175 @@
 </tr>
 <tr>
 <td align="center">viewExtentMinx</td>
-<td align="center">X Origin. For more details, click <a href="#x-origin-and-y-origin">here</a>.</td>
+<td align="center">X Origin. For more details.</td>
 </tr>
 <tr>
 <td align="center">viewExtentMiny</td>
-<td align="center">Y Origin. For more details, click <a href="#x-origin-and-y-origin">here</a>.</td>
+<td align="center">Y Origin. For more details.</td>
 </tr>
 <tr>
 <td align="center">Block X</td>
-<td align="center">X Panel Size. For more details, click <a href="#x-and-y-panel-size">here</a>.</td>
+<td align="center">X Panel Size. For more details.</td>
 </tr>
 <tr>
 <td align="center">Block Y</td>
-<td align="center">Y Panel Size. For more details, click <a href="#x-and-y-panel-size">here</a>.</td>
+<td align="center">Y Panel Size. For more details.</td>
 </tr>
 <tr>
 <td align="center">X Number of Panels</td>
-<td align="center">X Number of Panels: = (viewExtentMaxx - viewExtentMinx)/X Panel Size. For more details, click <a href="#x-and-y-number-of-panels">here</a>.</td>
+<td align="center">X Number of Panels: = (viewExtentMaxx - viewExtentMinx)/X Panel Size.</td>
 </tr>
 <tr>
 <td align="center">Y Number of Panels</td>
-<td align="center">Y Number of Panels: = (viewExtentMaxy - viewExtentMiny)/Y Panel Size. For more details, click <a href="#x-and-y-number-of-panels">here</a>.</td>
+<td align="center">Y Number of Panels: = (viewExtentMaxy - viewExtentMiny)/Y Panel Size.</td>
 </tr>
 </tbody></table>
-<p>These entries can be overwritten in the Grid tab.  A further description of each Grid tab parameter follows.</p>
+<p>Estos campos pueden sobrescribirse en la pestaña Grid. A continuación se describe cada parámetro de la pestaña Grid.</p>
 <h6 id="z-origin">Z Origin</h6>
-<p>The origin specified here should be the lowest elevation of your leach pad. The <strong>Volumetric/Summary By Bench</strong> option in the Dropdown Menu will display the lowest elevation of the shape. This elevation should be entered as the Z Origin.</p>
+<p>El origen que se especifique acá debe ser la elevación más baja de la cancha de lixiviación. La opción <strong>Volumetric/Summary By Bench</strong> del menú desplegable mostrará la elevación más baja de la figura. Esta elevación debe ingresarse en el campo Z Origin.</p>
 <h6 id="lift-height">Lift Height</h6>
-<p>The BenchHeight parameter in the Project Settings will determine the lift height. This can be changed by overwriting the value in the Grid tab.</p>
+<p>El parámetro BenchHeight de Project Settings determinará la altura de la elevación. Puede cambiarse sobrescribiendo el valor en la pestaña Grid.</p>
 <h6 id="x-y-direction">X &amp; Y Direction</h6>
-<p>The <strong>Direction</strong> speciﬁes the direction in which the panel sequence (seq) numbers are ordered. Select the direction option from either the <strong>X Direction</strong> or <strong>Y Direction</strong> dropdown menu and then click the radio button to set the dominant direction.</p>
+<p>El parámetro <strong>Direction</strong> especifica el sentido en que se ordenan los números de secuencia del panel (seq). Seleccione la opción de sentido a través del menú desplegable <strong>X Direction</strong> o <strong>Y Direction</strong> y luego haga clic en el botón de opción para establecer el sentido dominante.</p>
 <p>  ![Image](./images/Figure 4 63 Grid Direction Tab X Direction Options.jpg)</p>
 <p>  ![Image](./images/Grid Direction Tab X Direction Options.jpg)</p>
-<h6 id="angle-offset">Angle Offset</h6>
-<p>This is initially populated by the <strong>Project Settings</strong>, <strong>Block Rotate</strong> (degrees clockwise). The <strong>Angle Offset</strong> (degrees) is used to rotate the alignment of the specified grid when cutting the CutterResult layer.  By measuring the strike of the CutterResult panels, this angle entry can be deduced.  An entry of zero represents the North used for unrotated leach pad projects. If possible, a zero rotation angle is strongly suggested (rotated models do not work in the Leach Recovery Modelling module).</p>
+<h6 id="angle-offset-degrees-actualmente-no-disponible-en-la-pesta-a-grid">Angle Offset (degrees) – Actualmente no disponible en la pestaña Grid</h6>
+<p>Este parámetro se completa inicialmente a través de <strong>Project Settings</strong>, <strong>Block Rotate</strong> (degrees clockwise).  El parámetro Angle Offset (degrees) se usa para girar la alineación de la cuadrícula específica al momento de cortar la capa CutterResult. El valor de este ángulo puede deducirse midiendo el rumbo de los paneles CutterResult. Un valor cero representa el norte usado respecto a los proyectos de canchas de lixiviación sin girar. De ser posible, se recomienda un ángulo de giro cero (los modelos girados no funcionan en el módulo.</p>
 <p>  ![Image](./images/Angle Offset (degrees).jpg)</p>
 <h6 id="x-origin-and-y-origin">X Origin and Y Origin</h6>
-<p>The X Origin and Y Origin are located in the bottom-left (Southwest) corner of the panels. The <strong>Preview</strong> button can be used to confirm and relocate this position.</p>
-<p>For reference, the viewExtentMin and viewExtentMax for the X and Y directions from the <strong>Project Settings</strong> are written in bold where the Origins are entered.</p>
+<p>Estos parámetros se ubican en la esquina inferior izquierda (sudoeste) de los paneles. Es posible usar el botón <strong>Preview</strong> para confirmar y reubicar esta posición.</p>
+<p>Como referencia, los parámetros viewExtentMin y viewExtentMax respecto a los sentidos X e Y de <strong>Project Settings</strong> aparecen en negrita debajo del área donde se ingresen los orígenes.</p>
 <p>  ![Image](./images/X Origin and Y Origin.jpg)</p>
-<p>If the <strong>Fix</strong> box is ticked, the origin entries will be maintained in the <strong>Preview</strong>.  Unticking this box allows repositioning in the Drawing Window. The <strong>X Origin</strong> and <strong>Y Origin</strong> will be initially populated by the <strong>Project Settings</strong> : <strong>viewExtentMinx</strong> and <strong>viewExtentMiny</strong>.</p>
-<p><strong>Tip</strong>: Using the CutterResult layer's <strong>All Contours</strong> display, a Preview of the grid position ensures that the entire heap leach pad is contained. When the desired position is found, without ticking the Fix box, simply click the left mouse button to save the positions in the <strong>Grid tab</strong>.  This tool allows you to evaluate the X and Y panel sizes, as well as the X and Y panel numbers.</p>
-<h6 id="preview-button-fix-checkbox">Preview Button &amp; Fix checkbox</h6>
-<p>The <strong>Preview</strong> button enables the user to view the defined grid's boundaries relative to the CutterResult position of the designed leach pad. The CutterResult should be displayed in the Drawing Window ﬁrst, but it is usually displayed with <strong>All Contours</strong> to ensure the entire CutterResult layer is captured.  Once all contours are displayed for the CutterResult, go back to the Grid tab and click the <strong>Preview</strong> button.  The Grid tab will disappear from the display but can be accessed again.</p>
-<p>If the <strong>Fix</strong> checkbox is ticked, the origin of the displayed Preview will be as specified in the Grid tab. You can reposition the Grid in the Drawing Window by deselecting the Fix checkbox.</p>
-<p>Once the grid is positioned correctly and the left mouse button is pressed, the Grid tab's coordinates will update to reﬂect the new <strong>X Origin</strong> and <strong>Y Origin</strong>.  The X and Y Number of Panels, and X and Y Panel Size entries will remain unchanged.</p>
+<p>Si se marca la casilla <strong>Fix</strong>, los datos del origen se mantendrán en <strong>Preview</strong>. Si se desmarca dicha casilla, se podrá realizar un reposicionamiento en la ventana Drawing. Los parámetros <strong>X Origin/ Y Origin</strong> inicialmente se completarán a través de Project Settings; <strong>viewExtentMinx y viewExtentMiny</strong>.</p>
+<p><strong>Consejo</strong>: Si se usa la pantalla <strong>All Contours</strong> de la capa CutterResult, la vista previa de la posición de la cuadrícula garantiza que toda la cancha de lixiviación en pilas esté contenida. Si no se marca la casilla Fix, al momento de encontrar la posición que desea, haga clic izquierdo para guardar los datos en la pestaña Grid, los que posteriormente volverán a aparecer. El parámetro X/Y Panel Size, así como <strong>X/Y Number of Panels</strong>, pueden revisarse a través de esta herramienta.</p>
+<h6 id="bot-n-preview-y-casilla-fix">Botón Preview y casilla Fix</h6>
+<p>El botón Preview permite al usuario ver los límites definidos de la cuadrícula respecto a la posición CutterResult de la cancha de lixiviación diseñada. El CutterResult debe visualizarse primero en la ventana Drawing, donde suele mostrarse la opción All Contours para garantizar que toda la capa CutterResult sea capturada. Una vez que se visualicen todos los contornos correspondientes a CutterResult, vuelva a la pestaña Grid y presione el botón <strong>Preview</strong>. La pestaña Grid desaparecerá de la pantalla, pero posteriormente podrá volver a acceder a ella.</p>
+<p>Si se marca la casilla <strong>Fix</strong>, el origen corresponderá a aquel que está escrito en la pestaña Grid en la vista previa visualizada. Si se desmarca esta casilla, se podrá reposicionar la cuadrícula en la ventana Drawing. Una vez que se haya posicionado de manera correcta la cuadrícula y se haya hecho clic izquierdo, se actualizarán las coordenadas de la pestaña Grid para reflejar los nuevos parámetros <strong>X Origin /Y Origin</strong>. Los parámetros X/Y Number of Panels y X/Y Panel Size no cambiarán.</p>
 <h6 id="x-and-y-panel-size">X and Y Panel Size</h6>
-<p>The X or Y Panel Size is initially determined by the entries in the <strong>Project Settings</strong> for Block X and Block Y. These entries may be overwritten.</p>
+<p>El parámetro X o Y Panel Size inicialmente se determina según los datos de Project Settings respecto al Bloque X y el Bloque Y. Es posible sobrescribir dichos datos.</p>
 <h6 id="x-and-y-number-of-panels">X and Y Number of Panels</h6>
-<p>The X Panel Size and X Number of Panels determine the X direction extent of panels created. The same can be said for the Y Number of Panels.</p>
-<h6 id="save-button">Save Button</h6>
-<p>Click the <strong>Save</strong> button to save the Grid tab entries to the project. The entries will be recalled with the opening of a saved group file (All (Model), All, Contour Group, Mineplan Group).</p>
-<h6 id="build-button">Build Button</h6>
-<p>This grid dataset will be used to represent the leach stacking model, which will be written to the Model layer when the <strong>Build</strong> button is pressed. The Drawing Window will display grid squares when it is refreshed and the Model layer is ticked on in the Layer Menu. Each leach elevation will display the a grid. The grid can be saved as a layer (JSON ﬁle) and reused by dragging into a project. It will be saved as part of a group ﬁle All (Model).</p>
-<p>Properties written to the Model layer during the <strong>Build</strong> function are written in the following table, common to all elevations:</p>
+<p>El parámetro X Panel Size y X Number of Panels determina el sentido X de los paneles creados. Lo mismo aplica al parámetro Y Number of Panels.</p>
+<h6 id="bot-n-save">Botón Save</h6>
+<p>Haga clic en el botón <strong>Save</strong> para guardar los datos de la pestaña Grid en el proyecto. Los datos se recuperarán al momento de abrir un archivo grupal guardado (All (Model), All, Contour Group, Mineplan Group).</p>
+<h6 id="bot-n-build">Botón Build</h6>
+<p>Este conjunto de datos de la cuadrícula se usa para representar el modelo Leach Stacking, el cual se escribirá en la capa Model al presionarse el botón <strong>Build</strong>. La ventana Drawing mostrará los cuadrados de la cuadrícula cuando se actualice y se marque la capa Model en el Menú Layer. Cada elevación de lixiviación mostrará una cuadrícula. Es posible guardar la cuadrícula como capa (archivo JSON) y reutilizarse arrastrándola a un proyecto. Se guardará como parte de un archivo grupal All (Model).</p>
+<p>Las propiedades escritas en la capa Model durante la ejecución de la función <strong>Build</strong> aparecen en la siguiente tabla, común para todas las elevaciones:</p>
 <p>![Image](./images/Build function.jpg)</p>
-<h4 id="provided-grid-radio-button">Provided Grid Radio Button</h4>
-<p>Select the <strong>Provided Grid</strong> radio button to populate the grid with data from the imported DXF grid. When the <strong>Provided Grid</strong> radio button is selected, the lower portion of the entries will be removed from the Grid tab window. Manual entry is still required for the <strong>Lift Height</strong>, <strong>Z Origin</strong>, and <strong>Direction Portion</strong>.</p>
+<h4 id="bot-n-provided-grid">Botón Provided Grid</h4>
+<p>Seleccione el botón de opción <strong>Provided Grid</strong> para completar la cuadrícula con los datos de la cuadrícula DXF importada. Si se selecciona el botón <strong>Provided Grid</strong>, los datos de la parte inferior se eliminarán de la pestaña Grid. Aun así, es necesario ingresar manualmente los valores <strong>Lift Height</strong>, <strong>Z Origin</strong>, y <strong>Direction Portion</strong>.</p>
 <p>  ![Image](./images/Figure 4 73 Example DXF Grid Stored In The Import Layer.jpg)</p>
 <p>  ![Image](./images/Provided Grid Radio Button.jpg)</p>
-<h3 id="leach-stacking-module-solution-tab">Leach Stacking Module &gt; Solution tab</h3>
-<h4 id="adding-the-solution-layer">Adding the Solution Layer</h4>
-<p>To begin drawing on the Solution layer, the layer must first be added to the Layer Menu. To add the layer, Do this by:</p>
-<p>Clicking the grouped Add Layer function in the Main Menu, select the Add Solution Layer button,<img src="./images/Add_solution_layer.jpg" alt="Image">. This adds and activates the Solution layer.  This layer contains entries to populate the ‘on’, ‘app_rate’ and ‘lt’ properties in the CutterResult and Mineplan layers.</p>
+<h3 id="m-dulo-leach-stacking-pesta-a-solution">Módulo Leach Stacking &gt; Pestaña Solution</h3>
+<h4 id="agregar-la-capa-solution">Agregar la capa Solution</h4>
+<p>Para comenzar a trazar en la capa Solution, primero es necesario agregar la capa al menú Layer. Siga estos pasos:</p>
+<ol>
+<li><p>Haga clic en el menú Utility &gt; Stacking. Aparecerá la ventana del módulo Leach Stacking con la pestaña Home abierta.</p>
+</li>
+<li><p>Seleccione la pestaña Solution y presione el botón Add Solution. Aparecerá la capa Solution en el Menú Layer y estará activa. Esta capa contiene entradas para rellenar las propiedades 'on', 'app_rate' y 'lt' en las capas CutterResult y Mineplan.</p>
+</li>
+</ol>
+<p>  ![Image](./images/Adding the Solution Layer.jpg)</p>
+<p>A través del botón <strong>Add Solution</strong> se creará una capa Solution en la parte superior del menú Layer. Esta capa contiene datos para completar las propiedades “on”, “app_rate” y “lt” de las capas CutterResult y Mineplan.</p>
 <table>
 <thead>
 <tr>
-<th>Property</th>
-<th>Description</th>
+<th>Propiedad</th>
+<th>Descripción</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>z</td>
-<td>Elevation of the leach shape, the current elevation for the Update Solution function</td>
+<td>Z</td>
+<td>Elevación de la forma de lixiviación, la elevación actual para la función Actualizar solución</td>
 </tr>
 <tr>
 <td>Max_z</td>
-<td>Top of the leach lift, the current elevation for the Update Solution function</td>
+<td>Parte superior de la elevación de lixiviación, la elevación de corriente para la función Actualizar solución</td>
 </tr>
 <tr>
 <td>Min_z</td>
-<td>Bottom of the leach lift, max_z-BenchHeight (from the Project Settings).  The polygon will not be visible at elevations below this entry.</td>
+<td>Parte inferior del elevador de lixiviación, max_z-BenchHeight (desde la configuración del proyecto). El polígono no será visible en las elevaciones por debajo de esta entrada.</td>
 </tr>
 <tr>
-<td>Cycle</td>
-<td>Chosen cycle.  1=Primary, 2=Secondary, 3=Tertiary or 4=Quaternary.  Will default to the cycle option chosen for the Solution Layer in the Layer Menu</td>
+<td>Ciclo</td>
+<td>Ciclo elegido.  1=Primaria, 2=Secundaria, 3=Terciaria o 4=Cuaternaria.  Se establecerá de forma predeterminada la opción de ciclo elegida para la capa de solución en el menú Capa</td>
 </tr>
 <tr>
-<td>on [44141]</td>
-<td>Start of leaching for the polygon, the values inside [] shows date value in general format.  To display the calendar option, press the calendar icon</td>
+<td>  on [44141]</td>
+<td>Inicio de la lixiviación para el polígono, los valores dentro de [] muestran el valor de fecha en formato general.  Para mostrar la opción de calendario, presione el icono de calendario</td>
 </tr>
 <tr>
 <td>lt*</td>
-<td>Leach solution time (days). Default is 120</td>
+<td>Tiempo de solución de lixiviación (días). El valor predeterminado es 120</td>
 </tr>
 <tr>
 <td>app_rate*</td>
-<td>Application rate, gmp/ft2 for imperial projects, L/m2/hr for metric.</td>
+<td>Tasa de aplicación, gmp/ft2 para proyectos imperiales, L/m2/hr para métrica.</td>
 </tr>
 <tr>
 <td>*</td>
-<td>Populated (if does not have an entry) by pressing the Update Solution button in the Solution tab</td>
+<td>Generado (si no tiene una entrada) presionando el botón Actualizar solución en la pestaña Solución</td>
 </tr>
 </tbody></table>
-<h4 id="drawing-solution-layer-leach-shapes">Drawing Solution Layer Leach Shapes</h4>
-<p>Polygon shapes can be built around the discretized CutterResult shapes using the <strong>Add Polygon Features</strong> button, on any elevation of the  CutterResult layer with the Solution layer active.  The polygon and its properties will be visible in the Drawing Window at the elevation in the Solution layer where the shape is drawn.</p>
-<p>Next, follow the below steps:</p>
+<h4 id="trazar-figuras-en-la-capa-solution">Trazar figuras en la capa Solution</h4>
+<p>Es posible crear polígonos alrededor de las figuras CutterResult discretizadas a través del botón <strong>Add Polygon Features</strong>, en cualquier elevación de la capa CutterResult con la capa Solution activa. El polígono y sus propiedades serán visibles en la Ventana Drawing en la elevación en la que se trace la figura en la capa Solution.</p>
+<p>Posteriormente, siga estos pasos:</p>
 <ol>
-<li><p>Assign a cycle in the Layer Menu for the new polygon (Primary, Secondary, Tertiary or Quaternary, Drainage Zone or Infrastructure).</p>
+<li><p>En el menú Layer, asigne un ciclo para el nuevo polígono (Primary, Secondary, Tertiary o Quaternary, Drainage Zone o Infrastructure).  </p>
 </li>
-<li><p>Choose a Solution Color in the Layer Menu for the shape drawn.</p>
+<li><p>En el menú Layer, elija un color para la figura trazada.</p>
 </li>
-<li><p>On completion of drawing the shape, double-click and the Properties window will appear.  A description of these properties is shown in the table below.</p>
+<li><p>Al terminar de trazar la figura, haga doble clic y aparecerá la ventana Properties. En la tabla a continuación se describen dichas propiedades.</p>
 </li>
-<li><p>If required, update and save these properties to ensure that any changes are retained.</p>
+<li><p>Realice las actualizaciones necesarias y haga clic en Save para guardar los cambios en las propiedades.</p>
 </li>
 </ol>
-<p><strong>NOTE:</strong> <strong>A solution layer feature’s properties can be viewed and edited at any time with the Solution layer active and viewing the properties display.</strong></p>
+<p><strong>NOTA:</strong> <strong>Es posible ver y editar las propiedades de las características de la capa Solution en cualquier momento si dicha capa se encuentra activa y se visualiza la pantalla Properties.</strong></p>
 <p>![Image](./images/Drawing Solution Layer Leach Shapes.jpg)</p>
 <p>![Image](./images/Drawing Solution Layer Leach Shapes2.jpg)</p>
-<h3 id="stacking-procedure">Stacking Procedure</h3>
-<p>When starting a stacking project in Opencontour, there are specific steps to follow.  A suggested folder structure is shown below.</p>
-<p>There are two categories of stacking:</p>
+<h3 id="procedimiento-de-apilamiento">Procedimiento de apilamiento</h3>
+<p>Al crear un proyecto de apilamiento, se deben seguir pasos específicos en Opencontour. A continuación se muestra una estructura de archivos sugerida.
+There are two categories of stacking:</p>
 <ul>
-<li><p><strong>Historical Stacking</strong> – It includes all material currently placed on the pad.  The site will have surveyed as build DXF files to outline the stacking areas.</p>
+<li><p><strong>Historical Stacking</strong> – incluye todo el material actualmente colocado en la cancha de lixiviación. El sitio tendrá archivos DXF que destacarán las áreas de apilamiento.</p>
 </li>
-<li><p><strong>Forecast Stacking</strong> – Stacking future material, building on the Historical Stacking surface.  </p>
+<li><p><strong>Forecast Stacking</strong> – material que se apilará en el futuro. Este se construirá sobre la superficie de Historical Stacking.  </p>
 </li>
 </ul>
 <p><img src="./images/Stacking_folder-structure.jpg" alt="Image"></p>
 <h4 id="historical-stacking">Historical Stacking</h4>
-<p><strong>Step 1 - Base</strong></p>
-<p>To create the Historical stacking project the starting topography, or Base, must first be created from ‘as build’ surfaces, usually by importing supplied DXF’s into the Base layer.  The final Base layer should be exported and clearly named for future use, e.g. Date_MasterTopo_base.json.</p>
-<p>During Base creation, the project extents, MidBench and BenchHeight and site density need to be considered and checked/saved in the Project Settings.  The Base layer usually represents the liner topography.</p>
-<p><strong>Step 2 - Lifts</strong></p>
-<p>The lifts of each stage in the historical stacking are bounded by supplied ‘as build’ surfaces (DXF’s).  The DXF’s should be logically named, e.g., Stage1Lift1, or Stage3Lift2.  The Import layer can be used to contain the imported DXF’s and the fillers can be drawn in their respective stacking order, guided by the Import layer contents.</p>
-<p>The lifts can be composed of several fillers.  The shapes of the fillers depend on the stacking method used, i.e., truck or radial stackers.  After the first lift is constructed in Opencontour it is advised that the user <strong>Cut Contours with Cutter/Filler</strong>.  </p>
-<p><strong>Step 3 - Grid</strong></p>
-<p>The grid, as described in the Grid Tab, is stored in the Model layer in Opencontour.  It will be used for each historical stacking project.  The next step is to <strong>Discretize</strong>, as described in the color button reference of the Leach Stacking Module.</p>
-<p>A good place to store the Grid file is under the ‘Working’, because it is used in both Historical and Forecast stacking projects.</p>
-<p><strong>Step 4 - Mineplan</strong></p>
-<p>Once the CSV file is created, it is imported into the Mineplan layer. This layer should be saved as a JSON file for later use and to save re-importing.</p>
-<p>The <strong>Populate Mineplan</strong> function can be run from the Leach Stacking Module.  </p>
-<p>After running the <strong>Populate Mineplan</strong> function the CutterResult layer should be exported and clearly named, e.g., LP30_EOM_YearMonth_CR.json.  Save this in the folder ‘05_CutterResults’.</p>
-<p>Store the entire project file, saved as an’All (Model)’ type in the folder ’04 Historical Stacking’.</p>
-<p><strong>Step 5 - Final Historical Stacking Project</strong></p>
-<p>To combine each stage and lift into a single project a new project must be opened.  Drag in the original Base created, e.g. Date_MasterTopo_base.json.  Now drag in the CutterResult files for each lift and stage from the ‘05_CutterResults’ folder.</p>
-<p>Subsequent historical stacking can be added to this project, using the project’s CutterResult layer. A Solution layer should be added to this project.  </p>
-<p><strong>Step 6 - 3D Visualization</strong></p>
-<p>An animation of the stacking project can be viewed in the <strong>Display&gt;3D&gt;New Timeline</strong> with shading and labelling from the properties in the CutterResult layer.  The fillers should be stacked in their respective orders.</p>
+<p><strong>Paso 1: Base</strong></p>
+<p>Para crear el proyecto Historical Stacking, primero se debe crear la topografía inicial, o Base, a partir de superficies “as build”, generalmente importando los DXF proporcionados a la capa Base. La capa Base final debe exportarse y se le debe asignar un nombre claro para su uso futuro; por ejemplo, Date_MasterTopo_base.json.</p>
+<p>Durante la creación de la Base, es necesario considerar y comprobar/guardar la extensión del proyecto, los parámetros Midbench y BenchHeight, y la densidad del sitio en Project Settings. La capa Base suele representar la topografía lineal.</p>
+<p><strong>Paso 2:  Elevaciones</strong></p>
+<p>Las elevaciones de cada etapa del proyecto Historical Stacking están delimitadas por superficies “as build” proporcionadas (DXF). Los archivos DXF deben tener un nombre lógico, por ejemplo, Stage1Lift1 o Stage3Lift1. La capa Import puede usarse para contener los DXF importados, y los Fillers pueden trazarse en su respectivo orden de apilamiento, en función del contenido de la capa Import.</p>
+<p>Las elevaciones pueden estar formadas por varios Fillers. Las figuras de los Fillers dependen del método de apilamiento utilizado, es decir, apiladores radiales o carretillas apiladoras. Tras construirse la primera elevación en Opencontour, se recomienda usar la opción <strong>Cut Contours with Cutter/Filler</strong>.   </p>
+<p><strong>Paso: Cuadrícula</strong></p>
+<p>La cuadrícula, que se describe en la pestaña Grid, se almacena en la capa Model de Opencontour. Se utilizará para cada proyecto Historical Stacking. El siguiente paso es usar la opción Discretize, tal como se describe en la referencia de botones de color del Módulo Leach Stacking.</p>
+<p>Un buen lugar donde almacenar el archivo de la cuadrícula es debajo de la sección “Working”, ya que se usa tanto en proyectos Historical como Forecast Stacking.</p>
+<p><strong>Paso 4: Mineplan</strong></p>
+<p>Una vez que se ha construido el CSV, se importa a la capa Mineplan, donde podrá ejecutarse la función <strong>Populate Mineplan</strong> del Módulo Leach Stacking. Esta capa debe guardarse como un archivo JSON para su uso posterior y para guardar la re-importación.  </p>
+<p>Tras ejecutar la función <strong>Populate Mineplan</strong>, la capa CutterResult debe exportarse y se le debe asignar un nombre claro, por ejemplo, LP30_EOM_YearMonth_CR.json.  Guárdela en la carpeta “05_CutterResults”.</p>
+<p>Guarde el archivo del proyecto completo como tipo “All (Model)” en la carpeta “04 Historical Stacking”.</p>
+<p><strong>Paso 5: Proyecto Historical Stacking final</strong></p>
+<p>Para combinar cada etapa y elevación en un solo proyecto, se debe abrir un nuevo proyecto. Arrastre la Base original creada, por ejemplo, Date_MasterTopo_base.json.  Posteriormente, arrastre los archivos CutterResult correspondientes a cada elevación y etapa desde la carpeta “05_CutterResults”.</p>
+<p>Es posible añadir proyectos Historical Stacking posteriores a este proyecto a través de la capa CutterResult del proyecto.</p>
+<p>Se debe añadir una capa Solution al proyecto.</p>
+<p><strong>Paso 6: Visualización en 3D</strong></p>
+<p>Es posible ver una animación del proyecto de apilamiento a través de <strong>Display&gt;3D&gt;New Timeline</strong> con sombreado y etiquetado a partir de las propiedades de la capa CutterResult. Los Fillers deben apilarse en su orden respectivo.</p>
 <h4 id="forecast-stacking">Forecast Stacking</h4>
-<p>The forecast stacking follows the respective steps described above, but with some differences explained below.</p>
-<p><strong>Step 1 - Base</strong></p>
-<p>In a new project for the forecast stacking, use the most recent export of the BaseResult from the Historical Stacking project as the Base (make sure the Base is active before dragging in the BaseResult file).</p>
-<p><strong>Step 2 - Lifts</strong></p>
-<p>The lifts of each stage in the forecast stacking are bounded by designed surfaces (DXF’s) and the procedure is like the process described above in the Historical Stacking section.  </p>
-<p><strong>Step 3 - Grid</strong></p>
-<p>The previously constructed grid, e.g. ‘ProjectName_100x100_model.json’ can be dragged in to the model layer to discretize the designed fillers.</p>
-<p><strong>Step 4 - Mineplan</strong></p>
-<p>A CSV can be built using the forecast Mineplan data, using the properties previously described. This layer should be saved as a JSON file for later use.  This will save time, rather than repeating the import process for a CSV.</p>
-<p>The <strong>Populate Mineplan</strong> function is run, with no adjustments in the filler densities.  </p>
-<p><strong>Step 5 - 3D Visualization</strong></p>
-<p>An animation of the stacking project should be checked in the <strong>Display&gt;3D&gt;New Timeline</strong>.</p>
-<p><strong>NOTE:</strong> <strong>If there are many fillers in the project it can be broken up into multiple projects.  In this case, the created Opencontour project files for each should be logically named. Scripts and Reports can be run over the CutterResult layer to provide data on previously stacked and leached material, as well as forecast stacking.</strong></p>
+<p>El proyecto Forecast Stacking requiere los mismos pasos descritos anteriormente, pero con algunas diferencias que se explican a continuación.</p>
+<p><strong>Paso 1: Base</strong></p>
+<p>En un nuevo proyecto Forecast Stacking, use como Base la exportación más reciente del archivo BaseResult del proyecto Historical Stacking (asegúrese de que la Base esté activa antes de arrastrar el archivo BaseResult).</p>
+<p><strong>Paso 2: Elevaciones</strong></p>
+<p>Las elevaciones de cada etapa del proyecto Forecast Stacking están delimitadas por superficies diseñadas (DXF), y el procedimiento es similar al descrito anteriormente en la sección Historical Stacking.</p>
+<p><strong>Paso 3: Cuadrícula</strong></p>
+<p>La cuadrícula anteriormente creada, por ejemplo, ‘ProjectName_100x100_model.json’ puede arrastrarse a la capa Model para discretizar los Fillers diseñados.</p>
+<p><strong>Paso 4: Mineplan</strong></p>
+<p>Es posible crear un CSV utilizando los datos Mineplan del proyecto Forecast, en función de las propiedades descritas anteriormente. Debe ejecutarse la función <strong>Populate Mineplan</strong>, sin realizar ningún ajuste en las densidades del Filler.</p>
+<p><strong>Paso 5: Visualización en 3D</strong></p>
+<p>Es posible ver una animación del proyecto de apilamiento a través de <strong>Display&gt;3D&gt;New Timeline</strong>.</p>
+<p><strong>NOTE:</strong> <strong>Si hay muchos Fillers en el proyecto, este puede dividirse en varios proyectos. En este caso, se debe asignar un nombre lógico a los archivos de los proyectos Opencontour creados.</strong></p>
+<p><strong>Es posible ejecutar scripts e informes en la capa CutterResult para generar datos sobre el material anteriormente apilado y lixiviado, así como sobre el apilamiento previsto.</strong></p>
 </article></div><div style="background-color: #b4b2b2;width: 50px;height:50px;line-height: 50px;text-align: center;position: fixed;bottom: 10px;right: 10px;padding-top:5px;" onclick="document.documentElement.scrollTop = document.body.scrollTop =0;">
   <svg t="1533629773982" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1035" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40"><defs><style type="text/css">@font-face { font-family: uc-nexus-iconfont; src: url("chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff") format("woff"), url("chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf") format("truetype"); }
   </style></defs><path d="M536.255427 195.182354c-7.804756-7.804756-17.966187-11.615549-28.311813-11.615549-9.43693 0-18.874883 3.449565-26.496467 10.163477-2.360767 1.452071-4.356214 3.267417-6.352685 5.262864L218.47792 455.611735c-15.607466 15.60542-15.607466 40.834011 0 56.43943 15.607466 15.607466 41.558511 15.607466 57.167001 0l193.46013-192.733583 0 600.526219c0 22.1423 17.787108 39.927361 39.927361 39.927361 22.140253 0 39.927361-17.785062 39.927361-39.927361L548.959773 319.317583 737.15704 508.422522c15.607466 15.607466 40.469714 15.607466 56.078203 0 15.607466-15.607466 15.425318-40.834011-0.182149-56.441477L536.255427 195.182354 536.255427 195.182354z" p-id="1036" fill="#333"></path><path d="M101.784174 143.097092l816.674071 0c22.140253 0 39.925315-17.785062 39.925315-39.927361 0-22.140253-17.784038-39.925315-39.925315-39.925315L101.784174 63.244416c-22.140253 0-39.927361 17.785062-39.927361 39.925315C61.856813 125.31203 79.643921 143.097092 101.784174 143.097092L101.784174 143.097092z" p-id="1037" fill="#333"></path></svg>
