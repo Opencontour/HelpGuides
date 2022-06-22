@@ -10,9 +10,9 @@ nav:
     - Chapter 7 Heap Leach Model: heapLeachModel.md
     # - Appendix: appendix.md
 theme:
-    # name: material
-    # palette:
-    #     primary: green
+    name: material
+    palette:
+        primary: green
 extra:
   alternate:
     - name: English
