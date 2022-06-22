@@ -2,10 +2,11 @@
 
 What you will learn:
 
+- [Visión General](#Vision-General)
 - [Cutter Result Recovery Model Properties](#Cutter-Result-Recovery-Model-Properties)
 - [Overview](#Cutter-Result-Recovery-Model-Properties)
 
-## 7.1 Visión general
+## 7.1 Visión General
 
 Antes de empezar con el modelo de recuperación de lixiviación en pilas (modelo HPL), Opencontour recomienda que el usuario siga algunos pasos para permitir que el modelo se ejecute sin mayores contratiempos. Es importante destacar que el modelo HPL se ejecuta después de que el plan de apilamiento histórico y/o previsto se haya actualizado y guardado.
 
@@ -13,17 +14,18 @@ Esta guía del usuario asume que el usuario tendrá la configuración del proyec
 
 Para obtener más información sobre la configuración del proyecto y las propiedades del proyecto, consulte el Capítulo 3.
 
-Al configurar un modelo HPL, es importante resaltar las propiedades que deberán revisarse y actualizarse si es necesario. Asegúrese de seleccionar su unidad de medida, métrica o imperial. Opencontour rellenará previamente la mayoría de estos campos con datos estándar de la industria. Asegúrese de actualizar la densidad utilizada para su proyecto. ***In addition, make sure that the 'Volumetric Swell' value for the project is set to 1.***
+Al configurar un modelo HPL, es importante resaltar las propiedades que deberán revisarse y actualizarse si es necesario. Asegúrese de seleccionar su unidad de medida, métrica o imperial. Opencontour rellenará previamente la mayoría de estos campos con datos estándar de la industria. Asegúrese de actualizar la densidad utilizada para su proyecto. Además, asegúrese de que el valor 'Oleaje volumétrico' para el proyecto esté establecido en 1.
 
-***BenchHeight: Opencontour discretizes at bench height. Therefore, when selecting your Project Properties bench height, the discretization height is automatically set to the same value.
 
-NOTE: the bench height is typically a fraction of the lift height. For example, a lift height of 10m can have a bench height of 2m.***
+Altura del banco (Bench Height): Opencontour discretiza a la altura del banco. Por lo tanto, al seleccionar la altura del banco las propiedades del proyecto, la altura de discretización se establece automáticamente en el mismo valor.
 
-## 7.2 Setting-up for a new Heap Leach Recovery Model
+NOTA: la altura del banco suele ser una fracción de la altura de elevación. Por ejemplo, una altura de elevación de 10 m puede tener una altura de banco de 2 m.
+
+## 7.2 Configuración de un nuevo modelo de recuperación de lixiviación en pilas
 
 ### 7.2.1 Nuevo proyecto
 
-Cree un nuevo proyecto importando la configuración del proyecto, incluida la información de apilamiento más actualizada. ***Begin by dragging & dropping your '_all.json' file into the project window***. Vaya a la elevación adecuada para ver la capa base; puede usar Q o W, actualizar la elevación en la sección Banco (Bench) de configuración de la vista del proyecto, presionar Enter o Ejecutar (Run).
+Cree un nuevo proyecto importando la configuración del proyecto, incluida la información de apilamiento más actualizada. Comience arrastrando y soltando su archivo '_all.json' en la ventana del proyecto. Vaya a la elevación adecuada para ver la capa base; puede usar Q o W, actualizar la elevación en la sección Banco (Bench) de configuración de la vista del proyecto, presionar Enter o Ejecutar (Run).
 
 Ahora puede ver todas las capas de relleno utilizadas para crear el plan de apilamiento. Utilizamos estas capas de relleno para hacer los levantamientos, todo dentro de su capa base (siempre resaltado en rojo).
 
@@ -35,7 +37,7 @@ Antes de empezar a trabajar en el modelo de recuperación hpl, le recomendamos q
 <li>En el menú Utilidad, seleccione el módulo de apilamiento de lixiviación en pilas. La ventana Apilamiento de lixiviación tendrá como valor predeterminado la ficha Progreso. Antes de que el usuario pueda ejecutar el modelo, todos los iconos de progreso deberán tener una marca de verificación verde; para revisar el proceso de apilamiento de lixiviación en pilas y cómo llegar a este punto en el proceso, revise el Capítulo 5</li>
 <li>Marque la casilla "Para el modelo" (For Model) de la ventana de progreso y haga clic en Discretizar; esto dividirá todas las formas en  bloques completos para que se ajusten al modelo.</li>
 </li>
-<li>***The next step is to import your Mine Plan through a CSV or 'model.json' format***, y una vez que esto ocurra, se le pedirá que Llene el Plan de Mina (populate mine plan). Esto esencialmente dividirá el Plan minero en pequeños bloques que se ajustarán al modelo creado cuando se discretizaron los datos.  Recuerde que el Modelo asignará automáticamente un ltp (tipo de lixiviación) de 1 a las Propiedades del Plan de Mina. Si está buscando tener varias designaciones ltp, abra el menú de la utilidad de script y agregue / edite scripts.</li>
+<li>El siguiente paso es importar su plan de mina a través de un formato CSV o 'model.jason'. Una vez que esto ocurra, se le pedirá que Llene el Plan de Mina (populate mine plan). Esto esencialmente dividirá el Plan minero en pequeños bloques que se ajustarán al modelo creado cuando se discretizaron los datos.  Recuerde que el Modelo asignará automáticamente un ltp (tipo de lixiviación) de 1 a las Propiedades del Plan de Mina. Si está buscando tener varias designaciones ltp, abra el menú de la utilidad de script y agregue / edite scripts.</li>
 </ol>
 
 Ahora que estamos seguros de que nuestro Plan de apilamiento está en su lugar y toda la información necesaria para ejecutar el modelo se ha actualizado, podemos preparar y ejecutar el Modelo de recuperación de lixiviación en pilas.
@@ -61,9 +63,9 @@ Active la capa de solución (solution layer) (que se volverá naranja) y selecci
     </ol>
 </ol>
 
-Ahora que la información de la solución está en ***Layer Menu***, es importante actualizar la capa del modelo. Seleccione el botón **Actualizar solución** (Update Solution) del módulo Modelo de recuperación de lixiviación en pilas del menú Utilidad de la ficha progreso. El usuario puede optar por **Add BreakThrough Time** en los polígonos de solución que existen en la capa de solución. Si el proyecto tiene bloques CutterResult que tienen propiedades **on y lt** escritas en ellos a través de un script, la solución actualizada (Update Solution) junto con la función **Add BreakThrough Time** anexará los días que tarde en pasar en función de las entradas globales del proyecto y la distancia al revestimiento.
+Ahora que la información de la solución está en Capa Menu, es importante actualizar la capa del modelo. Seleccione el botón **Actualizar solución** (Update Solution) del módulo Modelo de recuperación de lixiviación en pilas del menú Utilidad de la ficha progreso. El usuario puede optar por **Add BreakThrough Time** en los polígonos de solución que existen en la capa de solución. Si el proyecto tiene bloques CutterResult que tienen propiedades **on y lt** escritas en ellos a través de un script, la solución actualizada (Update Solution) junto con la función **Add BreakThrough Time** anexará los días que tarde en pasar en función de las entradas globales del proyecto y la distancia al revestimiento.
 
-***We recommend reviewing the data for your App Rate and Leach Time. App Rate is the 'ar' field in the table in the Solution tab in the Recovery Model menu. Leach Time is dealt with in the Solution Layer.***
+Te recomendamos que revises los datos de la tasa de aplicación  (App Rate) y el tiempo de lixiviación (Leach Time) Tasa de aplicación (App Rate) es el campo 'ar' en la tabla de la pestaña Solución en el menú Modelo de recuperación. El tiempo de lixiviación se trata en la capa de solución.
 
 Cuando se actualiza la solución, todas las formas de CutterResult que tienen un on y lt y todas las formas de soluciones se combinan y se escriben en la capa del modelo. Para ver las capas de solución creadas, active la capa de solución y haga clic en la clave "A". Ahora verá las formas de soluciones dentro del modelo.
 
@@ -118,7 +120,7 @@ Aquí, encontrará entradas estáticas de bloque a bloque (todos los bloques com
 
 <ol>**Recomendamos ajustar el número de días para reflejar un período más corto a menos que el usuario requiera todos los datos a la vez. </ol>
 
-#### <em>Inputs Operational Definitions</em>
+#### <em> Entradas Definiciones Operativas </em>
 
 | **Entradas(Input)**    | **Definición**|
 |----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -128,14 +130,14 @@ Aquí, encontrará entradas estáticas de bloque a bloque (todos los bloques com
 | Leach Capacity             | El contenido de humedad gravimétrica en estado estacionario cuando el mineral está siendo lixiviado, basado en datos de laboratorio y cálculo de la metodología de lixiviación en pilas para flujos insaturados. Esto puede ser proporcionado por Forte basado en el análisis de datos de laboratorio y otras propiedades del mineral.|
 | Field Capacity             | El contenido de humedad gravimétrica residual, basado en datos de laboratorio. Por lo general, se encuentra a partir de pruebas de permeabilidad compactadas.|
 
-#### <em>Grid Parameters Definitions</em>
+#### <em>Definiciones de Parámetros de Cuadrícula</em>
 | **Entradas(Input)**    | **Definición**|
 |-----------|---------------------------|
 | Width     | Ancho de cada celda de cuadrícula   |
 | Length    | Altura de cada celda de cuadrícula  |
 | Area      | Área de cada celda de cuadrícula    |
 
-#### <em>Extraction Delay by Depth</em>
+#### <em>Retraso de Extracción por Profundidad</em>
 
 | **Entradas(Input)**    | **Definición**|
 |-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -148,7 +150,7 @@ Aquí, encontrará entradas estáticas de bloque a bloque (todos los bloques com
 | Closure             | Fecha para aplicar la lógica de cierre permanente. Opencontour/Forte puede proporcionar más detalles de la lógica de cierre.   |
 | Discharge Flow Rate | Caudal a la instalación de tratamiento aplicado en la fecha de cierre. Opencontour/Forte puede proporcionar más detalles de la lógica de cierre. |
 
-####	<em>Write State </em>
+####	<em> Write State </em>
 
 Esta característica permite al usuario ejecutar el modelo utilizando Write State, es decir, hasta un cierto punto en el tiempo, luego hacer una pausa. Cuando un modelo se ejecuta en una marca de tiempo específica ("Write State"), todos los parámetros de bloque se almacenan para que las ejecuciones simultáneas comiencen a partir de esa fecha. Esta característica se puede utilizar al combinar datos de apilamiento históricos y pronosticados, o al ejecutar iteraciones después de una fecha especificada determinada.<p>Esta funcionalidad hace las siguientes suposiciones:
 1.	El usuario ha pasado por el módulo de apilamiento hasta la finalización,
@@ -178,7 +180,7 @@ Opencontour recomienda el siguiente encabezado de columna y formato al crear un 
 
 Todas las entradas que no sean la fecha deberán definirse como métricas o imperiales.
 
-| **Unit of Measurement ** | ** **            |
+| **Unidades de medida** | **Unidades**            |
 |--------------------------|------------------|
 | Métrico                   | milímetros/día  |
 | Imperial                 | pulgadas/día       |
@@ -294,17 +296,16 @@ Crear un nuevo plan de apilamiento: se puede crear un plan de apilamiento a part
 
 ### 7.7.1 Importe el archivo CutterResult en el modelo existente:
 
-Abra una nueva sesión de proyecto (nueva pestaña), arrastre y suelte el archivo.json recién creado con la descripción write_state_all.json. <p> El nuevo archivo CutterResult, con datos reales o de previsión, deberá anexarse al archivo BasellAll siguiendo estos pasos:<p> Abra el módulo de apilamiento de lixiviación en pila (menú utilidad) Pestaña Misc - Anexar resultado del cortador - Elija archivo. <p> ***The Append function will override any existent CutterResult blocks with any new ones. This avoids having duplicated CutterResult shapes.The new stacking dataset (CutterResult) will be appended to the existing model. In addition, it will also add the imported CutterResult's 'cut_fill_num' to the maximum 'cut_fill_num' of the existing CutterResult dataset.*** <p>
+Abra una nueva sesión de proyecto (nueva pestaña), arrastre y suelte el archivo.json recién creado con la descripción write_state_all.json. <p> El nuevo archivo CutterResult, con datos reales o de previsión, deberá anexarse al archivo BasellAll siguiendo estos pasos:<p> Abra el módulo de apilamiento de lixiviación en pila (menú utilidad) Pestaña Misc - Anexar resultado del cortador - Elija archivo. <p> La función Append anulará cualquier bloque de la capa CutterResult existente con cualquier bloque nuevo. Esto evita tener formas duplicadas de CutterResult. El nuevo conjunto de datos de apilamiento (CutterResult) se anexará al modelo existente. Además, también agregará el 'cut_fill_num' de CutterResult importado al máximo 'cut_fill_num' del conjunto de datos de CutterResult existente. <p>
 
-***Use the Script tool to populate the ‘ltp’ property in the CutterResult layer. After you click OK, exit the window. Populating the Mineplan automatically assigns an 'ltp' value of 1. Depending on how future forecasting is set up, this value can be manipulated at the discretion of the user.***
+Utilice la herramienta Script para rellenar la propiedad 'ltp' en la capa CutterResult. Después de hacer clic en Aceptar, salga de la ventana. Al rellenar el Mineplan se asigna automáticamente un valor 'ltp' de 1. Dependiendo de cómo se configure la previsión futura, este valor se puede manipular a discreción del usuario.
 
 ![Image](./images/ltp_populate.png)
 
 Anexe las nuevas formas de solución arrastrando el nuevo archivo de solución a la capa de solución.<p>De vuelta al menú Utilidad, seleccione Módulo de modelo de lixiviación en pilas y, en la pestaña Progreso, ejecute la función "Actualizar solución" para rellenar la capa del modelo con los polígonos de solución más recientes.<p>En este momento, el usuario puede agregar (calcular) el BreakThrough Time a los polígonos de solución que existen en la capa de solución. Si el proyecto tiene bloques CutterResult que tienen propiedades on y lt escritas en ellos a través de un script, seleccionando la funcionalidad Add BreakThrough Time junto con 'Actualizar solución',(Update Solution) se agregarán los días que se tarden en irrumpir en la propiedad lt. El cálculo del tiempo de interrupción se basa en las entradas globales de su proyecto y la distancia al revestimiento.
 
-![Image](/Users/mariaechavarria/Documents/GitHub/HelpGuides/en/docs/images/breakthrough_time_button.jpg)
 
-### 7.7.2 Read state
+### 7.7.2 Read State
 
 El usuario verá que una vez que el write_state_all.json se arrastra a la ventana del proyecto, se comprobará el Read State.<p>
 Lo que esto significa es que el Modelo ahora leerá el último "# de días", especificado en duración de ejecución (Run Duration), del modelo que ya hemos ejecutado.<p>
@@ -318,9 +319,10 @@ El usuario deberá abrir la pestaña Salidas (Outputs), desde nuestro Modelo de 
 
 
 
-### Cutter Result Recovery Model Properties:
+### Propiedades del modelo de recuperación CutterResult:
 
-| **Name** | **Summary**|
+
+| **Nombre** | **Descripción General**|
 |-------------------|------------------------------------------------------------------------------|          
 |        midx |  Block center point X coordinate (ex. 6501625)                                            
 |        midy |  Block center point Y coordinate (ex. 2182875)                                            
@@ -406,10 +408,10 @@ Total (Total) = Suma de Delta(t) a lo largo del período de tiempo
 | **Selección de datos** | **Acumulativo**| **Diario** | **Mensual**| **Semanal**|
 |----------|--------|-------|-----|----|
 |Leaching Cells (Celdas de lixiviación)|N/A (display daily)|Data|Promedio|Promedio|
-|Precip_infiltration[gpm] (Infiltración de Precip[gpm])|N/A|Data|Promedio|Average|
+|Precip_infiltration[gpm] (Infiltración de Precip[gpm])|N/A|Data|Promedio|Promedio|
 |Precip_runoff [gpm]|N/A|Data|Promedio|Promedio|
 |Cumulative_precip_infiltration[gal] (Infiltración precipicia acumulada[gal])|Data|Delta(t) [gal/day]|MEV|MEV|
-|Discharge_flow_rate[gpm] (Caudal de descarga[gpm])|N/A|Data|Average|Average|
+|Discharge_flow_rate[gpm] (Caudal de descarga[gpm])|N/A|Data|Promedio|Promedio|
 |Cumulative_discharge_flow[gal] (Flujo de descarga acumulativo[gal])|Data|Delta(t) [gal/day]|MEV|MEV|
 |Cumulative_precip_runoff [gal]|Data|Delta(t) [gal/day]|MEV|MEV|
 |Active_cells (Células activas)|Data|Delta(t) [cells/day]|Promedio|Promedio|
