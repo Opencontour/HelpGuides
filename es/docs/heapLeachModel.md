@@ -13,15 +13,17 @@ Esta guía del usuario asume que el usuario tendrá la configuración del proyec
 
 Para obtener más información sobre la configuración del proyecto y las propiedades del proyecto, consulte el Capítulo 3.
 
-Al configurar un modelo HPL, es importante resaltar las propiedades que deberán revisarse y actualizarse si es necesario. Asegúrese de seleccionar su unidad de medida, métrica o imperial. Opencontour rellenará previamente la mayoría de estos campos con datos estándar de la industria. Asegúrese de actualizar la densidad utilizada para su proyecto.
+Al configurar un modelo HPL, es importante resaltar las propiedades que deberán revisarse y actualizarse si es necesario. Asegúrese de seleccionar su unidad de medida, métrica o imperial. Opencontour rellenará previamente la mayoría de estos campos con datos estándar de la industria. Asegúrese de actualizar la densidad utilizada para su proyecto. ***In addition, make sure that the 'Volumetric Swell' value for the project is set to 1.***
 
-BenchHeight: Opencontour discretiza a la altura del banco. Por lo tanto, al seleccionar la altura del banco Propiedades del proyecto, se de forma predeterminada la altura de discretización.  Nota: la altura del banco suele ser una fracción de la altura de elevación establece automáticamente. Por ejemplo, una altura de elevación de 10m puede tener una altura de banco de 2m.
+***BenchHeight: Opencontour discretizes at bench height. Therefore, when selecting your Project Properties bench height, the discretization height is automatically set to the same value.
+
+NOTE: the bench height is typically a fraction of the lift height. For example, a lift height of 10m can have a bench height of 2m.***
 
 ## 7.2 Setting-up for a new Heap Leach Recovery Model
 
 ### 7.2.1 Nuevo proyecto
 
-Cree un nuevo proyecto importando la configuración del proyecto, incluida la información de apilamiento más actualizada. Arrastre y suelte su allfile.json o importe su archivo csv "all". Vaya a la elevación adecuada para ver la capa base; puede usar Q o W, actualizar la elevación en la sección Banco (Bench) de configuración de la vista del proyecto, presionar Enter o Ejecutar (Run).
+Cree un nuevo proyecto importando la configuración del proyecto, incluida la información de apilamiento más actualizada. ***Begin by dragging & dropping your '_all.json' file into the project window***. Vaya a la elevación adecuada para ver la capa base; puede usar Q o W, actualizar la elevación en la sección Banco (Bench) de configuración de la vista del proyecto, presionar Enter o Ejecutar (Run).
 
 Ahora puede ver todas las capas de relleno utilizadas para crear el plan de apilamiento. Utilizamos estas capas de relleno para hacer los levantamientos, todo dentro de su capa base (siempre resaltado en rojo).
 
@@ -33,7 +35,7 @@ Antes de empezar a trabajar en el modelo de recuperación hpl, le recomendamos q
 <li>En el menú Utilidad, seleccione el módulo de apilamiento de lixiviación en pilas. La ventana Apilamiento de lixiviación tendrá como valor predeterminado la ficha Progreso. Antes de que el usuario pueda ejecutar el modelo, todos los iconos de progreso deberán tener una marca de verificación verde; para revisar el proceso de apilamiento de lixiviación en pilas y cómo llegar a este punto en el proceso, revise el Capítulo 5</li>
 <li>Marque la casilla "Para el modelo" (For Model) de la ventana de progreso y haga clic en Discretizar; esto dividirá todas las formas en  bloques completos para que se ajusten al modelo.</li>
 </li>
-<li>El siguiente paso es importar su Plan de Mina, y una vez que esto ocurra, se le pedirá que Llene el Plan de Mina (populate mine plan). Esto esencialmente dividirá el Plan minero en pequeños bloques que se ajustarán al modelo creado cuando se discretizaron los datos.  Recuerde que el Modelo asignará automáticamente un ltp (tipo de lixiviación) de 1 a las Propiedades del Plan de Mina. Si está buscando tener varias designaciones ltp, abra el menú de la utilidad de script y agregue / edite scripts.</li>
+<li>***The next step is to import your Mine Plan through a CSV or 'model.json' format***, y una vez que esto ocurra, se le pedirá que Llene el Plan de Mina (populate mine plan). Esto esencialmente dividirá el Plan minero en pequeños bloques que se ajustarán al modelo creado cuando se discretizaron los datos.  Recuerde que el Modelo asignará automáticamente un ltp (tipo de lixiviación) de 1 a las Propiedades del Plan de Mina. Si está buscando tener varias designaciones ltp, abra el menú de la utilidad de script y agregue / edite scripts.</li>
 </ol>
 
 Ahora que estamos seguros de que nuestro Plan de apilamiento está en su lugar y toda la información necesaria para ejecutar el modelo se ha actualizado, podemos preparar y ejecutar el Modelo de recuperación de lixiviación en pilas.
@@ -59,8 +61,10 @@ Active la capa de solución (solution layer) (que se volverá naranja) y selecci
     </ol>
 </ol>
 
-Ahora que la información de la solución está en el modelo, es importante actualizar la capa del modelo. Seleccione el botón **Actualizar solución** (Update Solution) del módulo Modelo de recuperación de lixiviación en pilas del menú Utilidad de la ficha progreso. El usuario puede optar por **Add BreakThrough Time** en los polígonos de solución que existen en la capa de solución. Si el proyecto tiene bloques CutterResult que tienen propiedades **on y lt** escritas en ellos a través de un script, la solución actualizada (Update Solution) junto con la función **Add BreakThrough Time** anexará los días que tarde en pasar en función de las entradas globales del proyecto y la distancia al revestimiento.<p>
-Te recomendamos que revises los datos de la tasa de aplicación y el tiempo de lixiviación; estos dos puntos de datos se rellenarían desde el archivo de configuración del proyecto.<p>
+Ahora que la información de la solución está en ***Layer Menu***, es importante actualizar la capa del modelo. Seleccione el botón **Actualizar solución** (Update Solution) del módulo Modelo de recuperación de lixiviación en pilas del menú Utilidad de la ficha progreso. El usuario puede optar por **Add BreakThrough Time** en los polígonos de solución que existen en la capa de solución. Si el proyecto tiene bloques CutterResult que tienen propiedades **on y lt** escritas en ellos a través de un script, la solución actualizada (Update Solution) junto con la función **Add BreakThrough Time** anexará los días que tarde en pasar en función de las entradas globales del proyecto y la distancia al revestimiento.
+
+***We recommend reviewing the data for your App Rate and Leach Time. App Rate is the 'ar' field in the table in the Solution tab in the Recovery Model menu. Leach Time is dealt with in the Solution Layer.***
+
 Cuando se actualiza la solución, todas las formas de CutterResult que tienen un on y lt y todas las formas de soluciones se combinan y se escriben en la capa del modelo. Para ver las capas de solución creadas, active la capa de solución y haga clic en la clave "A". Ahora verá las formas de soluciones dentro del modelo.
 
 
@@ -107,7 +111,7 @@ Aquí, encontrará entradas estáticas de bloque a bloque (todos los bloques com
 #### <em>Definiciones globales de inputs</em>
 | **Entradas(Input)**    | **Definición**|
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Start        | Fecha de inicio desde la que se ejecutará el modelo: tomada del bloque más antiguo colocado, no se requiere la entrada del usuario.|
+| Start        | Fecha de inicio desde la que se ejecutará el modelo: tomada del propiedad 'pm' más antiguo colocado, no se requiere la entrada del usuario.|
 | Run Duration | Duración en días en que se ejecutará el modelo. La actualización de la duración de la ejecución actualizará automáticamente la fecha de finalización.**|
 | End          | Fecha de finalización para la que se ejecutará el modelo. La actualización de la entrada final actualizará automáticamente la duración de la ejecución. |
 | Time Step    | El intervalo entre los cálculos del modelo, medido en días. Opencontour está configurado para que el paso de tiempo predeterminado sea 1, es decir, diario. |
@@ -148,7 +152,7 @@ Aquí, encontrará entradas estáticas de bloque a bloque (todos los bloques com
 
 Esta característica permite al usuario ejecutar el modelo utilizando Write State, es decir, hasta un cierto punto en el tiempo, luego hacer una pausa. Cuando un modelo se ejecuta en una marca de tiempo específica ("Write State"), todos los parámetros de bloque se almacenan para que las ejecuciones simultáneas comiencen a partir de esa fecha. Esta característica se puede utilizar al combinar datos de apilamiento históricos y pronosticados, o al ejecutar iteraciones después de una fecha especificada determinada.<p>Esta funcionalidad hace las siguientes suposiciones:
 1.	El usuario ha pasado por el módulo de apilamiento hasta la finalización,
-2.	El usuario ha escrito las propiedades ltp y on en la capa del modelo.
+2.	El usuario ha escrito las propiedades lt y on en la capa del modelo.
 Para confirmar que esto se ha hecho, seleccione el Modelo en el menú desplegable de la etiqueta y seleccione en la propiedad. La información que se muestra en la ventana del proyecto confirmará el número de veces que la columna del modelo específico recibirá la solución a lo largo de la ejecución del modelo.<p>  
 El usuario puede guardar todas las entradas en cualquier momento durante el proyecto. Sin embargo, se recomienda que si se utiliza el estado de escritura, o si alguna entrada se actualiza y difiere de la configuración original del proyecto, el usuario exporta el archivo .json y lo guarda.
 También recomendamos que analice cómo nombrar y guardar estos archivos con su equipo antes de guardar y cargar información actualizada.
@@ -290,9 +294,9 @@ Crear un nuevo plan de apilamiento: se puede crear un plan de apilamiento a part
 
 ### 7.7.1 Importe el archivo CutterResult en el modelo existente:
 
-Abra una nueva sesión de proyecto (nueva pestaña), arrastre y suelte el archivo.json recién creado con la descripción write_state_all.json. <p> El nuevo archivo CutterResult, con datos reales o de previsión, deberá anexarse al archivo BasellAll siguiendo estos pasos:<p> Abra el módulo de apilamiento de lixiviación en pila (menú utilidad) Pestaña Misc - Anexar resultado del cortador - Elija archivo. <p> La función Append anulará cualquier bloque CutterResult existente con cualquier bloque nuevo. Esto evita tener formas duplicadas de CutterResult. El nuevo conjunto de datos de apilamiento (CutterResult) se anexará al modelo existente. <p>
+Abra una nueva sesión de proyecto (nueva pestaña), arrastre y suelte el archivo.json recién creado con la descripción write_state_all.json. <p> El nuevo archivo CutterResult, con datos reales o de previsión, deberá anexarse al archivo BasellAll siguiendo estos pasos:<p> Abra el módulo de apilamiento de lixiviación en pila (menú utilidad) Pestaña Misc - Anexar resultado del cortador - Elija archivo. <p> ***The Append function will override any existent CutterResult blocks with any new ones. This avoids having duplicated CutterResult shapes.The new stacking dataset (CutterResult) will be appended to the existing model. In addition, it will also add the imported CutterResult's 'cut_fill_num' to the maximum 'cut_fill_num' of the existing CutterResult dataset.*** <p>
 
-Utilice la herramienta Script para rellenar la propiedad 'ltp' en la capa CutterResult. Después de hacer clic en Aceptar, salga de la ventana.<p> Opencontour utiliza un valor predeterminado de 1 para ltp, el script se puede utilizar para añadir diferentes valores.
+***Use the Script tool to populate the ‘ltp’ property in the CutterResult layer. After you click OK, exit the window. Populating the Mineplan automatically assigns an 'ltp' value of 1. Depending on how future forecasting is set up, this value can be manipulated at the discretion of the user.***
 
 ![Image](./images/ltp_populate.png)
 
@@ -370,3 +374,54 @@ El usuario deberá abrir la pestaña Salidas (Outputs), desde nuestro Modelo de 
 | r_ar             |  Reference application rate (ex. 0.005)                                   
 | pm2              |  Date placed block above (ex. 47785)                                   
 | pm3              |  Difference between date placed above and current blocks date place (ex. 12)
+
+### Funciones Agregadas y Resulatados del Modelo de Recuperación:
+
+N/A indica que no se aplica ningún resultado y que no se debe mostrar nada para ese resultado y agregación.
+
+1.	Delta(t) = (día + 1) – (día)
+MEV = Month End Value (Valor de fin de mes) (interpolado linealmente, más una curva que un paso a paso) lo que ocurre ahora con la suma mensual de funciones
+
+Total (Total) = Suma de Delta(t) a lo largo del período de tiempo
+
+
+###### Metal
+
+| **Selección de datos** | **Acumulativo**| **Diario** | **Mensual**| **Semanal**|
+|----------|--------|-------|-----|----|
+|Metal_realized(Metal realizado)|Data|Delta(t)|Total|Total|
+|Flowing_solution_metal_inventory (Inventario de metales de soluciones fluidas)|N/A (display daily)|Data|MEV|MEV|
+|Stagnant_solution_metal_inventory (Inventario de metales de soluciones estancadas)|N/A (display daily)|Data|MEV|MEV|
+|Metal_applied_to_pad (Metal aplicado a la plataforma)|Data|Delta(t)|Total|Total|
+|Net_metal_produced (Metal neto producido)|Data|Delta(t)|Total|Total|
+|Solution_metal(Solución metálica)N/A (display daily)|Data|MEV|MEV|
+|Total_metal_placed (Total de metal colocado)|Data|Delta(t)|Total|Total|
+|Total_recoverable_metal_placed (Total de metal recuperable colocado)|Data|Delta(t)|Total|Total|
+|Total_unrecoverable_metal_placed (Total de metal irrecuperable colocado)|Data|Delta(t)|Total|Total|
+|Total_metal_remaining Total_metal_remaining (Metal total restante)|N/A (display daily)|Data|MEV|MEV|
+|Total_extractable_metal_remaining (Total de metal extraíble restante)|N/A (display daily)|Data|MEV|MEV|
+
+###### Totales de Soluciones
+
+| **Selección de datos** | **Acumulativo**| **Diario** | **Mensual**| **Semanal**|
+|----------|--------|-------|-----|----|
+|Leaching Cells (Celdas de lixiviación)|N/A (display daily)|Data|Promedio|Promedio|
+|Precip_infiltration[gpm] (Infiltración de Precip[gpm])|N/A|Data|Promedio|Average|
+|Precip_runoff [gpm]|N/A|Data|Promedio|Promedio|
+|Cumulative_precip_infiltration[gal] (Infiltración precipicia acumulada[gal])|Data|Delta(t) [gal/day]|MEV|MEV|
+|Discharge_flow_rate[gpm] (Caudal de descarga[gpm])|N/A|Data|Average|Average|
+|Cumulative_discharge_flow[gal] (Flujo de descarga acumulativo[gal])|Data|Delta(t) [gal/day]|MEV|MEV|
+|Cumulative_precip_runoff [gal]|Data|Delta(t) [gal/day]|MEV|MEV|
+|Active_cells (Células activas)|Data|Delta(t) [cells/day]|Promedio|Promedio|
+|Total_blocks (Total de bloques)|Data|Delta(t) [blocks/day]|Total|Total|
+|Tns_stacked (Tns apilados)|Data|Delta(t)|Total|Total|
+|Solution_inventory[gal] (Inventario de soluciones[gal])|N/A (display daily)|Data|MEV|MEV|
+|Volume_drained[gal] (Inventario de soluciones[gal])|Data|Delta(t) [gal/day]|MEV|MEV|
+|Draining_flow-rate[gpm] (Caudal de drenaje[gpm])|N/A|Data|Promedio|Promedio|
+|Applied_flow_rate[gpm] (Caudal aplicado[gpm])|N/A|Data|Promedio|Promedio|
+|Volume_applied [gal]|Data|Delta(t) [gal/day]|MEV|MEV|
+|Flowing_solution_inventory[gal](Inventario de soluciones fluidas[gal])|N/A (display daily)|Data|MEV|MEV|
+|Stagnant_solution_inventory[gal] (Inventario de soluciones estancado[gal])|N/A (display daily)|Data|MEV|MEV|
+|Cumulative_precipitaion [gal]|Data|Delta(t) [gal/day]|MEV|MEV|
+|Average_precipitation_rate[gpm/ft2] (Precipitación acumulada[gpm/ft^2])|N/A (display daily)|Data|Promedio|Promedio|
+|Design_num_Blocks(Diseño Bloques)|N/A (display daily)|Data|Promedio|Promedio|
