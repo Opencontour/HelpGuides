@@ -22,6 +22,6 @@ Make sure HelpGuides and opencontour-portal repositories are downloaded into the
 
 Run the following commands on the terminal
 ```
-cd ./Applications/XAMPP/htdocs/HelpGuides
+cd /Applications/XAMPP/htdocs/HelpGuides
 pwsh ./BuildDeployCore.ps1
 ```
