@@ -408,11 +408,11 @@ N/A indicates that no result are applicable and nothing should be displayed for 
 
 1.	Delta(t) = (day + 1) – (day)
 
-2.	MEV = Month End Value (linearly interpolated, more of a curve than stepwise) what occurs now with the monthly function sum - **Cursor is correct, bar is wrong (axis shows the cumulative daily values, not what is on the cursor)**
+2.	MEV = Month End Value (linearly interpolated, more of a curve than stepwise) what occurs now with the monthly function sum
 
-3.	Total = Sum of Delta(t) over time period - **Bar is correct, cursor is wrong (the bar and y-axis are correct, however when you hover over these values, they show the MEV, not the cumulative value shown in the bar)**
+3.	Total = Sum of Delta(t) over time period
 
-###### Metal:
+###### Metal
 
 | **Data Selection** | **Cumulative**| **Daily** | **Monthly**| **Weekly**|
 |----------|--------|-------|-----|----|
@@ -428,7 +428,7 @@ N/A indicates that no result are applicable and nothing should be displayed for 
 |Total_metal_remaining|N/A (display daily)|Data|MEV|MEV|
 |Total_extractable_metal_remaining|N/A (display daily)|Data|MEV|MEV|
 
-###### Solution Totals:
+###### Solution Totals
 
 | **Data Selection** | **Cumulative**| **Daily** | **Monthly**| **Weekly**|
 |----------|--------|-------|-----|----|

@@ -1,5 +1,5 @@
 site_name: MkLorum
-# Chapter 1 Introduction
+# Hellloooo
 <video width="70%" height="300px" style="margin-left:3em;" controls>
     <source src="./images/videos/navigating.mp4" type="video/mp4">
     <!-- <source src="assets/videos/favicon.png" type="video/ogg"> -->
@@ -15,7 +15,7 @@ The mine cuts and models are linked to a physical and financial scheduler. Openc
 **NOTE: Updates are performed automatically, users do not need to download and install patches.**
 
 
-## Purpose 
+## Purpose
 
 The purpose of this document is to provide an overview of Opencontour mine design software and to explain how to sign up for the software and use it to create projects.
 
