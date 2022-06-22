@@ -18,8 +18,10 @@ https://suedbroecker.net/2021/01/25/how-to-install-mkdocs-on-mac-and-setup-the-i
 Install Powershell:
 https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos?view=powershell-7.2
 
-Make sure HelpGuides and opencontour-portal repositories are downloaded into the XAMPP/htdocs folders
+Make sure HelpGuides and opencontour-portal repositories are downloaded into the Applications/XAMPP/htdocs folders
 
 Run the following commands on the terminal
+```
 cd ./Applications/XAMPP/htdocs/HelpGuides
 pwsh ./BuildDeployCore.ps1
+```
