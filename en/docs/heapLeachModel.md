@@ -11,6 +11,7 @@ What you will learn:
 - [Using the Read and Write State function for larger models](#76-using-the-read-and-write-state-function-for-larger-models)
 - [Combining historical data with future updates (forecast)](#77-combining-historical-data-with-future-updates-(forecast))
 - [Cutter Result Recovery Model Properties](#cutter-result-recovery-model-properties)
+- [Aggregate Functions and Recovery Model Outputs](#aggregate-functions-and-recovery-model-outputs)
 
 
 ## 7.1 Overview
@@ -21,15 +22,17 @@ This user guide assumes that the user will have the most up-to-date Project Sett
 
 For more information on setting up your project and Project Properties, please review Chapter 3.
 
-When setting up an HPL Model, it is important to highlight properties that will need to be reviewed and updated if necessary. Make sure to select your measurement unit, metric or imperial. Opencontour will pre-populate most of these fields with industry-standard data. Make sure to update the Density used for your project.
+When setting up an HPL Model, it is important to highlight properties that will need to be reviewed and updated if necessary. Make sure to select your measurement unit, metric or imperial. Opencontour will pre-populate most of these fields with industry-standard data. Make sure to update the Density used for your project. In addition, make sure that the 'Volumetric Swell' value for the project is set to 1.
 
-BenchHeight: Opencontour discretizes at bench height. Therefore, when selecting your Project Properties bench height, you automatically default set the discretization height. Note: the bench height is typically a fraction of the lift height. For example, a lift height of 10m can have a bench height of 2m.
+BenchHeight: Opencontour discretizes at bench height. Therefore, when selecting your Project Properties bench height, the discretization height is automatically set to the same value.
+
+NOTE: the bench height is typically a fraction of the lift height. For example, a lift height of 10m can have a bench height of 2m.
 
 ## 7.2 Setting-up for a new Heap Leach Recovery Model
 
 ### 7.2.1 New Project
 
-Create a new Project by importing your Project Settings, including the most up-to-date Stacking information. Drag & Drop your allfile.json or import your csv “all” file. Go to the proper elevation to view your Base Layer; you can use Q or W, update the elevation in the Project View Settings Bench section, press enter, or Run.
+Create a new Project by importing your Project Settings, including the most up-to-date Stacking information. Begin by dragging & dropping your '_all.json' file into the project window. Go to the proper elevation to view your Base Layer; you can use Q or W, update the elevation in the Project View Settings Bench section, press enter, or Run.
 
 Now you can see all your filler layers used to build the Stacking plan. We use these filler layers to make the lifts, all within your Base Layer (always highlighted in red).
 
@@ -41,7 +44,7 @@ Before you start working on the HPL Recovery Model, we recommend that you take t
 <li>From the Utility Menu, select the Heap Leach Stacking Module. The Leach Stacking window will default to the Progress Tab.Before the user is able to run the model, all progress icons will need to have a green checkmark; to review the Heap Leach Stacking process and how to get to this point in the process please review Chapter 6 (currently 5).</li>
 <li>Check the “For Model” box from the Progress Window and click on Discretize; this will break up all the shapes into entire blocks to fit the model.</li>
 </li>
-<li>The next step is to import your Mine Plan, and once this takes place, you will be required to Populate the Mine Plan. This will essentially break up the Mine Plan into small blocks that will fit the model created when the data was discretized. Remember that the Model will automatically assign an ltp (leach type) of 1 to the Mine Plan Properties. If you are looking at having multiple ltp designations, open the script utility menu and add/edit scripts.</li>
+<li>The next step is to import your Mine Plan through a CSV or 'model.json' format. Once this takes place, you will be required to Populate the Mine Plan. This will essentially break up the Mine Plan into small blocks that will fit the model created when the data was discretized. Remember that the Model will automatically assign an ltp (leach type) of 1 to the Mine Plan Properties. If you are looking at having multiple ltp designations, open the script utility menu and add/edit scripts.</li>
 </ol>
 
 Now that we are confident that our Stacking Plan is in place and all the information needed to run the model has been updated, we can prepare and run the Heap leach Recovery Model.
@@ -67,9 +70,9 @@ Activate the Solution Layer (which will turn orange) and select the cycle in whi
     </ol>
 </ol>
 
-Now that Solution information is in the model, it is important to update the Model Layer. Select the **Update Solution** button from the Heap Leach Recovery Model module from the Utility Menu in the progress tab. The user may choose to **Add BreakThrough Time** onto the solution polygons that exist in the solution layer. If the project has CutterResult blocks that have an on and lt properties written to them via a script the **Update Solution** together with **Add BreakThrough Time** function will append however many days it takes to break through onto the lt property. The breakthrough time is calculated based on the global inputs of the project and distance to liner.
+Now that Solution information is in the Layer Menu, it is important to update the Model Layer. Select the **Update Solution** button from the Heap Leach Recovery Model module from the Utility Menu in the progress tab. The user may choose to **Add BreakThrough Time** onto the solution polygons that exist in the solution layer. If the project has CutterResult blocks that have an on and lt properties written to them via a script the **Update Solution** together with **Add BreakThrough Time** function will append however many days it takes to break through onto the lt property. The breakthrough time is calculated based on the global inputs of the project and distance to liner.
 
-We recommend reviewing the data for your App rate and Leach Time; these two data points would be populated from your Project Settings File.
+We recommend reviewing the data for your App Rate and Leach Time. App Rate is the 'ar' field in the table in the Solution tab in the Recovery Model menu. Leach Time is dealt with in the Solution Layer.
 
 When the Solution is updated, all your CutterResult shapes that have an on and lt and all your solutions shapes are combined and written to your Model Layer. To view the Solution Layers created, activate the Solution Layer and click the “A” key. You will now see the Solutions Shapes within the Model.
 
@@ -114,7 +117,7 @@ Here, you will find static inputs on a block-to-block basis (all blocks share th
 #### <em>Inputs Global Definitions</em>
 | **Input**    | **Definition**|
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Start        | Start date for the Model to run from – taken from the earliest block placed, no user input required.|
+| Start        | Start date for the Model to run from – taken from the earliest 'pm' property, no user input required.|
 | Run Duration | Length in days the model will run for. Updating the Run Duration will automatically update the End Date.**|
 | End          | End date the model will run for. Updating the End input will automatically update the Run Duration.|
 | Time Step    | The interval between model calculations, measured in days. Opencontour is set up to default Time Step to 1, meaning daily.
@@ -155,12 +158,12 @@ Here, you will find static inputs on a block-to-block basis (all blocks share th
 
 This feature allows the user to run the Model using a Write State, meaning up to a certain point in time, then pause. When a large model is run to a specific timestamp (“Write State”), all block parameters are stored so that concurrent runs start from that date. This feature can be used when combining historical and forecasted stacking data, or running iterations after a certain specified date.
 
-The user can save all inputs at any time during the Project. However, we recommend that if Write State has been used, or if any inputs are updated and differ from the original project settings, the user exports the CVS file and saves it. We also recommend discussing how to name and save these files with your team before you save and upload updated information.
+The user can save all inputs at any time during the Project. However, we recommend that if Write State has been used, or if any inputs are updated and differ from the original project settings, the user exports the .json file and saves it. We also recommend discussing how to name and save these files with your team before you save and upload updated information.
 
 This functionality makes the following assumptions:
 
 * The user has gone through the stacking module through completion,
-* The user has written the ltp and on properties to the Model Layer.
+* The user has written the lt and on properties to the Model Layer.
 
 To confirm that this has been done, select the Model from the label's dropdown menu, and selecting on property. The information shown on the project window will confirm the number of times that the specific model column will receive solution throughout the course of the model run.
 
@@ -308,10 +311,10 @@ The new CutterResult file, with actual or forecast data, will need to be appende
 Open Heap Leach Stacking Module (Utility menu)
 Misc Tab - Append Cutter Result - Choose File
 
-The Append function will override any existent CutterResult blocks with any new ones. This avoids having duplicated CutterResult shapes.The new stacking dataset (CutterResult) will be appended to the existing model.  
+The Append function will override any existent CutterResult blocks with any new ones. This avoids having duplicated CutterResult shapes.The new stacking dataset (CutterResult) will be appended to the existing model. In addition, it will also add the imported CutterResult's 'cut_fill_num' to the maximum 'cut_fill_num' of the existing CutterResult dataset.
 
 
-> Use the Script tool to populate the ‘ltp’ property in the CutterResult layer. After you click Ok, exit the window. Opencontour uses a default of 1 for ltp, the script can be used to add different values.
+> Use the Script tool to populate the ‘ltp’ property in the CutterResult layer. After you click OK, exit the window. Populating the Mineplan automatically assigns an 'ltp' value of 1. Depending on how future forecasting is set up, this value can be manipulated at the discretion of the user.
 
 ![Image](./images/ltp_populate.png)
 
@@ -398,3 +401,54 @@ After running the model (for more information on how to Run the Model go to Chap
 | r_ar             |  Reference application rate (ex. 0.005)                                   
 | pm2              |  Date placed block above (ex. 47785)                                   
 | pm3              |  Difference between date placed above and current blocks date place (ex. 12)
+
+### Aggregate Functions and Recovery Model Outputs:
+
+N/A indicates that no result are applicable and nothing should be displayed for that result and aggregation.
+
+1.	Delta(t) = (day + 1) – (day)
+
+2.	MEV = Month End Value (linearly interpolated, more of a curve than stepwise) what occurs now with the monthly function sum - **Cursor is correct, bar is wrong (axis shows the cumulative daily values, not what is on the cursor)**
+
+3.	Total = Sum of Delta(t) over time period - **Bar is correct, cursor is wrong (the bar and y-axis are correct, however when you hover over these values, they show the MEV, not the cumulative value shown in the bar)**
+
+###### Metal:
+
+| **Data Selection** | **Cumulative**| **Daily** | **Monthly**| **Weekly**|
+|----------|--------|-------|-----|----|
+|Metal_realized|Data|Delta(t)|Total|Total|
+|Flowing_solution_metal_inventory|N/A (display daily)|Data|MEV|MEV|
+|Stagnant_solution_metal_inventory|N/A (display daily)|Data|MEV|MEV|
+|Metal_applied_to_pad|Data|Delta(t)|Total|Total|
+|Net_metal_produced|Data|Delta(t)|Total|Total|
+|Solution_metal|N/A (display daily)|Data|MEV|MEV|
+|Total_metal_placed|Data|Delta(t)|Total|Total|
+|Total_recoverable_metal_placed|Data|Delta(t)|Total|Total|
+|Total_unrecoverable_metal_placed|Data|Delta(t)|Total|Total|
+|Total_metal_remaining|N/A (display daily)|Data|MEV|MEV|
+|Total_extractable_metal_remaining|N/A (display daily)|Data|MEV|MEV|
+
+###### Solution Totals:
+
+| **Data Selection** | **Cumulative**| **Daily** | **Monthly**| **Weekly**|
+|----------|--------|-------|-----|----|
+|Leaching Cells|N/A (display daily)|Data|Average|Average|
+|Precip_infiltration [gpm]|N/A|Data|Average|Average|
+|Precip_runoff [gpm]|N/A|Data|Average|Average|
+|Cumulative_precip_infiltration [gal]|Data|Delta(t) [gal/day]|MEV|MEV|
+|Discharge_flow_rate [gpm]|N/A|Data|Average|Average|
+|Cumulative_discharge_flow [gal]|Data|Delta(t) [gal/day]|MEV|MEV|
+|Cumulative_precip_runoff [gal]|Data|Delta(t) [gal/day]|MEV|MEV|
+|Active_cells|Data|Delta(t) [cells/day]|Average|Average|
+|Total_blocks|Data|Delta(t) [blocks/day]|Total|Total|
+|Tns_stacked|Data|Delta(t)|Total|Total|
+|Solution_inventory [gal]|N/A (display daily)|Data|MEV|MEV|
+|Volume_drained [gal]|Data|Delta(t) [gal/day]|MEV|MEV|
+|Draining_flow-rate [gpm]|N/A|Data|Average|Average|
+|Applied_flow_rate [gpm]|N/A|Data|Average|Average|
+|Volume_applied [gal]|Data|Delta(t) [gal/day]|MEV|MEV|
+|Flowing_solution_inventory [gal]|N/A (display daily)|Data|MEV|MEV|
+|Stagnant_solution_inventory [gal]|N/A (display daily)|Data|MEV|MEV|
+|Cumulative_precipitaion [gal]|Data|Delta(t) [gal/day]|MEV|MEV|
+|Average_precipitation_rate [gpm/ft2]|N/A (display daily)|Data|Average|Average|
+|Design_num_blocks|N/A (display daily)|Data|Average|Average|
