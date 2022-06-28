@@ -9,8 +9,13 @@ pip install -r requirements.txt
 mkdocs build
 
 ## run test environment/preview in respective en/es folders
-cd /Applications/XAMPP/htdocs/HelpGuides/en OR cd /Applications/XAMPP/htdocs/HelpGuides/es
+```
+cd /Applications/XAMPP/htdocs/HelpGuides/en 
+OR 
+cd /Applications/XAMPP/htdocs/HelpGuides/es
+
 mkdocs serve
+```
 
 ## Build to html in opencontour-portal
 Install MkDocs and MkDocs-Material:
